@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
-  nitro: { preset: 'azure' },
+  nitro: {
+    preset: 'azure',
+    azure: { config: { platform: { apiRuntime: 'node:18' } } },
+  },
   modules: [
     '@nuxt/content',
     '@nuxt/ui',
