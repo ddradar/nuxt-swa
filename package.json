@@ -18,11 +18,11 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky && nuxi prepare && nuxi prepare playground",
+    "prepare": "husky && nuxi prepare",
     "prepack": "nuxt-module-build build",
-    "dev": "nuxi dev playground",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "dev": "nuxi dev docs",
+    "dev:build": "nuxi build docs",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare docs",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "format": "pnpm run \"/^format:.*/\"",
     "format:eslint": "pnpm lint:eslint --fix",
