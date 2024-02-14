@@ -1,15 +1,12 @@
 {
-  "name": "nuxt-ui-pro-template-docs",
+  "name": "nuxt-swa-docs",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "typecheck": "nuxt typecheck"
+    "prepare": "nuxi prepare",
+    "dev": "nuxi dev",
+    "build": "nuxi generate",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.1.19",
@@ -26,11 +23,5 @@
     "@nuxthq/studio": "^1.0.10",
     "eslint": "^8.56.0",
     "vue-tsc": "^1.8.27"
-  },
-  "resolutions": {
-    "vue": "3.3.13"
-  },
-  "overrides": {
-    "vue": "3.3.13"
   }
 }
