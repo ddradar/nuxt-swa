@@ -30,7 +30,15 @@
     "lint:eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier -l \"**/*.{json,yml,js,ts,vue}\"",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yml}": "prettier --write"
   },
   "dependencies": {
     "@nuxt/kit": "^3.10.1"
