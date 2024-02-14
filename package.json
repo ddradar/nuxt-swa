@@ -18,28 +18,45 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "husky && nuxi prepare && nuxi prepare playground",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "lint": "eslint .",
+    "format": "pnpm run \"/^format:.*/\"",
+    "format:eslint": "pnpm lint:eslint --fix",
+    "format:prettier": "pnpm lint:prettier --write",
+    "lint": "pnpm run \"/^lint:.*/\"",
+    "lint:eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint:prettier": "prettier -l \"**/*.{json,yml,js,ts,vue}\"",
     "test": "vitest run",
     "test:watch": "vitest watch"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,yml}": "prettier --write"
   },
   "dependencies": {
     "@nuxt/kit": "^3.10.1"
   },
   "devDependencies": {
-    "@types/node": "18.x",
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/module-builder": "^0.5.5",
     "@nuxt/schema": "^3.10.1",
     "@nuxt/test-utils": "^3.11.0",
+    "@types/node": "18.x",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "nuxt": "^3.10.1",
+    "prettier": "^3.2.5",
     "vitest": "^1.2.2"
   }
 }
