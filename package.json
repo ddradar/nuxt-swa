@@ -22,7 +22,7 @@
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev docs",
     "dev:build": "nuxi build docs",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare docs",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "format": "pnpm run \"/^format:.*/\"",
     "format:eslint": "pnpm lint:eslint --fix",
@@ -44,7 +44,6 @@
     "@nuxt/kit": "^3.10.1"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.8",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/module-builder": "^0.5.5",
     "@nuxt/schema": "^3.10.1",
