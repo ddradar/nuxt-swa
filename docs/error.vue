@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { ParsedContent, NavItem } from '@nuxt/content/dist/runtime/types'
 
 useSeoMeta({
   title: 'Page not found',
@@ -20,8 +20,10 @@ useHead({
   },
 })
 
-const { data: navigation } = await useAsyncData('navigation', () =>
-  fetchContentNavigation()
+const { data: navigation } = await useAsyncData<NavItem[]>(
+  'navigation',
+  () => fetchContentNavigation(),
+  { default: () => [] }
 )
 const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
   default: () => [],
