@@ -19,6 +19,11 @@ export default defineNuxtConfig({
 
       globals.forEach(c => (c.global = true))
     },
+    // @ts-ignore
+    'applicationinsights:config': config => {
+      config.connectionString =
+        process.env.APPLICATIONINSIGHTS_CONNECTION_STRING
+    },
   },
   ui: {
     icons: ['heroicons', 'simple-icons'],
