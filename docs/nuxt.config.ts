@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
-    'nuxt-og-image',
     '../src/module',
   ],
   hooks: {
