@@ -18,6 +18,7 @@
     "dist"
   ],
   "scripts": {
+    "prepare": "husky && nuxi prepare playground",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
@@ -30,8 +31,7 @@
     "lint:eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier -l \"**/*.{json,yml,js,ts,vue}\"",
     "test": "vitest run",
-    "test:watch": "vitest watch",
-    "prepare": "husky"
+    "test:watch": "vitest watch"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
