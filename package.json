@@ -23,7 +23,12 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "lint": "eslint .",
+    "format": "pnpm run \"/^format:.*/\"",
+    "format:eslint": "pnpm lint:eslint --fix",
+    "format:prettier": "pnpm lint:prettier --write",
+    "lint": "pnpm run \"/^lint:.*/\"",
+    "lint:eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint:prettier": "prettier -l \"**/*.{json,yml,js,ts,vue}\"",
     "test": "vitest run",
     "test:watch": "vitest watch"
   },
