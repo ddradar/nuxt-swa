@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "nuxi prepare",
     "dev": "nuxi dev",
-    "build": "nuxi generate",
+    "build": "nuxi build && node -e \"fs.renameSync('./staticwebapp.config.json', './.output/public/staticwebapp.config.json')\"",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
