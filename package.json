@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "husky && nuxi prepare playground",
+    "prepare": "husky && nuxi prepare && nuxi prepare playground",
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
