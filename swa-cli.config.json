@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "nuxt-swa": {
+      "appDevserverUrl": "http://localhost:3000",
+      "apiDevserverUrl": "http://localhost:3000",
+      "run": "pnpm dev",
+      "appLocation": "docs"
+    }
+  }
+}

@@ -6,8 +6,8 @@ import {
   _authBasePath,
   _authDataKey,
   _clientPrincipalHeader,
-} from '~/src/constants'
-import { parseClientPrincipal } from '~/src/utils'
+} from '../../../src/constants'
+import { parseClientPrincipal } from '../../../src/utils'
 
 interface Claim {
   typ: string
