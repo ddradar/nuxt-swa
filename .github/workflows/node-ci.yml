@@ -166,8 +166,11 @@ jobs:
           name: package
           path: packages/nuxt-swa/dist
 
+      - name: Install Project Dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Publish
-        run: pnpm publish
+        run: pnpm publish --force
         working-directory: packages/nuxt-swa
         env:
           NODE_AUTH_TOKEN: ${{ (github.event_name == 'release' && secrets.NPM_TOKEN) || secrets.GITHUB_TOKEN }}
