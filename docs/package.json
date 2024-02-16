@@ -6,7 +6,7 @@
     "node": "18"
   },
   "scripts": {
-    "prepare": "nuxi prepare",
+    "prepare": "pnpm -C ../packages/nuxt-swa prepare:docs && nuxi prepare",
     "dev": "nuxi dev",
     "build": "nuxi build && node -e \"fs.renameSync('./staticwebapp.config.json', './.output/public/staticwebapp.config.json')\"",
     "typecheck": "nuxi typecheck"
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.0.8",
     "@nuxthq/studio": "^1.0.11",
+    "nuxt-swa": "workspace:*",
     "vue-tsc": "^1.8.27"
   }
 }

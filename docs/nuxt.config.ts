@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
-    '../src/module',
+    'nuxt-swa',
   ],
   hooks: {
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
@@ -51,5 +51,4 @@ export default defineNuxtConfig({
   typescript: {
     strict: false,
   },
-  myModule: {},
 })
