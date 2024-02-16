@@ -53,6 +53,7 @@ pnpm install
 pnpm dev
 
 # Build module & docs
+# Note: You need to purchase a Nuxt UI Pro license key and set it in the `NUXT_UI_PRO_LICENSE` environment variable.
 pnpm build
 
 # Run ESLint & Prettier

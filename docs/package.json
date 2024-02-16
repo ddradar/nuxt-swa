@@ -1,6 +1,7 @@
 {
   "name": "nuxt-swa-docs",
   "private": true,
+  "description": "Nuxt SWA module documentation and playground",
   "type": "module",
   "engines": {
     "node": "18"
