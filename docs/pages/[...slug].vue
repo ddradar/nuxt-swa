@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
 
-definePageMeta({
-  layout: 'docs',
-})
+definePageMeta({ layout: 'docs' })
 
 const route = useRoute()
 const { toc, seo } = useAppConfig()
@@ -34,7 +32,7 @@ useSeoMeta({
   ogDescription: page.value.description,
 })
 
-const headline = computed(() => findPageHeadline(page.value))
+const headline = computed(() => findPageHeadline(page.value!))
 
 const links = computed(() =>
   [
@@ -52,22 +50,22 @@ const links = computed(() =>
 <template>
   <UPage>
     <UPageHeader
-      :title="page.title"
-      :description="page.description"
-      :links="page.links"
+      :title="page?.title"
+      :description="page?.description"
+      :links="page!.links"
       :headline="headline"
     />
 
     <UPageBody prose>
-      <ContentRenderer v-if="page.body" :value="page" />
+      <ContentRenderer v-if="page?.body" :value="page" />
 
       <hr v-if="surround?.length" />
 
-      <UDocsSurround :surround="surround" />
+      <UDocsSurround :surround="surround!" />
     </UPageBody>
 
-    <template v-if="page.toc !== false" #right>
-      <UDocsToc :title="toc?.title" :links="page.body?.toc?.links">
+    <template v-if="page?.toc !== false" #right>
+      <UDocsToc :title="toc?.title" :links="page!.body?.toc?.links">
         <template v-if="toc?.bottom" #bottom>
           <div
             class="hidden lg:block space-y-6"

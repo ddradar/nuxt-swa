@@ -1,0 +1,6 @@
+title: Authentication
+description: Authentication & Authorization sample
+links:
+  - label: View Source
+    icon: i-simple-icons-github
+    to: https://github.com/ddradar/nuxt-swa/tree/main/docs/pages/playground/authentication.vue
