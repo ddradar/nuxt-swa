@@ -2,7 +2,10 @@
   "name": "nuxt-swa",
   "version": "0.0.1",
   "description": "Nuxt module for Azure Static Web Apps",
-  "repository": "ddradar/nuxt-swa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ddradar/nuxt-swa.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
