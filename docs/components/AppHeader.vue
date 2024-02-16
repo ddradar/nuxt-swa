@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
+import type { DropdownItem } from '#ui/types'
 
 const navigation = inject<NavItem[]>('navigation', [])
-
 const { header } = useAppConfig()
+const { isLoggedIn, login, logout } = await useEasyAuth()
+
+const items: DropdownItem[][] = [
+  [
+    {
+      label: 'Login via GitHub',
+      icon: 'i-simple-icons-github',
+      click: () => login('github'),
+    },
+    {
+      label: 'Login via Azure AD',
+      icon: 'i-simple-icons-microsoftazure',
+      click: () => login('aad'),
+    },
+  ],
+]
 </script>
 
 <template>
@@ -37,6 +53,11 @@ const { header } = useAppConfig()
           v-bind="{ color: 'gray', variant: 'ghost', ...link }"
         />
       </template>
+
+      <UButton v-if="isLoggedIn" @click="logout()">Logout</UButton>
+      <UDropdown v-else :items="items">
+        <UButton>Login</UButton>
+      </UDropdown>
     </template>
 
     <template #panel>
