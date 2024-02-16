@@ -1,7 +1,12 @@
 import { navigateTo, useAsyncData } from '#app'
 import { computed, readonly, useRequestHeader } from '#imports'
+
+import {
+  _authBasePath,
+  _authDataKey,
+  _clientPrincipalHeader,
+} from '~/src/constants'
 import { parseClientPrincipal } from '~/src/utils'
-import { _authBasePath, _clientPrincipalHeader } from '../../constants'
 
 interface Claim {
   typ: string
@@ -14,17 +19,15 @@ export interface ClientPrincipal {
   userRoles: UserRole
   claims?: Claim[]
 }
+type AuthMeResult = { clientPrincipal: ClientPrincipal | null }
 
 export async function useEasyAuth() {
   const { data: _auth, refresh } = await useAsyncData<ClientPrincipal | null>(
-    'swa-principal',
+    _authDataKey,
     async () => {
       if (import.meta.client) {
-        return (
-          await $fetch<{ clientPrincipal: ClientPrincipal | null }>(
-            `${_authBasePath}/me`
-          )
-        ).clientPrincipal
+        return (await $fetch<AuthMeResult>(`${_authBasePath}/me`))
+          .clientPrincipal
       }
 
       if (import.meta.server)
@@ -38,7 +41,7 @@ export async function useEasyAuth() {
 
   // Method
   function hasRole(role: UserRole) {
-    return role === 'anonymous' || _auth.value?.userRoles.includes(role)
+    return role === 'anonymous' || !!_auth.value?.userRoles.includes(role)
   }
   async function login(provider: IdentityProvider) {
     await navigateTo(`${_authBasePath}/login/${provider}`, {
