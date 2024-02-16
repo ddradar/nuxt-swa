@@ -1,10 +1,12 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
     branches:
       - main
   pull_request:
+  release:
+    types: [published]
 
 jobs:
   lint:
@@ -30,6 +32,48 @@ jobs:
         run: pnpm lint:eslint
       - name: Prettier
         run: pnpm lint:prettier
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Use pnpm ${{ vars.PNPM_VERSION }}
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: ${{ vars.PNPM_VERSION }}
+      - name: Use Node.js ${{ vars.NODE_VERSION }}
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install Project Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+        env:
+          NUXT_UI_PRO_LICENSE: ${{ secrets.NUXT_UI_PRO_LICENSE }}
+          NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL }}
+          NUXT_PUBLIC_STUDIO_TOKENS: ${{ secrets.NUXT_PUBLIC_STUDIO_TOKENS }}
+          APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
+
+      - name: Upload Docs Output
+        uses: actions/upload-artifact@v4.3.1
+        if: github.event_name != 'pull_request'
+        with:
+          name: docs
+          path: docs/.output
+
+      - name: Upload Package Distribution
+        uses: actions/upload-artifact@v4.3.1
+        if: github.event_name != 'pull_request'
+        with:
+          name: package
+          path: packages/nuxt-swa/dist
 
   test:
     name: Unit Test
@@ -58,3 +102,72 @@ jobs:
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  deploy:
+    name: Deploy to Azure Static Web Apps
+    needs: [lint, build, test]
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
+      url: ${{ steps.swa-deploy.outputs.static_web_app_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Download Docs Output
+        uses: actions/download-artifact@v4.1.2
+        with:
+          name: docs
+          path: docs/.output
+
+      - name: Deploy
+        id: swa-deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          deployment_environment: ${{ vars.AZURE_SWA_DEPLOYMENT_ENVIRONMENT }}
+          action: upload
+          app_location: docs/.output/public
+          skip_app_build: true
+          api_location: docs/.output/server
+          skip_api_build: true
+
+  publish:
+    name: Publish Package
+    needs: [lint, build, test]
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+      - name: Use pnpm ${{ vars.PNPM_VERSION }}
+        uses: pnpm/action-setup@v3.0.0
+        with:
+          version: ${{ vars.PNPM_VERSION }}
+      - name: Use Node.js ${{ vars.NODE_VERSION }}
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+          registry-url: ${{ vars.NPM_REGISTRY_URL }}
+          cache: pnpm
+
+      - name: Download Package Distribution
+        uses: actions/download-artifact@v4.1.2
+        with:
+          name: package
+          path: packages/nuxt-swa/dist
+
+      - name: Publish
+        run: pnpm publish
+        working-directory: packages/nuxt-swa
+        env:
+          NODE_AUTH_TOKEN: ${{ (github.event_name == 'release' && secrets.NPM_TOKEN) || secrets.GITHUB_TOKEN }}
