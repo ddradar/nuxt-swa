@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     preset: 'azure',
     azure: { config: { platform: { apiRuntime: 'node:18' } } },
   },
+  routeRules: {
+    '/api/search.json': { prerender: true },
+  },
   modules: [
     '@nuxt/content',
     '@nuxt/ui',
@@ -32,23 +35,11 @@ export default defineNuxtConfig({
     icons: ['heroicons', 'simple-icons'],
   },
   // Fonts
-  fontMetrics: {
-    fonts: ['DM Sans'],
-  },
+  fontMetrics: { fonts: ['DM Sans'] },
   googleFonts: {
     display: 'swap',
     download: true,
-    families: {
-      'DM+Sans': [400, 500, 600, 700],
-    },
+    families: { 'DM+Sans': [400, 500, 600, 700] },
   },
-  routeRules: {
-    '/api/search.json': { prerender: true },
-  },
-  devtools: {
-    enabled: true,
-  },
-  typescript: {
-    strict: false,
-  },
+  devtools: { enabled: true },
 })

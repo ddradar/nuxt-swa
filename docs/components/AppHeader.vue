@@ -25,12 +25,7 @@ const items: DropdownItem[][] = [
 <template>
   <UHeader>
     <template #logo>
-      <template v-if="header?.logo?.dark || header?.logo?.light">
-        <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
-      </template>
-      <template v-else>
-        Nuxt UI Pro <UBadge label="Docs" variant="subtle" class="mb-0.5" />
-      </template>
+      Nuxt SWA <UBadge label="Docs" variant="subtle" class="mb-0.5" />
     </template>
 
     <template v-if="header?.search" #center>
@@ -38,11 +33,7 @@ const items: DropdownItem[][] = [
     </template>
 
     <template #right>
-      <UDocsSearchButton
-        v-if="header?.search"
-        :label="null"
-        class="lg:hidden"
-      />
+      <UDocsSearchButton v-if="header?.search" class="lg:hidden" />
 
       <UColorModeButton v-if="header?.colorMode" />
 
