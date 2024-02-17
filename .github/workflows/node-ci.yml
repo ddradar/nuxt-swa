@@ -170,7 +170,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish
-        run: pnpm -r publish
+        run: pnpm -r publish --no-git-checks
         working-directory: packages/nuxt-swa
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
