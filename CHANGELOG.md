@@ -22,7 +22,7 @@
 ### 🤖 CI
 
 - **dependabot:** Enable dependabot ([#12](https://github.com/ddradar/nuxt-swa/pull/12))
-- **gh-action:** Add npm publish workflow ([#24](https://github.com/ddradar/nuxt-swa/pull/24), [#25](https://github.com/ddradar/nuxt-swa/pull/25), [#26](https://github.com/ddradar/nuxt-swa/pull/26))
+- **gh-action:** Add npm publish workflow ([#24](https://github.com/ddradar/nuxt-swa/pull/24), [#25](https://github.com/ddradar/nuxt-swa/pull/25), [#26](https://github.com/ddradar/nuxt-swa/pull/26), [#28](https://github.com/ddradar/nuxt-swa/pull/28))
 
 #### Dependencies Update (powered by Dependabot🤖)
 
@@ -40,3 +40,7 @@
 ## v0.0.1
 
 First Release
+
+### ❤️ Contributors
+
+- Nogic
