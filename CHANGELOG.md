@@ -17,6 +17,7 @@
 ### 🏡 Chore
 
 - Setup azure-swa-cli ([#21](https://github.com/ddradar/nuxt-swa/pull/21))
+- v0.0.2 ([#27](https://github.com/ddradar/nuxt-swa/pull/27))
 
 ### 🤖 CI
 
