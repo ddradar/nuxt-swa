@@ -5,11 +5,40 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "Jacano.vscode-pnpm",
+        "ms-azuretools.vscode-azurestaticwebapps",
+        "Vue.volar"
+      ]
+    }
+  },
   "forwardPorts": [4280, 5432],
+  "portsAttributes": {
+    "3000": {
+      "label": "Nuxt Dev Server",
+      "onAutoForward": "ignore"
+    },
+    "4280": {
+      "label": "Static Web Apps emulator",
+      "onAutoForward": "openBrowserOnce"
+    },
+    "5000-5001": {
+      "label": "Azure Data API Builder",
+      "onAutoForward": "ignore"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "silent"
+    }
+  },
   "features": {
     "ghcr.io/devcontainers-contrib/features/pnpm:2": {
       "version": "8.x"
     }
   },
-  "postCreateCommand": "pnpm install  --frozen-lockfile"
+  "postCreateCommand": "pnpm install --frozen-lockfile"
 }
