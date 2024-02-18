@@ -49,7 +49,7 @@ export default defineNuxtModule<SWAModuleOptions>({
       options,
     })
     if (options.authProviders.length) {
-      // Use auth feture
+      // Use auth feature
       addImports({
         name: 'useEasyAuth',
         from: resolver.resolve('runtime/composables/useEasyAuth'),
