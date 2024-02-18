@@ -13,7 +13,7 @@ Provides [Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-ap
 ## Features
 
 - 🔑 &nbsp;Authentication & Authorization
-- 📐 &nbsp;Provide type for `nitro.azure.config` (PLANNED)
+- 📐 &nbsp;Provide type for `nitro.azure.config`
 - 🗄️ &nbsp;[Data API](https://learn.microsoft.com/azure/static-web-apps/database-overview) support (PLANNED)
 
 ## Quick Setup
