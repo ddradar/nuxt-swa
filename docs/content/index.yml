@@ -31,7 +31,7 @@ features:
     - title: Authentication & Authorization
       description: Wrap Azure's built-in authentication and authorization into a single composable function.
       icon: i-heroicons-key-solid
-    - title: Azure Config Helper for Nitro (Planned)
+    - title: Azure Config Helper for Nitro
       description: Provide type for `nitro.azure.config`.
       icon: i-simple-icons-microsoftazure
     - title: Data API Builder support (Planned)
