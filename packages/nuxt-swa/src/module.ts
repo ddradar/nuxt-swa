@@ -6,6 +6,7 @@ import {
 } from '@nuxt/kit'
 
 import { defaults, resolveAuthProviders } from './config'
+import { logger } from './constants'
 
 export default defineNuxtModule({
   meta: {
@@ -18,6 +19,11 @@ export default defineNuxtModule({
   defaults,
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    if (!nuxt.options.nitro?.azure?.config)
+      logger.warn(
+        '`nitro.azure.config` in your `nuxt.config.ts` file is undefined.\nIf you are using `staticwebapp.config.json`, consider migrating that configuration.'
+      )
 
     if (options.authProviders === undefined)
       options.authProviders = resolveAuthProviders(
