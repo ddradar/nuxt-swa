@@ -26,6 +26,10 @@ export interface SWAModuleOptions {
    */
   customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
 }
+export const defaults: SWAModuleOptions = {
+  authProviders: ['aad', 'github'],
+  customRoles: [],
+}
 
 export default defineNuxtModule<SWAModuleOptions>({
   meta: {
@@ -35,10 +39,7 @@ export default defineNuxtModule<SWAModuleOptions>({
       nuxt: '^3.9.0',
     },
   },
-  defaults: {
-    authProviders: ['aad', 'github'],
-    customRoles: [],
-  },
+  defaults,
   setup(options) {
     const resolver = createResolver(import.meta.url)
 
