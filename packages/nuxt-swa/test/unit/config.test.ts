@@ -5,13 +5,10 @@ import { resolveAuthProviders } from '~/src/config'
 
 describe('config', () => {
   describe('resolveAuthProviders', () => {
-    it.each([
-      {},
-      { azure: {} },
-      { azure: { config: {} } },
-      { azure: { config: { auth: {} } } },
-    ])('(%o) returns ["aad", "github"]', config =>
-      expect(resolveAuthProviders(config)).toStrictEqual(['aad', 'github'])
+    it.each([undefined, {}, { auth: {} }])(
+      '(%o) returns ["aad", "github"]',
+      config =>
+        expect(resolveAuthProviders(config)).toStrictEqual(['aad', 'github'])
     )
 
     it.each([
@@ -29,13 +26,10 @@ describe('config', () => {
       ],
     ])(
       '( azure.config.auth.identityProviders: %o ) returns %o',
-      (identityProviders, expected) => {
-        // Arrange
-        const config = { azure: { config: { auth: { identityProviders } } } }
-
-        // Act - Assert
-        expect(resolveAuthProviders(config)).toStrictEqual(expected)
-      }
+      (identityProviders, expected) =>
+        expect(
+          resolveAuthProviders({ auth: { identityProviders } })
+        ).toStrictEqual(expected)
     )
   })
 })

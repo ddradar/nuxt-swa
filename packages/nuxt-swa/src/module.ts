@@ -20,7 +20,9 @@ export default defineNuxtModule({
     const resolver = createResolver(import.meta.url)
 
     if (options.authProviders === undefined)
-      options.authProviders = resolveAuthProviders(nuxt.options.nitro)
+      options.authProviders = resolveAuthProviders(
+        nuxt.options.nitro?.azure?.config
+      )
 
     addTypeTemplate({
       filename: 'types/nuxt-swa.d.ts',

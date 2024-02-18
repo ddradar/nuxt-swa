@@ -1,8 +1,8 @@
-import type { NitroConfig } from 'nitropack'
 import {
   type _knownIdentityProviders,
   _preConfiguredProviders,
 } from './constants'
+import type { NuxtConfig } from 'nuxt/config'
 
 export interface SWAModuleOptions {
   /**
@@ -26,12 +26,11 @@ export const defaults: SWAModuleOptions = {
 
 /** Resolve `authProviders` option from Nitro config. */
 export function resolveAuthProviders(
-  options: NitroConfig
+  options: Required<Required<NuxtConfig>['nitro']>['azure']['config']
 ): Required<SWAModuleOptions>['authProviders'] {
-  if (!options.azure?.config?.auth?.identityProviders)
-    return _preConfiguredProviders
+  if (!options?.auth?.identityProviders) return _preConfiguredProviders
 
-  const identityProviders = options.azure?.config?.auth?.identityProviders
+  const identityProviders = options?.auth?.identityProviders
 
   const result: Required<SWAModuleOptions>['authProviders'] = []
 
