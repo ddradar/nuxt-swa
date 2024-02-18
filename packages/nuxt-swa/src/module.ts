@@ -4,36 +4,11 @@ import {
   addTypeTemplate,
   addImports,
 } from '@nuxt/kit'
-
-const name = 'nuxt-swa'
-type KnownIdentityProvider =
-  | 'aad'
-  | 'apple'
-  | 'facebook'
-  | 'github'
-  | 'google'
-  | 'twitter'
-export interface SWAModuleOptions {
-  /**
-   * Authentication Provider list to login your app.
-   * If your app does not use built-in Authentication/Authorization, please set this to `[]`.
-   * @default ['aad', 'github']
-   */
-  authProviders: (KnownIdentityProvider | string)[]
-  /**
-   * Define custom roles to use in your app besides the default roles (`anonymous`, `authenticated`).
-   * @default []
-   */
-  customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
-}
-export const defaults: SWAModuleOptions = {
-  authProviders: ['aad', 'github'],
-  customRoles: [],
-}
+import { defaults, type SWAModuleOptions } from './config'
 
 export default defineNuxtModule<SWAModuleOptions>({
   meta: {
-    name,
+    name: 'nuxt-swa',
     configKey: 'swa',
     compatibility: {
       nuxt: '^3.9.0',
