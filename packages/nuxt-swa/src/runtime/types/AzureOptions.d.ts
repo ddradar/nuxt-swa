@@ -230,7 +230,6 @@ declare module 'nitropack' {
           }
           [k: string]: unknown
         }
-        [k: string]: unknown
       }
       [k: string]: unknown
     }
