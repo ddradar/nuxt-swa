@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.0.2...v0.1.0)
+
+### 🚀 Enhancements
+
+- Provide types for `nitro.azure.config` ([#30](https://github.com/ddradar/nuxt-swa/pull/30))
+- **module:** Auto detect IdentityProvider from `nitro.azure.config` ([#31](https://github.com/ddradar/nuxt-swa/pull/31))
+- Warn if `nitro.azure.config` is undefined ([#32](https://github.com/ddradar/nuxt-swa/pull/32))
+
+### 🩹 Fixes
+
+- **deps:** Bump the nuxt group with 3 updates ([#37](https://github.com/ddradar/nuxt-swa/pull/37))
+
+### 🏡 Chore
+
+- Setup Devcontainer ([#33](https://github.com/ddradar/nuxt-swa/pull/33))
+- **deps-dev:** Bump the vitest group with 2 updates ([#34](https://github.com/ddradar/nuxt-swa/pull/34))
+- **deps-dev:** Bump @types/node from 18.19.15 to 18.19.17 ([#35](https://github.com/ddradar/nuxt-swa/pull/35))
+
+### 🤖 CI
+
+- **dependabot:** Add nuxt group ([#36](https://github.com/ddradar/nuxt-swa/pull/36))
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.0.2
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.0.1...v0.0.2)
