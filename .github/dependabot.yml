@@ -54,6 +54,12 @@ updates:
           - husky
           - lint-staged
           - prettier
+      nuxt:
+        patterns:
+          - '@nuxt/*'
+          - 'nuxt'
+        exclude-patterns:
+          - '@nuxt/eslint-config'
     commit-message:
       prefix: fix
       prefix-development: chore
