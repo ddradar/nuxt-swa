@@ -52,7 +52,7 @@ export default defineNuxtModule<SWAModuleOptions>({
     }
     // Add `nitro.azure.config` Typing
     addType('UserRole', true)
-    addType('AzureOptions', true)
+    addType('AzureOptions')
 
     function addType(type: string, isTemplate = false) {
       return addTypeTemplate({
