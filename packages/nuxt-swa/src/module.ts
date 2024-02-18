@@ -4,9 +4,10 @@ import {
   addTypeTemplate,
   addImports,
 } from '@nuxt/kit'
-import { defaults, type SWAModuleOptions } from './config'
 
-export default defineNuxtModule<SWAModuleOptions>({
+import { defaults, resolveAuthProviders } from './config'
+
+export default defineNuxtModule({
   meta: {
     name: 'nuxt-swa',
     configKey: 'swa',
@@ -15,8 +16,11 @@ export default defineNuxtModule<SWAModuleOptions>({
     },
   },
   defaults,
-  setup(options) {
+  setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    if (options.authProviders === undefined)
+      options.authProviders = resolveAuthProviders(nuxt.options.nitro)
 
     addTypeTemplate({
       filename: 'types/nuxt-swa.d.ts',

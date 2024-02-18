@@ -1,3 +1,4 @@
+import type { NitroConfig } from 'nitropack'
 import {
   type _knownIdentityProviders,
   _preConfiguredProviders,
@@ -9,7 +10,7 @@ export interface SWAModuleOptions {
    * If your app does not use built-in Authentication/Authorization, please set this to `[]`.
    * @default ['aad', 'github']
    */
-  authProviders: (
+  authProviders?: (
     | (typeof _knownIdentityProviders)[number]
     | Omit<string, (typeof _knownIdentityProviders)[number]>
   )[]
@@ -20,6 +21,49 @@ export interface SWAModuleOptions {
   customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
 }
 export const defaults: SWAModuleOptions = {
-  authProviders: _preConfiguredProviders,
   customRoles: [],
+}
+
+/** Resolve `authProviders` option from Nitro config. */
+export function resolveAuthProviders(
+  options: NitroConfig
+): Required<SWAModuleOptions>['authProviders'] {
+  if (!options.azure?.config?.auth?.identityProviders)
+    return _preConfiguredProviders
+
+  const identityProviders = options.azure?.config?.auth?.identityProviders
+
+  const result: Required<SWAModuleOptions>['authProviders'] = []
+
+  addPreConfiguredProviderIfEnabled('aad') // Microsoft Entra ID (formerly Azure Active Directory)
+  addCustomProviderIfEnabled('apple') // Apple
+  addCustomProviderIfEnabled('facebook') // Facebook
+  addPreConfiguredProviderIfEnabled('github') // GitHub
+  addCustomProviderIfEnabled('google') // Google
+  addCustomProviderIfEnabled('twitter') // X (formerly Twitter)
+
+  // OpenID Connect
+  for (const key in identityProviders.customOpenIdConnectProviders) {
+    if (identityProviders.customOpenIdConnectProviders[key]?.enabled !== false)
+      result.push(key)
+  }
+
+  return result
+
+  function addPreConfiguredProviderIfEnabled(
+    provider: (typeof _preConfiguredProviders)[number]
+  ) {
+    const key = provider === 'aad' ? 'azureActiveDirectory' : provider
+    if (identityProviders[key]?.enabled !== false) result.push(provider)
+  }
+
+  function addCustomProviderIfEnabled(
+    provider: (typeof _knownIdentityProviders)[number]
+  ) {
+    if (
+      identityProviders[provider] &&
+      identityProviders[provider]?.enabled !== false
+    )
+      result.push(provider)
+  }
 }
