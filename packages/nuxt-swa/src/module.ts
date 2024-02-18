@@ -43,26 +43,22 @@ export default defineNuxtModule<SWAModuleOptions>({
   setup(options) {
     const resolver = createResolver(import.meta.url)
 
+    addTypeTemplate({
+      filename: 'types/nuxt-swa.d.ts',
+      src: resolver.resolve('runtime/types/nuxt-swa.d.ts.template'),
+      options,
+    })
     if (options.authProviders.length) {
-      // Use Authentication/Authorization features
-      addType('IdentityProvider', true)
+      // Use auth feture
       addImports({
         name: 'useEasyAuth',
         from: resolver.resolve('runtime/composables/useEasyAuth'),
       })
     }
     // Add `nitro.azure.config` Typing
-    addType('UserRole', true)
-    addType('AzureOptions')
-
-    function addType(type: string, isTemplate = false) {
-      return addTypeTemplate({
-        filename: `types/${name}/${type}.d.ts`,
-        src: resolver.resolve(
-          `runtime/types/${type}.d.ts${isTemplate ? '.template' : ''}`
-        ),
-        options: isTemplate ? options : undefined,
-      })
-    }
+    addTypeTemplate({
+      filename: 'types/AzureOptions.d.ts',
+      src: resolver.resolve('runtime/types/AzureOptions.d.ts'),
+    })
   },
 })
