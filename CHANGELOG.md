@@ -14,6 +14,7 @@
 ### 🏡 Chore
 
 - **dev:** Setup Devcontainer ([#33](https://github.com/ddradar/nuxt-swa/pull/33))
+- v0.1.0 ([#39](https://github.com/ddradar/nuxt-swa/pull/39))
 
 ### 🤖 CI
 
