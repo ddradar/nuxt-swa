@@ -5,6 +5,7 @@ import {
   addRouteMiddleware,
   addImports,
   useLogger,
+  addServerImportsDir,
 } from '@nuxt/kit'
 
 import { defaults, resolveAuthProviders } from './config'
@@ -32,13 +33,20 @@ export default defineNuxtModule({
         nuxt.options.nitro?.azure?.config
       )
 
+    // Core Type definition
     addTypeTemplate({
       filename: 'types/nuxt-swa.d.ts',
       src: resolver.resolve('runtime/types/nuxt-swa.d.ts.template'),
       options,
     })
+    // `nitro.azure.config` Typing
+    addTypeTemplate({
+      filename: 'types/AzureOptions.d.ts',
+      src: resolver.resolve('runtime/types/AzureOptions.d.ts'),
+    })
+
+    // Auth Feature
     if (options.authProviders.length) {
-      // Use auth feature
       addImports({
         name: 'useEasyAuth',
         from: resolver.resolve('runtime/composables/useEasyAuth'),
@@ -52,11 +60,7 @@ export default defineNuxtModule({
         filename: 'types/nuxt-swa.meta.d.ts',
         src: resolver.resolve('runtime/types/nuxt-swa.meta.d.ts'),
       })
+      addServerImportsDir(resolver.resolve('runtime/server/utils'))
     }
-    // Add `nitro.azure.config` Typing
-    addTypeTemplate({
-      filename: 'types/AzureOptions.d.ts',
-      src: resolver.resolve('runtime/types/AzureOptions.d.ts'),
-    })
   },
 })
