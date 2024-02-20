@@ -7,18 +7,9 @@ useSeoMeta({
   description: 'We are sorry but this page could not be found.',
 })
 
-defineProps({
-  error: {
-    type: Object as PropType<NuxtError>,
-    required: true,
-  },
-})
+defineProps<{ error: NuxtError }>()
 
-useHead({
-  htmlAttrs: {
-    lang: 'en',
-  },
-})
+useHead({ htmlAttrs: { lang: 'en' } })
 
 const { data: navigation } = await useAsyncData<NavItem[]>(
   'navigation',

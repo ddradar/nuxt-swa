@@ -1,0 +1,7 @@
+title: Middleware
+description: Auth Middleware usage sample
+icon: i-heroicons-lock-closed-20-solid
+links:
+  - label: View Source
+    icon: i-simple-icons-github
+    to: https://github.com/ddradar/nuxt-swa/tree/main/docs/pages/playground/middleware.vue
