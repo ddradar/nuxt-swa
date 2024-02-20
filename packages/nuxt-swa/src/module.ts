@@ -48,6 +48,10 @@ export default defineNuxtModule({
         path: resolver.resolve('runtime/middleware/auth'),
         global: true,
       })
+      addTypeTemplate({
+        filename: 'types/nuxt-swa.meta.d.ts',
+        src: resolver.resolve('runtime/types/nuxt-swa.meta.d.ts'),
+      })
     }
     // Add `nitro.azure.config` Typing
     addTypeTemplate({
