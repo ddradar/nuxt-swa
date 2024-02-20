@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
     'nuxt-swa',
+    'nuxt-applicationinsights',
   ],
   hooks: {
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
@@ -24,11 +25,6 @@ export default defineNuxtConfig({
       )
 
       globals.forEach(c => (c.global = true))
-    },
-    // @ts-ignore
-    'applicationinsights:config': config => {
-      config.connectionString =
-        process.env.APPLICATIONINSIGHTS_CONNECTION_STRING
     },
   },
   ui: {
@@ -42,4 +38,7 @@ export default defineNuxtConfig({
     families: { 'DM+Sans': [400, 500, 600, 700] },
   },
   devtools: { enabled: true },
+  applicationinsights: {
+    connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+  },
 })
