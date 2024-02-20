@@ -2,11 +2,12 @@ import {
   defineNuxtModule,
   createResolver,
   addTypeTemplate,
+  addRouteMiddleware,
   addImports,
+  useLogger,
 } from '@nuxt/kit'
 
 import { defaults, resolveAuthProviders } from './config'
-import { logger } from './constants'
 
 export default defineNuxtModule({
   meta: {
@@ -19,6 +20,7 @@ export default defineNuxtModule({
   defaults,
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+    const logger = useLogger('nuxt-swa')
 
     if (!nuxt.options.nitro?.azure?.config)
       logger.warn(
@@ -40,6 +42,11 @@ export default defineNuxtModule({
       addImports({
         name: 'useEasyAuth',
         from: resolver.resolve('runtime/composables/useEasyAuth'),
+      })
+      addRouteMiddleware({
+        name: 'auth',
+        path: resolver.resolve('runtime/middleware/auth'),
+        global: true,
       })
     }
     // Add `nitro.azure.config` Typing
