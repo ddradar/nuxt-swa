@@ -22,6 +22,7 @@ const json = computed(() => JSON.stringify(clientPrincipal.value, undefined, 2))
         icon="i-heroicons-lock-closed-solid"
         title="You are not logged in. After logging in, ClientPrincipal information will be displayed below."
       />
+      <div>Your Client Principal is:</div>
       <pre>{{ json }}</pre>
 
       <hr v-if="surround?.length" />

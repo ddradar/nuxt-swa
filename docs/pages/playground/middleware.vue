@@ -13,7 +13,7 @@ const { headline, page, surround } = await usePageContent()
       :headline="headline"
     />
     <UPageBody prose>
-      <Callout icon="i-heroicons-lock-open-20-solid" color="amber">
+      <Callout icon="i-heroicons-lock-open-20-solid" color="blue">
         Private Page!
       </Callout>
 
