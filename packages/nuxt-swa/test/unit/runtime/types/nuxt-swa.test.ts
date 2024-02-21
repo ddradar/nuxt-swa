@@ -6,7 +6,7 @@ import { template } from 'lodash'
 import { describe, expect, it } from 'vitest'
 
 import { defaults, type SWAModuleOptions } from '~/src/config'
-import { _preConfiguredProviders } from '~/src/constants'
+import { _preConfiguredProviders } from '~/src/runtime/constants'
 
 describe('runtime/types/nuxt-swa.d.ts.template', async () => {
   const minimumOptions: SWAModuleOptions = {
