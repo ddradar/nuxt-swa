@@ -6,6 +6,7 @@ import {
   addImports,
   useLogger,
   addServerImportsDir,
+  addServerHandler,
 } from '@nuxt/kit'
 
 import { defaults, resolveAuthProviders } from './config'
@@ -43,6 +44,16 @@ export default defineNuxtModule({
     addTypeTemplate({
       filename: 'types/AzureOptions.d.ts',
       src: resolver.resolve('runtime/types/AzureOptions.d.ts'),
+    })
+
+    // Proxy Azure SWA built-in API
+    addServerHandler({
+      route: '/data-api/**',
+      handler: resolver.resolve('./runtime/server/proxy'),
+    })
+    addServerHandler({
+      route: '/.auth/**',
+      handler: resolver.resolve('./runtime/server/proxy'),
     })
 
     // Auth Feature
