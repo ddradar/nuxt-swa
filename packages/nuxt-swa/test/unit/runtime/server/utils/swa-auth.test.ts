@@ -1,11 +1,11 @@
 import { getHeader } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { parseClientPrincipal } from '~/src/utils'
 import {
   getClientPrincipal,
   hasRole,
 } from '~/src/runtime/server/utils/swa-auth'
+import { parseClientPrincipal } from '~/src/runtime/utils'
 import { _clientPrincipal } from '~/test/unit/constants'
 
 vi.mock('h3')
