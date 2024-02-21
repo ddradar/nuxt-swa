@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## v0.2.0
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.1.0...v0.2.0)
