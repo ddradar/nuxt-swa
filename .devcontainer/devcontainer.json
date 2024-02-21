@@ -7,9 +7,11 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "Jacano.vscode-pnpm",
         "ms-azuretools.vscode-azurestaticwebapps",
+        "ms-mssql.mssql",
         "Vue.volar"
       ]
     }
