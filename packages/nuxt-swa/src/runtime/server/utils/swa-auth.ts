@@ -1,16 +1,15 @@
 import { type H3Event, getHeader } from 'h3'
 
-import { _clientPrincipalHeader } from '../../../constants'
-import { parseClientPrincipal } from '../../../utils'
+import { _clientPrincipalHeader } from '../../constants'
+import { parseClientPrincipal } from '../../utils'
+import type { ClientPrincipal } from '../../composables/useEasyAuth'
 
 /**
  * Get user client principal data from request.
  * @param event H3Event
  * @returns Client Principal if parsed, otherwise null.
  */
-export function getClientPrincipal(
-  event: H3Event
-): ReturnType<typeof parseClientPrincipal> {
+export function getClientPrincipal(event: H3Event): ClientPrincipal | null {
   const header = getHeader(event, _clientPrincipalHeader)
   return parseClientPrincipal(header)
 }
