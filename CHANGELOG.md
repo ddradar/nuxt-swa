@@ -17,6 +17,7 @@
 ### 🏡 Chore
 
 - **docs:** Migrate to nuxt-applicationinsights ([#41](https://github.com/ddradar/nuxt-swa/pull/41))
+- v0.2.0 ([#47](https://github.com/ddradar/nuxt-swa/pull/47))
 
 ### ❤️ Contributors
 
