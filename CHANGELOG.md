@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.1.0...v0.2.0)
+
+### 🚀 Enhancements
+
+- Add global route middleware ([#42](https://github.com/ddradar/nuxt-swa/pull/42))
+- Add server utils ([#45](https://github.com/ddradar/nuxt-swa/pull/45))
+
+### 🩹 Fixes
+
+- **docs:** Resolve 500 error on staging site ([#44](https://github.com/ddradar/nuxt-swa/pull/44))
+- Move runtime use files to resolve import error ([#46](https://github.com/ddradar/nuxt-swa/pull/46))
+
+### 🏡 Chore
+
+- **docs:** Migrate to nuxt-applicationinsights ([#41](https://github.com/ddradar/nuxt-swa/pull/41))
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.1.0
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.0.2...v0.1.0)
