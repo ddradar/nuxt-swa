@@ -52,3 +52,6 @@ Temporary Items
 
 # VSC
 .history
+
+# pnpm
+.pnpm-store

@@ -1,10 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres
 {
-  "name": "Node.js & PostgreSQL",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "name": "Node.js 18",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -16,7 +14,7 @@
       ]
     }
   },
-  "forwardPorts": [4280, 5432],
+  "forwardPorts": [4280],
   "portsAttributes": {
     "3000": {
       "label": "Nuxt Dev Server",
@@ -29,10 +27,6 @@
     "5000-5001": {
       "label": "Azure Data API Builder",
       "onAutoForward": "ignore"
-    },
-    "5432": {
-      "label": "PostgreSQL",
-      "onAutoForward": "silent"
     }
   },
   "features": {
