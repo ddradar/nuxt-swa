@@ -57,7 +57,7 @@ describe('runtime/composables/useEasyAuth', () => {
     ] as const)('("%s") navigates to "%s"', async (provider, to) => {
       // Arrange
       const refresh = vi.fn()
-      useAsyncDataMock.mockResolvedValue({ refresh })
+      useAsyncDataMock.mockResolvedValue({ data: ref(null), refresh })
 
       // Act
       const { login } = await useEasyAuth()
@@ -72,7 +72,7 @@ describe('runtime/composables/useEasyAuth', () => {
     it('navigates to "/.auth/logout"', async () => {
       // Arrange
       const refresh = vi.fn()
-      useAsyncDataMock.mockResolvedValue({ refresh })
+      useAsyncDataMock.mockResolvedValue({ data: ref(null), refresh })
 
       // Act
       const { logout } = await useEasyAuth()
@@ -92,7 +92,7 @@ describe('runtime/composables/useEasyAuth', () => {
     ] as const)('("%s") navigates to "%s"', async (provider, to) => {
       // Arrange
       const refresh = vi.fn()
-      useAsyncDataMock.mockResolvedValue({ refresh })
+      useAsyncDataMock.mockResolvedValue({ data: ref(null), refresh })
 
       // Act
       const { purge } = await useEasyAuth()
