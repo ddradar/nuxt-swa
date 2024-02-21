@@ -34,7 +34,7 @@ useSeoMeta({
 })
 
 // Playground Block
-const { isLoggedIn, clientPrincipal } = await useEasyAuth()
+const { clientPrincipal } = await useEasyAuth()
 const json = computed(() => JSON.stringify(clientPrincipal.value, undefined, 2))
 </script>
 
@@ -47,13 +47,10 @@ const json = computed(() => JSON.stringify(clientPrincipal.value, undefined, 2))
       :headline="headline"
     />
     <UPageBody prose>
-      <UAlert
-        v-if="!isLoggedIn"
-        icon="i-heroicons-lock-closed-solid"
-        title="You are not logged in. After logging in, ClientPrincipal information will be displayed below."
-      />
-      <div>Your Client Principal is:</div>
-      <pre>{{ json }}</pre>
+      <div>
+        Your Client Principal is:
+        <pre>{{ json }}</pre>
+      </div>
 
       <hr v-if="surround?.length" />
       <UDocsSurround :surround="surround!" />
