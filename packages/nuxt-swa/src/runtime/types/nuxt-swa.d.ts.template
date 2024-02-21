@@ -15,3 +15,14 @@ type UserRole =
   | 'anonymous'
   | 'authenticated'<% for (const provider of options.customRoles) { %>
   | '<%= provider %>'<% } %>
+
+/**
+ * Data API (REST) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest
+ */
+type RestResult<T> = { value: T[] }
+/**
+ * Data API (GraphQL) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql
+ */
+type GraphQLResult<TEntity extends {}> = { data: TEntity }

@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { getHeader } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -11,7 +12,7 @@ import { _clientPrincipal } from '~/test/unit/constants'
 vi.mock('h3')
 vi.mock('~/src/runtime/utils')
 
-describe('runtime/server/utils', () => {
+describe('runtime/server/utils/swa-auth', () => {
   beforeEach(() => {
     vi.mocked(getHeader).mockClear()
     vi.mocked(parseClientPrincipal).mockClear()

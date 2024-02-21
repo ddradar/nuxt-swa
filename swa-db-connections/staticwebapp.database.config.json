@@ -1,0 +1,56 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v0.9.7/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "@env('AZURE_SQL_CONNECTION_STRING')",
+    "options": {}
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/rest",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "development"
+    }
+  },
+  "entities": {
+    "User": {
+      "source": "users",
+      "permissions": [
+        {
+          "role": "authenticated",
+          "actions": [
+            "read",
+            {
+              "action": "create",
+              "policy": { "database": "@item.id eq @claims.userId" }
+            },
+            {
+              "action": "update",
+              "policy": { "database": "@item.id eq @claims.userId" }
+            },
+            {
+              "action": "delete",
+              "policy": { "database": "@item.id eq @claims.userId" }
+            }
+          ]
+        },
+        { "role": "administrator", "actions": ["*"] }
+      ]
+    }
+  }
+}

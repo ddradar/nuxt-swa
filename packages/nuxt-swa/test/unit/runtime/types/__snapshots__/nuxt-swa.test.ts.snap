@@ -20,6 +20,17 @@ type UserRole =
   | 'anonymous'
   | 'authenticated'
   | 'administrator'
+
+/**
+ * Data API (REST) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest
+ */
+type RestResult<T> = { value: T[] }
+/**
+ * Data API (GraphQL) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql
+ */
+type GraphQLResult<TEntity extends {}> = { data: TEntity }
 "
 `;
 
@@ -33,6 +44,17 @@ exports[`runtime/types/nuxt-swa.d.ts.template > { authProviders: [], customRoles
 type UserRole =
   | 'anonymous'
   | 'authenticated'
+
+/**
+ * Data API (REST) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest
+ */
+type RestResult<T> = { value: T[] }
+/**
+ * Data API (GraphQL) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql
+ */
+type GraphQLResult<TEntity extends {}> = { data: TEntity }
 "
 `;
 
@@ -54,5 +76,16 @@ type IdentityProvider =
 type UserRole =
   | 'anonymous'
   | 'authenticated'
+
+/**
+ * Data API (REST) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest
+ */
+type RestResult<T> = { value: T[] }
+/**
+ * Data API (GraphQL) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql
+ */
+type GraphQLResult<TEntity extends {}> = { data: TEntity }
 "
 `;
