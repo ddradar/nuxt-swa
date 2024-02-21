@@ -9,7 +9,7 @@ import { parseClientPrincipal } from '~/src/runtime/utils'
 import { _clientPrincipal } from '~/test/unit/constants'
 
 vi.mock('h3')
-vi.mock('~/src/utils')
+vi.mock('~/src/runtime/utils')
 
 describe('runtime/server/utils', () => {
   beforeEach(() => {
