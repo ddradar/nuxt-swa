@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { getHeader, proxyRequest } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
