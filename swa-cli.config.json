@@ -4,6 +4,7 @@
     "nuxt-swa": {
       "appDevserverUrl": "http://localhost:3000",
       "apiDevserverUrl": "http://localhost:3000",
+      "dataApiLocation": "swa-db-connections",
       "run": "pnpm dev",
       "appLocation": "docs"
     }
