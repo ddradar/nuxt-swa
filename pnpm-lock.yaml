@@ -81,6 +81,12 @@ importers:
       consola:
         specifier: ^3.2.3
         version: 3.2.3
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
+      ufo:
+        specifier: ^1.4.0
+        version: 1.4.0
     devDependencies:
       '@nuxt/module-builder':
         specifier: ^0.5.5

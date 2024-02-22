@@ -19,9 +19,17 @@ export interface SWAModuleOptions {
    * @default []
    */
   customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
+  /** Data API config */
+  dataApi:
+    | {
+        /** REST endpoint path (same value as `runtime.rest.path` in `staticwebapp.database.config.json`) */ rest: string
+        /** GraphQL endpoint path (same value as `runtime.graphql.path` in `staticwebapp.database.config.json`) */ graphql: string
+      }
+    | false
 }
 export const defaults: SWAModuleOptions = {
   customRoles: [],
+  dataApi: { rest: '/rest', graphql: '/graphql' },
 }
 
 /** Resolve `authProviders` option from Nitro config. */
