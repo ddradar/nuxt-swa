@@ -1,11 +1,20 @@
 import type { UseFetchOptions } from '#app'
 import { joinURL } from 'ufo'
+import type { FetchError } from 'ofetch'
+
 /**
  * Data API (REST) response
  * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
  */
-type RestResult<T extends {}> = { value: T[] }
+export type RestResult<T extends {}> = { value: T[] }
 
+/**
+ * Use Data API (preview) REST Features.
+ * @param request Request Endpoint (example: `/User/id/0000` )
+ * @param opts useFetch options
+ * @returns useFetch object
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest
+ */
 export function useDataApiRest<T extends {}>(
   request: string,
   opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
@@ -21,23 +30,46 @@ export function useDataApiRest<T extends {}>(
  * Data API (GraphQL) response
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql#resultset-format
  */
-type GraphQLResult<T extends {}> = { data: T }
+export type GraphQLResult<T extends {}> = { data: T }
 
-export function useDataApiGraphQL<T extends {}>(
+type KeysOf<T> = Array<
+  T extends T ? (keyof T extends string ? keyof T : never) : never
+>
+/**
+ * Use Data API (preview) GraphQL Features.
+ * @param key useFetch key
+ * @param query GraphQL Query or Mutation
+ * @param variables GraphQL variables
+ * @param opts useFetch options
+ * @returns useFetch object
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql
+ */
+export function useDataApiGraphQL<T extends {}, TKey extends KeysOf<T>>(
   key: string,
   query: string,
   variables?: {},
   opts?: Omit<
-    UseFetchOptions<GraphQLResult<T>, T>,
-    'body' | 'key' | 'pick' | 'transform'
+    UseFetchOptions<GraphQLResult<T>, T, TKey, null>,
+    'body' | 'key' | 'method' | 'transform'
   >
-) {
+): ReturnType<
+  typeof useFetch<
+    T,
+    FetchError<any>,
+    string,
+    'post',
+    GraphQLResult<T>,
+    T,
+    TKey,
+    null
+  >
+> {
   const endpoint = useRuntimeConfig().public.swa.graphql
   return useFetch(endpoint, {
     ...opts,
     key,
     method: 'POST',
     body: { query, variables },
-    transform: (d: GraphQLResult<T> | null) => d?.data ?? null,
+    transform: (d: GraphQLResult<T>) => d.data,
   })
 }
