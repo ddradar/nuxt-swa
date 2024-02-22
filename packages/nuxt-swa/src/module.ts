@@ -82,6 +82,10 @@ export default defineNuxtModule({
         }
       )
       addImports({
+        name: '$dataApi',
+        from: resolver.resolve('runtime/utils/data-api'),
+      })
+      addImports({
         name: 'useDataApiRest',
         from: resolver.resolve('runtime/composables/useDataApi'),
       })
