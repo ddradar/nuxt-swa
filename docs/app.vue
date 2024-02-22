@@ -1,17 +1,8 @@
 <script setup lang="ts">
-import type { ParsedContent, NavItem } from '@nuxt/content/dist/runtime/types'
-
 const { seo } = useAppConfig()
 
-const { data: navigation } = await useAsyncData<NavItem[]>(
-  'navigation',
-  () => fetchContentNavigation(),
-  { default: () => [] }
-)
-const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
-  default: () => [],
-  server: false,
-})
+const { data: navigation } = await useContentNavigation()
+const { data: files } = useLazyContentSearch()
 
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],

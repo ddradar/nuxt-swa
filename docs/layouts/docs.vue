@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
-import { withoutTrailingSlash } from 'ufo'
 
 const { toc, seo } = useAppConfig()
-const route = useRoute()
-const { data: page } = await useAsyncData(route.path, () =>
-  queryContent(route.path).findOne()
-)
+const { data: page } = await useContentPage()
 if (!page.value) {
   throw createError({
     statusCode: 404,
@@ -17,12 +13,7 @@ if (!page.value) {
 
 // Page headline and surround
 const headline = computed(() => findPageHeadline(page.value!))
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryContent()
-    .where({ _partial: false, navigation: { $ne: false } })
-    .only(['title', 'description', '_path'])
-    .findSurround(withoutTrailingSlash(route.path))
-)
+const { data: surround } = await useContentSurround()
 
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,

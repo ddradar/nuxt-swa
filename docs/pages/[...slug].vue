@@ -1,10 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'docs' })
 
-const route = useRoute()
-const { data: page } = await useAsyncData(route.path, () =>
-  queryContent(route.path).findOne()
-)
+const { data: page } = await useContentPage()
 </script>
 
 <template>
