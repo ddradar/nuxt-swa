@@ -34,14 +34,19 @@
         {
           "role": "authenticated",
           "actions": [
-            "read",
             {
-              "action": "create",
+              "action": "read",
               "policy": { "database": "@item.id eq @claims.userId" }
             },
             {
+              "action": "create",
+              "policy": { "database": "@item.id eq @claims.userId" },
+              "fields": { "exclude": ["created_at", "updated_at"] }
+            },
+            {
               "action": "update",
-              "policy": { "database": "@item.id eq @claims.userId" }
+              "policy": { "database": "@item.id eq @claims.userId" },
+              "fields": { "exclude": ["created_at", "updated_at"] }
             },
             {
               "action": "delete",
