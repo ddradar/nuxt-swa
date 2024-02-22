@@ -7,7 +7,7 @@ import {
   _authDataKey,
   _clientPrincipalHeader,
 } from '../constants'
-import { parseClientPrincipal } from '../utils'
+import { parseClientPrincipal } from '../utils/auth'
 
 interface Claim {
   typ: string
@@ -125,3 +125,5 @@ export async function useEasyAuth(): Promise<{
     purge,
   }
 }
+
+export {}

@@ -1,7 +1,7 @@
 import { type H3Event, getHeader } from 'h3'
 
 import { _clientPrincipalHeader } from '../../constants'
-import { parseClientPrincipal } from '../../utils'
+import { parseClientPrincipal } from '../../utils/auth'
 import type { ClientPrincipal } from '../../composables/useEasyAuth'
 
 /**

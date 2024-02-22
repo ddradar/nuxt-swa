@@ -6,7 +6,7 @@ import {
   getClientPrincipal,
   hasRole,
 } from '~/src/runtime/server/utils/swa-auth'
-import { parseClientPrincipal } from '~/src/runtime/utils'
+import { parseClientPrincipal } from '~/src/runtime/utils/auth'
 import { _clientPrincipal } from '~/test/unit/constants'
 
 vi.mock('h3')
