@@ -44,12 +44,12 @@ type KeysOf<T> = Array<
  * @returns useFetch object
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql
  */
-export function useDataApiGraphQL<T extends {}, TKey extends KeysOf<T>>(
+export function useDataApiGraphQL<T extends {}>(
   key: string,
   query: string,
   variables?: {},
   opts?: Omit<
-    UseFetchOptions<GraphQLResult<T>, T, TKey, null>,
+    UseFetchOptions<GraphQLResult<T>, T, KeysOf<T>, null>,
     'body' | 'key' | 'method' | 'transform'
   >
 ): ReturnType<
@@ -60,7 +60,7 @@ export function useDataApiGraphQL<T extends {}, TKey extends KeysOf<T>>(
     'post',
     GraphQLResult<T>,
     T,
-    TKey,
+    KeysOf<T>,
     null
   >
 > {
