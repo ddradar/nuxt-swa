@@ -12,11 +12,13 @@ describe('runtime/types/nuxt-swa.d.ts.template', async () => {
   const minimumOptions: SWAModuleOptions = {
     authProviders: [],
     customRoles: [],
+    dataApi: false,
   }
   const defaultOptions = { ...defaults, authProviders: _preConfiguredProviders }
   const fullOptions: SWAModuleOptions = {
     authProviders: ['github', 'twitter', 'line'],
     customRoles: ['administrator'],
+    dataApi: { rest: '/rest', graphql: '/graphql' },
   }
   const templateString = await readFile(
     resolve(

@@ -1,8 +1,8 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest'
 
-import { _clientPrincipal } from '../constants'
-import { parseClientPrincipal } from '~/src/runtime/utils'
+import { _clientPrincipal } from '../../constants'
+import { parseClientPrincipal } from '~/src/runtime/utils/auth'
 
 describe('utils', () => {
   describe('parseClientPrincipal', () => {

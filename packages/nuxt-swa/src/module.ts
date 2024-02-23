@@ -8,8 +8,11 @@ import {
   addServerImportsDir,
   addServerHandler,
 } from '@nuxt/kit'
+import { defu } from 'defu'
+import { joinURL } from 'ufo'
 
 import { defaults, resolveAuthProviders } from './config'
+import { _authBasePath, _dataApiBasePath } from './runtime/constants'
 
 export default defineNuxtModule({
   meta: {
@@ -43,11 +46,11 @@ export default defineNuxtModule({
 
     // Proxy Azure SWA built-in API
     addServerHandler({
-      route: '/data-api/**',
+      route: `${_dataApiBasePath}/**`,
       handler: resolver.resolve('./runtime/server/proxy'),
     })
     addServerHandler({
-      route: '/.auth/**',
+      route: `${_authBasePath}/**`,
       handler: resolver.resolve('./runtime/server/proxy'),
     })
 
@@ -67,6 +70,29 @@ export default defineNuxtModule({
         src: resolver.resolve('runtime/types/nuxt-swa.meta.d.ts'),
       })
       addServerImportsDir(resolver.resolve('runtime/server/utils'))
+    }
+
+    // Data API feature
+    if (options.dataApi) {
+      nuxt.options.runtimeConfig.public.swa = defu(
+        nuxt.options.runtimeConfig.public.swa,
+        {
+          rest: joinURL(_dataApiBasePath, options.dataApi.rest),
+          graphql: joinURL(_dataApiBasePath, options.dataApi.graphql),
+        }
+      )
+      addImports({
+        name: '$dataApi',
+        from: resolver.resolve('runtime/utils/data-api'),
+      })
+      addImports({
+        name: 'useDataApiRest',
+        from: resolver.resolve('runtime/composables/useDataApi'),
+      })
+      addImports({
+        name: 'useDataApiGraphQL',
+        from: resolver.resolve('runtime/composables/useDataApi'),
+      })
     }
   },
 })
@@ -301,5 +327,11 @@ declare module 'nitropack' {
       }
       [k: string]: unknown
     }
+  }
+}
+
+declare module 'nuxt/schema' {
+  interface PublicRuntimeConfig {
+    swa: { rest: string; graphql: string }
   }
 }
