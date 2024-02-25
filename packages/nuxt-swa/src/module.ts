@@ -81,18 +81,12 @@ export default defineNuxtModule({
           graphql: joinURL(_dataApiBasePath, options.dataApi.graphql),
         }
       )
-      addImports({
-        name: '$dataApi',
-        from: resolver.resolve('runtime/utils/data-api'),
-      })
-      addImports({
-        name: 'useDataApiRest',
-        from: resolver.resolve('runtime/composables/useDataApi'),
-      })
-      addImports({
-        name: 'useDataApiGraphQL',
-        from: resolver.resolve('runtime/composables/useDataApi'),
-      })
+      addImports(
+        ['useDataApi', 'useFetchRest', 'useFetchGraphQL'].map(name => ({
+          name,
+          from: resolver.resolve('runtime/composables/useDataApi'),
+        }))
+      )
     }
   },
 })

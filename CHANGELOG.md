@@ -1,6 +1,30 @@
 # Changelog
 
+## v0.3.0
+
+Highlights:
+- Data API helper
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.2.0...v0.3.0)
+
+### 🚀 Enhancements
+
+- Add server proxy for `/data-api` & `/.auth` ([#49](https://github.com/ddradar/nuxt-swa/pull/49))
+- Add Data API helper ([#50](https://github.com/ddradar/nuxt-swa/pull/50), [#52](https://github.com/ddradar/nuxt-swa/pull/52))
+
+### 💅 Refactors
+
+- **docs:** Use composable functions ([#51](https://github.com/ddradar/nuxt-swa/pull/51))
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.2.0
+
+Highlights:
+- Route middleware
+- Server Utils
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.1.0...v0.2.0)
 

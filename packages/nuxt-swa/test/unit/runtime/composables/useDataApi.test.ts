@@ -1,49 +1,59 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { useRuntimeConfigMock, useFetchMock } = vi.hoisted(() => ({
-  useRuntimeConfigMock: vi.fn(),
-  useFetchMock: vi.fn(),
+const rest = '/data-api/rest'
+const graphql = '/data-api/graphql'
+const { useFetchMock } = vi.hoisted(() => ({ useFetchMock: vi.fn() }))
+mockNuxtImport('useRuntimeConfig', () => () => ({
+  public: { swa: { rest, graphql } },
 }))
-mockNuxtImport('useRuntimeConfig', () => useRuntimeConfigMock)
 mockNuxtImport('useFetch', () => useFetchMock)
 
 type User = { id: string; name: string }
 
 describe('runtime/composables/useDataApi', () => {
-  const runtimeConfig = {
-    public: { swa: { rest: '/data-api/rest', graphql: '/data-api/graphql' } },
-  }
   beforeEach(() => {
-    useRuntimeConfigMock.mockClear()
     useFetchMock.mockClear()
   })
 
-  describe('useDataApiRest', () => {
-    it.each([
-      ['/User/id/0000', undefined, '/data-api/rest/User/id/0000'],
-      [
-        '/User',
-        { method: 'POST' as const, body: { id: '0001', name: 'foo' } },
-        '/data-api/rest/User',
-      ],
-    ])('(%s, %o) calls %s endpoint', async (request, opts, expected) => {
+  describe('useDataApi', () => {
+    it('creates $fetch object for REST & GraphQL', async () => {
       // Arrange
-      useRuntimeConfigMock.mockReturnValue(runtimeConfig)
-
+      vi.mocked($fetch.create).mockClear()
       // Act
-      await useDataApiRest<User>(request, opts)
-
+      useDataApi()
       // Assert
-      expect(useFetchMock).toBeCalledWith(
-        expected,
-        { ...opts, transform: expect.any(Function) },
-        expect.any(String)
-      )
+      expect(vi.mocked($fetch.create)).toBeCalledWith({
+        baseURL: graphql,
+        method: 'POST',
+      })
+      expect(vi.mocked($fetch.create)).toBeCalledWith({ baseURL: rest })
     })
   })
 
-  describe('useDataApiGraphQL', () => {
+  describe('useFetchRest', () => {
+    it.each([
+      ['/User/id/0000', undefined, `${rest}/User/id/0000`],
+      [
+        '/User',
+        { method: 'POST' as const, body: { id: '0001', name: 'foo' } },
+        `${rest}/User`,
+      ],
+    ])('(%s, %o) calls %s endpoint', async (request, opts, expected) => {
+      // Arrange - Act
+      await useFetchRest<User>(request, opts)
+
+      // Assert
+      expect(useFetchMock).toBeCalledWith(
+        expect.any(Object),
+        { ...opts, transform: expect.any(Function) },
+        expect.any(String)
+      )
+      expect(useFetchMock.mock.calls[0][0].value).toBe(expected)
+    })
+  })
+
+  describe('useFetchGraphQL', () => {
     it.each([
       [
         'users-get',
@@ -58,15 +68,12 @@ describe('runtime/composables/useDataApi', () => {
         {},
       ],
     ])('', async (key, query, variables, opts) => {
-      // Arrange
-      useRuntimeConfigMock.mockReturnValue(runtimeConfig)
-
-      // Act
-      await useDataApiGraphQL<User>(key, query, variables, opts)
+      // Arrange - Act
+      await useFetchGraphQL<User>(key, query, variables, opts)
 
       // Assert
       expect(useFetchMock).toBeCalledWith(
-        '/data-api/graphql',
+        graphql,
         {
           ...opts,
           key,
