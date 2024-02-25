@@ -1,7 +1,8 @@
 import type { UseFetchOptions } from '#app'
-import { joinURL } from 'ufo'
-import type { FetchError } from 'ofetch'
 import type { $Fetch } from 'nitropack'
+import type { FetchError } from 'ofetch'
+import { joinURL } from 'ufo'
+import type { MaybeRef } from 'vue'
 
 /**
  * Use Azure Static Web Apps Data API Feature (preview).
@@ -29,7 +30,7 @@ export function useDataApi(): {
  * @see https://learn.microsoft.com/azure/data-api-builder/rest
  */
 export function useFetchRest<T extends {}>(
-  request: string | Ref<string>,
+  request: MaybeRef<string>,
   opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
 ): ReturnType<typeof useFetch<T[] | null>> {
   const endpoint = useRuntimeConfig().public.swa.rest
@@ -61,7 +62,7 @@ export function useFetchGraphQL<
 >(
   key: string,
   query: string,
-  variables?: {} | Ref<{}>,
+  variables?: MaybeRef<{}>,
   opts?: Omit<
     UseFetchOptions<GraphQLResult<SchemaT>, DataT, PickKeys, DefaultT>,
     'body' | 'key' | 'method'
