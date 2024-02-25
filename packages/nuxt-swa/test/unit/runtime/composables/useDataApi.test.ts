@@ -1,25 +1,20 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-const { useRuntimeConfigMock, useFetchMock } = vi.hoisted(() => ({
-  useRuntimeConfigMock: vi.fn(),
-  useFetchMock: vi.fn(),
+const { useFetchMock } = vi.hoisted(() => ({ useFetchMock: vi.fn() }))
+mockNuxtImport('useRuntimeConfig', () => () => ({
+  public: { swa: { rest: '/data-api/rest', graphql: '/data-api/graphql' } },
 }))
-mockNuxtImport('useRuntimeConfig', () => useRuntimeConfigMock)
 mockNuxtImport('useFetch', () => useFetchMock)
 
 type User = { id: string; name: string }
 
 describe('runtime/composables/useDataApi', () => {
-  const runtimeConfig = {
-    public: { swa: { rest: '/data-api/rest', graphql: '/data-api/graphql' } },
-  }
   beforeEach(() => {
-    useRuntimeConfigMock.mockClear()
     useFetchMock.mockClear()
   })
 
-  describe('useDataApiRest', () => {
+  describe('useFetchRest', () => {
     it.each([
       ['/User/id/0000', undefined, '/data-api/rest/User/id/0000'],
       [
@@ -28,11 +23,8 @@ describe('runtime/composables/useDataApi', () => {
         '/data-api/rest/User',
       ],
     ])('(%s, %o) calls %s endpoint', async (request, opts, expected) => {
-      // Arrange
-      useRuntimeConfigMock.mockReturnValue(runtimeConfig)
-
-      // Act
-      await useDataApiRest<User>(request, opts)
+      // Arrange - Act
+      await useFetchRest<User>(request, opts)
 
       // Assert
       expect(useFetchMock).toBeCalledWith(
@@ -43,7 +35,7 @@ describe('runtime/composables/useDataApi', () => {
     })
   })
 
-  describe('useDataApiGraphQL', () => {
+  describe('useFetchGraphQL', () => {
     it.each([
       [
         'users-get',
@@ -58,11 +50,8 @@ describe('runtime/composables/useDataApi', () => {
         {},
       ],
     ])('', async (key, query, variables, opts) => {
-      // Arrange
-      useRuntimeConfigMock.mockReturnValue(runtimeConfig)
-
-      // Act
-      await useDataApiGraphQL<User>(key, query, variables, opts)
+      // Arrange - Act
+      await useFetchGraphQL<User>(key, query, variables, opts)
 
       // Assert
       expect(useFetchMock).toBeCalledWith(

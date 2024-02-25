@@ -3,19 +3,13 @@ import { joinURL } from 'ufo'
 import type { FetchError } from 'ofetch'
 
 /**
- * Data API (REST) response
- * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
- */
-export type RestResult<T extends {}> = { value: T[] }
-
-/**
  * Use Data API (preview) REST Features.
  * @param request Request Endpoint (example: `/User/id/0000` )
  * @param opts useFetch options
  * @returns useFetch object
  * @see https://learn.microsoft.com/azure/data-api-builder/rest
  */
-export function useDataApiRest<T extends {}>(
+export function useFetchRest<T extends {}>(
   request: string,
   opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
 ): ReturnType<typeof useFetch<T[] | null>> {
@@ -25,12 +19,6 @@ export function useDataApiRest<T extends {}>(
     transform: (d: RestResult<T>) => d.value,
   })
 }
-
-/**
- * Data API (GraphQL) response
- * @see https://learn.microsoft.com/azure/data-api-builder/graphql#resultset-format
- */
-export type GraphQLResult<T extends {}> = { data: T }
 
 type KeysOf<T> = Array<
   T extends T ? (keyof T extends string ? keyof T : never) : never
@@ -44,7 +32,7 @@ type KeysOf<T> = Array<
  * @returns useFetch object
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql
  */
-export function useDataApiGraphQL<T extends {}>(
+export function useFetchGraphQL<T extends {}>(
   key: string,
   query: string,
   variables?: {},
