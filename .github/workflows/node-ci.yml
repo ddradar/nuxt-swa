@@ -134,14 +134,13 @@ jobs:
           skip_app_build: true
           api_location: docs/.output/server
           skip_api_build: true
+          data_api_location: swa-db-connections
 
   publish:
     name: Publish Package
     needs: [lint, build, test]
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
-    environment:
-      name: 'production'
     permissions:
       contents: read
       packages: write
