@@ -29,7 +29,7 @@ export function useDataApi(): {
  * @see https://learn.microsoft.com/azure/data-api-builder/rest
  */
 export function useFetchRest<T extends {}>(
-  request: MaybeRef<string>,
+  request: string | Ref<string>,
   opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
 ): ReturnType<typeof useFetch<T[] | null>> {
   const endpoint = useRuntimeConfig().public.swa.rest
@@ -61,7 +61,7 @@ export function useFetchGraphQL<
 >(
   key: string,
   query: string,
-  variables?: MaybeRef<{}>,
+  variables?: {} | Ref<{}>,
   opts?: Omit<
     UseFetchOptions<GraphQLResult<SchemaT>, DataT, PickKeys, DefaultT>,
     'body' | 'key' | 'method'
