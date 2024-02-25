@@ -13,7 +13,7 @@ const { clientPrincipal, isLoggedIn } = await useEasyAuth()
 const { data: state } = await useFetchGraphQL(
   `/users/${clientPrincipal.value?.userId}`,
   /* GraphQL */ `
-    query ($id: ID!) {
+    query ($id: String!) {
       user_by_pk(id: $id) {
         id
         name
@@ -22,15 +22,17 @@ const { data: state } = await useFetchGraphQL(
   `,
   { id: clientPrincipal.value?.userId },
   {
-    transform: (d: GraphQLResult<UserByPk>) => d.data.user_by_pk,
+    transform: (d: GraphQLResult<UserByPk | null>) =>
+      d?.data?.user_by_pk ?? { id: clientPrincipal.value?.userId, name: '' },
     default: () => ({ id: clientPrincipal.value?.userId, name: '' }),
   }
 )
+
 const { execute: onSubmit } = useFetchGraphQL(
   `post/users/${clientPrincipal.value?.userId}`,
   /* GraphQL */ `
-    mutation ($id: ID!, $name: string!) {
-      updateUser(item: { id: $id, name: $name }) {
+    mutation ($id: String!, $name: String!) {
+      updateUser(id: $id, item: { name: $name }) {
         id
         name
       }

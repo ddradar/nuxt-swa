@@ -21,10 +21,10 @@ type IdentityProvider =<% for (const provider of options.authProviders) { %>
  * Data API (REST) response
  * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
  */
-type RestResult<T extends {}> = { value: T[] }
+type RestResult<T> = { value: T[] }
 
 /**
  * Data API (GraphQL) response
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql#resultset-format
  */
-type GraphQLResult<T extends {}> = { data: T }<% } %>
+type GraphQLResult<T> = { data: T }<% } %>

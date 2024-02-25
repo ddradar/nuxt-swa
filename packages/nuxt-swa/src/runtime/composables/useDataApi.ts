@@ -29,7 +29,7 @@ export function useDataApi(): {
  * @returns useFetch object
  * @see https://learn.microsoft.com/azure/data-api-builder/rest
  */
-export function useFetchRest<T extends {}>(
+export function useFetchRest<T>(
   request: MaybeRef<string>,
   opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
 ): ReturnType<typeof useFetch<T[] | null>> {
@@ -55,7 +55,7 @@ type KeysOf<T> = Array<
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql
  */
 export function useFetchGraphQL<
-  SchemaT extends {},
+  SchemaT,
   DataT = SchemaT,
   PickKeys extends KeysOf<DataT> = KeysOf<DataT>,
   DefaultT = DataT,
