@@ -1,9 +1,11 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+const rest = '/data-api/rest'
+const graphql = '/data-api/graphql'
 const { useFetchMock } = vi.hoisted(() => ({ useFetchMock: vi.fn() }))
 mockNuxtImport('useRuntimeConfig', () => () => ({
-  public: { swa: { rest: '/data-api/rest', graphql: '/data-api/graphql' } },
+  public: { swa: { rest, graphql } },
 }))
 mockNuxtImport('useFetch', () => useFetchMock)
 
@@ -14,13 +16,28 @@ describe('runtime/composables/useDataApi', () => {
     useFetchMock.mockClear()
   })
 
+  describe('useDataApi', () => {
+    it('creates $fetch object for REST & GraphQL', async () => {
+      // Arrange
+      vi.mocked($fetch.create).mockClear()
+      // Act
+      useDataApi()
+      // Assert
+      expect(vi.mocked($fetch.create)).toBeCalledWith({
+        baseURL: graphql,
+        method: 'POST',
+      })
+      expect(vi.mocked($fetch.create)).toBeCalledWith({ baseURL: rest })
+    })
+  })
+
   describe('useFetchRest', () => {
     it.each([
-      ['/User/id/0000', undefined, '/data-api/rest/User/id/0000'],
+      ['/User/id/0000', undefined, `${rest}/User/id/0000`],
       [
         '/User',
         { method: 'POST' as const, body: { id: '0001', name: 'foo' } },
-        '/data-api/rest/User',
+        `${rest}/User`,
       ],
     ])('(%s, %o) calls %s endpoint', async (request, opts, expected) => {
       // Arrange - Act
@@ -55,7 +72,7 @@ describe('runtime/composables/useDataApi', () => {
 
       // Assert
       expect(useFetchMock).toBeCalledWith(
-        '/data-api/graphql',
+        graphql,
         {
           ...opts,
           key,

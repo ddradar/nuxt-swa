@@ -82,7 +82,7 @@ export default defineNuxtModule({
         }
       )
       addImports(
-        ['useFetchRest', 'useFetchGraphQL'].map(name => ({
+        ['useDataApi', 'useFetchRest', 'useFetchGraphQL'].map(name => ({
           name,
           from: resolver.resolve('runtime/composables/useDataApi'),
         }))
