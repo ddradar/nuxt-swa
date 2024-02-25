@@ -5,6 +5,7 @@
     "connection-string": "@env('AZURE_SQL_CONNECTION_STRING')"
   },
   "runtime": {
+    "mode": "development",
     "rest": {
       "enabled": true,
       "path": "/rest",
@@ -24,12 +25,6 @@
         "provider": "StaticWebApps"
       },
       "mode": "development"
-    },
-    "telemetry": {
-      "application-insights": {
-        "enabled": true,
-        "connection-string": "@env('APPLICATIONINSIGHTS_CONNECTION_STRING')"
-      }
     }
   },
   "entities": {
