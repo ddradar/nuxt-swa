@@ -45,10 +45,11 @@ describe('runtime/composables/useDataApi', () => {
 
       // Assert
       expect(useFetchMock).toBeCalledWith(
-        expected,
+        expect.any(Object),
         { ...opts, transform: expect.any(Function) },
         expect.any(String)
       )
+      expect(useFetchMock.mock.calls[0][0].value).toBe(expected)
     })
   })
 
