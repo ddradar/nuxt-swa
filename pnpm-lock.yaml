@@ -64,8 +64,8 @@ importers:
         specifier: ^1.0.11
         version: 1.0.11
       nuxt-applicationinsights:
-        specifier: ^0.2.1
-        version: 0.2.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3)
+        specifier: ^0.3.1
+        version: 0.3.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3)
       nuxt-swa:
         specifier: workspace:*
         version: link:../packages/nuxt-swa
@@ -1667,6 +1667,7 @@ packages:
       - nuxt
       - rollup
       - supports-color
+      - uWebSockets.js
       - utf-8-validate
       - vue
     dev: false
@@ -1733,7 +1734,7 @@ packages:
       '@nuxt/kit': 3.10.2(rollup@3.29.4)
       birpc: 0.2.15
       consola: 3.2.3
-      destr: 2.0.2
+      destr: 2.0.3
       error-stack-parser-es: 0.1.1
       execa: 7.2.0
       fast-glob: 3.3.2
@@ -1910,7 +1911,7 @@ packages:
       consola: 3.2.3
       create-require: 1.1.1
       defu: 6.1.4
-      destr: 2.0.2
+      destr: 2.0.3
       dotenv: 16.4.4
       git-url-parse: 13.1.1
       is-docker: 3.0.0
@@ -2026,6 +2027,7 @@ packages:
       - sortablejs
       - supports-color
       - ts-node
+      - uWebSockets.js
       - universal-cookie
       - vite
       - vue
@@ -2077,6 +2079,7 @@ packages:
       - sortablejs
       - supports-color
       - ts-node
+      - uWebSockets.js
       - universal-cookie
       - vite
       - vue
@@ -2103,7 +2106,7 @@ packages:
       externality: 1.0.2
       fs-extra: 11.2.0
       get-port-please: 3.1.2
-      h3: 1.10.1
+      h3: 1.11.1
       knitwork: 1.0.0
       magic-string: 0.30.7
       mlly: 1.5.0
@@ -2138,6 +2141,7 @@ packages:
       - supports-color
       - terser
       - typescript
+      - uWebSockets.js
       - vls
       - vti
       - vue-tsc
@@ -2164,7 +2168,7 @@ packages:
       externality: 1.0.2
       fs-extra: 11.2.0
       get-port-please: 3.1.2
-      h3: 1.10.1
+      h3: 1.11.1
       knitwork: 1.0.0
       magic-string: 0.30.7
       mlly: 1.5.0
@@ -2199,6 +2203,7 @@ packages:
       - supports-color
       - terser
       - typescript
+      - uWebSockets.js
       - vls
       - vti
       - vue-tsc
@@ -2309,7 +2314,7 @@ packages:
       consola: 3.2.3
       debug: 4.3.4
       defu: 6.1.4
-      destr: 2.0.2
+      destr: 2.0.3
       detab: 3.0.2
       github-slugger: 2.0.0
       hast-util-to-string: 3.0.0
@@ -2350,7 +2355,7 @@ packages:
       clear-module: 4.1.2
       consola: 3.2.3
       defu: 6.1.4
-      h3: 1.10.1
+      h3: 1.11.1
       micromatch: 4.0.5
       pathe: 1.1.2
       postcss: 8.4.35
@@ -2363,6 +2368,7 @@ packages:
       - rollup
       - supports-color
       - ts-node
+      - uWebSockets.js
     dev: false
 
   /@one-ini/wasm@0.1.1:
@@ -4870,7 +4876,6 @@ packages:
     peerDependenciesMeta:
       uWebSockets.js:
         optional: true
-    dev: true
 
   /crypt@0.0.2:
     resolution: {integrity: sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==}
@@ -5175,7 +5180,6 @@ packages:
 
   /destr@2.0.3:
     resolution: {integrity: sha512-2N3BOUU4gYMpTP24s5rF5iP7BDr7uNTCs4ozw3kf/eKfvWSIu93GEBi5m427YoyJoeOzQ5smuu4nNAPGb8idSQ==}
-    dev: true
 
   /destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
@@ -6580,7 +6584,7 @@ packages:
     dependencies:
       cookie-es: 1.0.0
       defu: 6.1.4
-      destr: 2.0.2
+      destr: 2.0.3
       iron-webcrypto: 1.0.0
       ohash: 1.1.3
       radix3: 1.1.0
@@ -6603,7 +6607,6 @@ packages:
       unenv: 1.9.0
     transitivePeerDependencies:
       - uWebSockets.js
-    dev: true
 
   /happy-dom@13.3.8:
     resolution: {integrity: sha512-RAbq4oYfJNkVan1m1F3jfA4YEyRY0/ASoNvZsNJbuX85jIypidmsz9jQZD7Tqz0VXA2MhAGfcsh5oshwmwNYSg==}
@@ -7713,7 +7716,7 @@ packages:
       crossws: 0.1.1
       defu: 6.1.4
       get-port-please: 3.1.2
-      h3: 1.10.1
+      h3: 1.11.1
       http-shutdown: 1.2.2
       jiti: 1.21.0
       mlly: 1.5.0
@@ -7723,6 +7726,8 @@ packages:
       ufo: 1.4.0
       untun: 0.1.3
       uqr: 0.1.2
+    transitivePeerDependencies:
+      - uWebSockets.js
 
   /listr2@8.0.1:
     resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
@@ -8615,12 +8620,12 @@ packages:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
 
-  /nitro-applicationinsights@0.3.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-+JPpOqNFcvduHza5IARscCYv4evcw6ivqVHo5TuSt4dlpXXNDYkIG6627wUxFcbrDv8dpZHgPFdOcgROhqwktA==}
+  /nitro-applicationinsights@0.5.0(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-gCg+agzwh4KFGaPQAwdboop7xoIgDCMa4H03Fz0ndMA26TBWhWSND0Nm8HRD5gsZakaeclyNCovdXR3S+NZ4yw==}
     dependencies:
       '@nuxtjs/eslint-config-typescript': 12.1.0(eslint@8.57.0)(typescript@5.3.3)
       applicationinsights: 2.9.3(tslib@2.6.2)
-      h3: 1.10.1
+      h3: 1.11.1
       nitropack: 2.8.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -8643,6 +8648,7 @@ packages:
       - supports-color
       - tslib
       - typescript
+      - uWebSockets.js
       - xml2js
     dev: true
 
@@ -8677,7 +8683,7 @@ packages:
       consola: 3.2.3
       cookie-es: 1.0.0
       defu: 6.1.4
-      destr: 2.0.2
+      destr: 2.0.3
       dot-prop: 8.0.2
       esbuild: 0.19.12
       escape-string-regexp: 5.0.0
@@ -8686,7 +8692,7 @@ packages:
       fs-extra: 11.2.0
       globby: 14.0.1
       gzip-size: 7.0.0
-      h3: 1.10.1
+      h3: 1.11.1
       hookable: 5.5.3
       httpxy: 0.1.5
       is-primitive: 3.0.1
@@ -8735,6 +8741,7 @@ packages:
       - encoding
       - idb-keyval
       - supports-color
+      - uWebSockets.js
 
   /node-abi@3.54.0:
     resolution: {integrity: sha512-p7eGEiQil0YUV3ItH4/tBb781L5impVmmx2E9FRKF7d18XXzp4PGT2tdYMFY6wQqgxD0IwNZOiSJ0/K0fSi/OA==}
@@ -8935,15 +8942,14 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /nuxt-applicationinsights@0.2.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3):
-    resolution: {integrity: sha512-IRXsiWSZ8kLZkUjMj4mVqMKVFvdcY9JK3H0gzrj5aTE4gYDgaba400YrVhWTjFtIfLvsWGePC0C7ha4aEjwQVA==}
+  /nuxt-applicationinsights@0.3.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3):
+    resolution: {integrity: sha512-6IZM/ZetOU5t2qIZlIVsusmUrqLqowmlMhiZgmH+nKVBIYids2mbsCWsMxCihQni9dJvDSlAobJEAxDNBYGhHA==}
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.1.0(tslib@2.6.2)
       '@microsoft/applicationinsights-web': 3.1.0(tslib@2.6.2)
       '@nuxt/kit': 3.10.2(rollup@3.29.4)
-      applicationinsights: 2.9.3(tslib@2.6.2)
       defu: 6.1.4
-      nitro-applicationinsights: 0.3.1(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3)
+      nitro-applicationinsights: 0.5.0(eslint@8.57.0)(tslib@2.6.2)(typescript@5.3.3)
       nitropack: 2.8.1
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -8967,6 +8973,7 @@ packages:
       - supports-color
       - tslib
       - typescript
+      - uWebSockets.js
       - xml2js
     dev: true
 
@@ -9097,6 +9104,7 @@ packages:
       - supports-color
       - terser
       - typescript
+      - uWebSockets.js
       - utf-8-validate
       - vite
       - vls
@@ -9202,6 +9210,7 @@ packages:
       - supports-color
       - terser
       - typescript
+      - uWebSockets.js
       - utf-8-validate
       - vite
       - vls
@@ -10156,7 +10165,7 @@ packages:
     resolution: {integrity: sha512-lNeOl38Ws0eNxpO3+wD1I9rkHGQyj1NU1jlzv4go2CtEnEQEUfqnIvZG7W+bC/aXdJ27n5x/yUjb6RoT9tko+Q==}
     dependencies:
       defu: 6.1.4
-      destr: 2.0.2
+      destr: 2.0.3
       flat: 5.0.2
 
   /rc@1.2.8:
@@ -11886,8 +11895,8 @@ packages:
     dependencies:
       anymatch: 3.1.3
       chokidar: 3.6.0
-      destr: 2.0.2
-      h3: 1.10.1
+      destr: 2.0.3
+      h3: 1.11.1
       ioredis: 5.3.2
       listhen: 1.6.0
       lru-cache: 10.2.0
@@ -11897,6 +11906,7 @@ packages:
       ufo: 1.4.0
     transitivePeerDependencies:
       - supports-color
+      - uWebSockets.js
 
   /untildify@4.0.0:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
