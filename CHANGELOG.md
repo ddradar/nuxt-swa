@@ -1,40 +1,10 @@
 # Changelog
 
-## v0.3.1
-
-[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.2.0...v0.3.1)
-
-### 🚀 Enhancements
-
-- Add server proxy for /data-api ([#49](https://github.com/ddradar/nuxt-swa/pull/49))
-- Add Data API helper ([#50](https://github.com/ddradar/nuxt-swa/pull/50))
-- Add `useDataApi` composable function ([#52](https://github.com/ddradar/nuxt-swa/pull/52))
-
-### 🩹 Fixes
-
-- Fix graphql syntax error ([#53](https://github.com/ddradar/nuxt-swa/pull/53))
 - **deps:** Bump @iconify-json/simple-icons from 1.1.91 to 1.1.92 ([#61](https://github.com/ddradar/nuxt-swa/pull/61))
 - **deps:** Bump the nuxt group with 4 updates ([5c0d7c2](https://github.com/ddradar/nuxt-swa/commit/5c0d7c2))
 
-### 💅 Refactors
-
-- **docs:** Use composable functions ([#51](https://github.com/ddradar/nuxt-swa/pull/51))
-
-### 🏡 Chore
-
-- **deps-dev:** Bump the lint-tools group with 1 update ([#56](https://github.com/ddradar/nuxt-swa/pull/56))
-- **deps-dev:** Bump the vitest group with 2 updates ([#55](https://github.com/ddradar/nuxt-swa/pull/55))
-- **deps-dev:** Bump nuxt-applicationinsights from 0.2.1 to 0.3.1 ([#58](https://github.com/ddradar/nuxt-swa/pull/58))
-- **deps-dev:** Bump happy-dom from 13.3.8 to 13.6.0 ([#59](https://github.com/ddradar/nuxt-swa/pull/59))
-- **deps-dev:** Bump @types/node from 18.19.17 to 18.19.18 ([#60](https://github.com/ddradar/nuxt-swa/pull/60))
-
-### 🤖 CI
-
 - **deps:** Bump codecov/codecov-action from 4.0.1 to 4.0.2 ([#54](https://github.com/ddradar/nuxt-swa/pull/54))
 
-### ❤️ Contributors
-
-- Nogic
 
 ## v0.3.0
 
@@ -46,11 +16,27 @@ Highlights:
 ### 🚀 Enhancements
 
 - Add server proxy for `/data-api` & `/.auth` ([#49](https://github.com/ddradar/nuxt-swa/pull/49))
-- Add Data API helper ([#50](https://github.com/ddradar/nuxt-swa/pull/50), [#52](https://github.com/ddradar/nuxt-swa/pull/52))
+- Add Data API helper ([#50](https://github.com/ddradar/nuxt-swa/pull/50), [#52](https://github.com/ddradar/nuxt-swa/pull/52),[#53](https://github.com/ddradar/nuxt-swa/pull/53))
 
 ### 💅 Refactors
 
 - **docs:** Use composable functions ([#51](https://github.com/ddradar/nuxt-swa/pull/51))
+
+### 🏡 Chore
+
+- **deps-dev:** Bump the lint-tools group with 1 update ([#56](https://github.com/ddradar/nuxt-swa/pull/56))
+- **deps-dev:** Bump the vitest group with 2 updates ([#55](https://github.com/ddradar/nuxt-swa/pull/55))
+
+
+### 🤖 CI
+
+#### Dependencies Update (powered by Dependabot🤖)
+
+|kind|package|old|new|PRs|
+|----|-------|--:|--:|---|
+|NPM(dev)|@types/node|18.19.17|18.19.18|[#60](https://github.com/ddradar/nuxt-swa/pull/60)|
+|NPM(dev)|happy-dom|13.3.8|13.6.0|[#59](https://github.com/ddradar/nuxt-swa/pull/59)|
+|NPM(dev)|nuxt-applicationinsights|0.2.1|0.3.1|[#58](https://github.com/ddradar/nuxt-swa/pull/58)|
 
 ### ❤️ Contributors
 
