@@ -1,11 +1,5 @@
 # Changelog
 
-- **deps:** Bump @iconify-json/simple-icons from 1.1.91 to 1.1.92 ([#61](https://github.com/ddradar/nuxt-swa/pull/61))
-- **deps:** Bump the nuxt group with 4 updates ([5c0d7c2](https://github.com/ddradar/nuxt-swa/commit/5c0d7c2))
-
-- **deps:** Bump codecov/codecov-action from 4.0.1 to 4.0.2 ([#54](https://github.com/ddradar/nuxt-swa/pull/54))
-
-
 ## v0.3.0
 
 Highlights:
@@ -22,21 +16,24 @@ Highlights:
 
 - **docs:** Use composable functions ([#51](https://github.com/ddradar/nuxt-swa/pull/51))
 
-### 🏡 Chore
-
-- **deps-dev:** Bump the lint-tools group with 1 update ([#56](https://github.com/ddradar/nuxt-swa/pull/56))
-- **deps-dev:** Bump the vitest group with 2 updates ([#55](https://github.com/ddradar/nuxt-swa/pull/55))
-
-
 ### 🤖 CI
 
 #### Dependencies Update (powered by Dependabot🤖)
 
 |kind|package|old|new|PRs|
 |----|-------|--:|--:|---|
+|NPM|@iconify-json/simple-icons|1.1.91|1.1.92|[#61](https://github.com/ddradar/nuxt-swa/pull/61)|
+|NPM|@nuxt/kit|3.10.2|3.10.3|[#57](https://github.com/ddradar/nuxt-swa/pull/57)|
+|NPM|@nuxt/ui-pro|0.7.5|1.0.1|[#57](https://github.com/ddradar/nuxt-swa/pull/57)|
+|NPM|nuxt|3.10.2|3.10.3|[#57](https://github.com/ddradar/nuxt-swa/pull/57)|
+|GitHub Actions|codecov/codecov-action|4.0.1|4.0.2|[#54](https://github.com/ddradar/nuxt-swa/pull/54)|
+|NPM(dev)|@nuxt/schema|3.10.2|3.10.3|[#57](https://github.com/ddradar/nuxt-swa/pull/57)|
 |NPM(dev)|@types/node|18.19.17|18.19.18|[#60](https://github.com/ddradar/nuxt-swa/pull/60)|
+|NPM(dev)|@vitest/coverage-v8|1.3.0|1.3.1|[#55](https://github.com/ddradar/nuxt-swa/pull/55)|
+|NPM(dev)|eslint|8.56.0|8.57.0|[#56](https://github.com/ddradar/nuxt-swa/pull/56)|
 |NPM(dev)|happy-dom|13.3.8|13.6.0|[#59](https://github.com/ddradar/nuxt-swa/pull/59)|
 |NPM(dev)|nuxt-applicationinsights|0.2.1|0.3.1|[#58](https://github.com/ddradar/nuxt-swa/pull/58)|
+|NPM(dev)|vitest|1.3.0|1.3.1|[#55](https://github.com/ddradar/nuxt-swa/pull/55)|
 
 ### ❤️ Contributors
 
