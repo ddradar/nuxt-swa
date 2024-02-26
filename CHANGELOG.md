@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.3.1
+
+- No enhancements on packages
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.3.0...v0.3.1)
+
+### 🩹 Fixes
+
+- **ci:** Avoid run prepare on publish ([#66](https://github.com/ddradar/nuxt-swa/pull/66))
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.3.0
 
 Highlights:
