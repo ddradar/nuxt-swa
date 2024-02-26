@@ -157,7 +157,6 @@ jobs:
         with:
           node-version: ${{ vars.NODE_VERSION }}
           registry-url: ${{ vars.NPM_REGISTRY_URL }}
-          cache: pnpm
 
       - name: Download Package Distribution
         uses: actions/download-artifact@v4.1.2
@@ -165,11 +164,8 @@ jobs:
           name: package
           path: packages/nuxt-swa/dist
 
-      - name: Install Project Dependencies
-        run: pnpm install --frozen-lockfile
-
       - name: Publish
-        run: pnpm -r publish --no-git-checks
+        run: pnpm -r publish --no-git-checks --ignore-scripts
         working-directory: packages/nuxt-swa
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
