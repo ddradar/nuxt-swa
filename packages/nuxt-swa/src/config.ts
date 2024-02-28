@@ -1,8 +1,9 @@
+import type { NuxtConfig } from 'nuxt/config'
+
 import {
   type _knownIdentityProviders,
   _preConfiguredProviders,
 } from './runtime/constants'
-import type { NuxtConfig } from 'nuxt/config'
 
 export interface SWAModuleOptions {
   /**

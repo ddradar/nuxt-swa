@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NavItem } from '@nuxt/content/dist/runtime/types'
+
 import type { DropdownItem } from '#ui/types'
 
 const navigation = inject<NavItem[]>('navigation', [])

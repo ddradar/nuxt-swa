@@ -1,12 +1,12 @@
 import {
-  defineNuxtModule,
-  createResolver,
-  addTypeTemplate,
-  addRouteMiddleware,
   addImports,
-  useLogger,
-  addServerImportsDir,
+  addRouteMiddleware,
   addServerHandler,
+  addServerImportsDir,
+  addTypeTemplate,
+  createResolver,
+  defineNuxtModule,
+  useLogger,
 } from '@nuxt/kit'
 import { defu } from 'defu'
 import { joinURL } from 'ufo'

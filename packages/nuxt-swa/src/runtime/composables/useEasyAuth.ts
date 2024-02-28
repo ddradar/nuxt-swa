@@ -1,4 +1,5 @@
 import type { ComputedRef, DeepReadonly, Ref } from 'vue'
+
 import { navigateTo, useAsyncData } from '#app'
 import { computed, readonly, useRequestHeader } from '#imports'
 
