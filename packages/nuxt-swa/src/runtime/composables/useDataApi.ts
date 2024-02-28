@@ -1,8 +1,9 @@
-import type { UseFetchOptions } from '#app'
 import type { $Fetch } from 'nitropack'
 import type { FetchError } from 'ofetch'
 import { joinURL } from 'ufo'
 import type { MaybeRef } from 'vue'
+
+import type { UseFetchOptions } from '#app'
 
 /**
  * Use Azure Static Web Apps Data API Feature (preview).

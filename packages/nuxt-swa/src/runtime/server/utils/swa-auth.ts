@@ -1,8 +1,8 @@
-import { type H3Event, getHeader } from 'h3'
+import { getHeader, type H3Event } from 'h3'
 
+import type { ClientPrincipal } from '../../composables/useEasyAuth'
 import { _clientPrincipalHeader } from '../../constants'
 import { parseClientPrincipal } from '../../utils/auth'
-import type { ClientPrincipal } from '../../composables/useEasyAuth'
 
 /**
  * Get user client principal data from request.

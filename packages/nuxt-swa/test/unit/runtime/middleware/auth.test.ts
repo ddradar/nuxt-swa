@@ -1,8 +1,8 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import authRouteMiddleware from '~/src/runtime/middleware/auth'
 import type { RouteLocationNormalized } from '#vue-router'
+import authRouteMiddleware from '~/src/runtime/middleware/auth'
 
 const { abortNavigationMock, useEasyAuthMock } = vi.hoisted(() => ({
   useEasyAuthMock: vi.fn(),
