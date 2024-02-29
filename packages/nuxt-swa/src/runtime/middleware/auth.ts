@@ -1,4 +1,8 @@
-import { defineNuxtRouteMiddleware } from '#app'
+import {
+  abortNavigation,
+  defineNuxtRouteMiddleware,
+  useEasyAuth,
+} from '#imports'
 
 export default defineNuxtRouteMiddleware(async to => {
   if (!to.meta.allowedRoles) return
