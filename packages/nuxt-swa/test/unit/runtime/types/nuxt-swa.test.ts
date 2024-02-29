@@ -5,17 +5,17 @@ import { resolve } from 'node:path'
 import { template } from 'lodash'
 import { describe, expect, it } from 'vitest'
 
-import { defaults, type SWAModuleOptions } from '~/src/config'
+import { defaults, type ModuleOptions } from '~/src/config'
 import { _preConfiguredProviders } from '~/src/runtime/constants'
 
 describe('runtime/types/nuxt-swa.d.ts.template', async () => {
-  const minimumOptions: SWAModuleOptions = {
+  const minimumOptions: ModuleOptions = {
     authProviders: [],
     customRoles: [],
     dataApi: false,
   }
   const defaultOptions = { ...defaults, authProviders: _preConfiguredProviders }
-  const fullOptions: SWAModuleOptions = {
+  const fullOptions: ModuleOptions = {
     authProviders: ['github', 'twitter', 'line'],
     customRoles: ['administrator'],
     dataApi: { rest: '/rest', graphql: '/graphql' },

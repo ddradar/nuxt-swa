@@ -323,9 +323,3 @@ declare module 'nitropack' {
     }
   }
 }
-
-declare module 'nuxt/schema' {
-  interface PublicRuntimeConfig {
-    swa: { rest: string; graphql: string }
-  }
-}
