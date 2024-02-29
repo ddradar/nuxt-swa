@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.10.3",
-    "consola": "^3.2.3",
     "defu": "^6.1.4",
     "ufo": "^1.4.0"
   },
