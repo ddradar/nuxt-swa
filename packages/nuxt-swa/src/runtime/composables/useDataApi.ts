@@ -1,22 +1,26 @@
 import type { $Fetch } from 'nitropack'
 import type { FetchError } from 'ofetch'
 import { joinURL } from 'ufo'
-import type { MaybeRef } from 'vue'
+import { computed, type MaybeRef, toRef } from 'vue'
 
-import type { UseFetchOptions } from '#app'
+import {
+  type AsyncData,
+  useFetch,
+  type UseFetchOptions,
+  useRuntimeConfig,
+} from '#app'
 
 /**
  * Use Azure Static Web Apps Data API Feature (preview).
  * @returns `$fetch` object pre-configured for Data API
  */
-export function useDataApi(): {
+export const useDataApi = (): {
   /** `$fetch` object pre-configured for GraphQL API */
   $graphql: $Fetch
   /** `$fetch` object pre-configured for REST API */
   $rest: $Fetch
-} {
+} => {
   const { graphql, rest } = useRuntimeConfig().public.swa
-  console.info(useRequestHeaders())
   return {
     $graphql: $fetch.create({ baseURL: graphql, method: 'POST' }),
     $rest: $fetch.create({ baseURL: rest }),
@@ -30,22 +34,24 @@ export function useDataApi(): {
  * @returns useFetch object
  * @see https://learn.microsoft.com/azure/data-api-builder/rest
  */
-export function useFetchRest<T>(
+export const useFetchRest = <
+  SchemaT,
+  DataT = SchemaT[],
+  PickKeys extends KeysOf<DataT> = KeysOf<DataT>,
+  DefaultT = null,
+>(
   request: MaybeRef<string>,
-  opts?: Omit<UseFetchOptions<RestResult<T>, T[]>, 'transform'>
-): ReturnType<typeof useFetch<T[] | null>> {
+  opts?: UseFetchOptions<RestResult<SchemaT>, DataT, PickKeys, DefaultT>
+): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError<any> | null> => {
   const endpoint = useRuntimeConfig().public.swa.rest
   const requestRef = toRef(request)
   const computedUrl = computed(() => joinURL(endpoint, requestRef.value))
   return useFetch(computedUrl, {
+    transform: (d: RestResult<SchemaT>) => d.value as DataT,
     ...opts,
-    transform: (d: RestResult<T>) => d.value,
   })
 }
 
-type KeysOf<T> = Array<
-  T extends T ? (keyof T extends string ? keyof T : never) : never
->
 /**
  * Use fetch from/to Azure Static Web Apps Data API (GraphQL).
  * @param key `useFetch` key
@@ -55,11 +61,11 @@ type KeysOf<T> = Array<
  * @returns` useFetch` object
  * @see https://learn.microsoft.com/azure/data-api-builder/graphql
  */
-export function useFetchGraphQL<
+export const useFetchGraphQL = <
   SchemaT,
   DataT = SchemaT,
   PickKeys extends KeysOf<DataT> = KeysOf<DataT>,
-  DefaultT = DataT,
+  DefaultT = null,
 >(
   key: string,
   query: string,
@@ -68,18 +74,7 @@ export function useFetchGraphQL<
     UseFetchOptions<GraphQLResult<SchemaT>, DataT, PickKeys, DefaultT>,
     'body' | 'key' | 'method'
   >
-): ReturnType<
-  typeof useFetch<
-    GraphQLResult<SchemaT>,
-    FetchError<any>,
-    string,
-    'post',
-    GraphQLResult<SchemaT>,
-    DataT,
-    PickKeys,
-    DefaultT
-  >
-> {
+): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError<any> | null> => {
   const endpoint = useRuntimeConfig().public.swa.graphql
   const variablesRef = toRef(variables)
 
@@ -100,3 +95,19 @@ export function useFetchGraphQL<
     ...opts,
   })
 }
+
+/** Port from nuxt runtime */
+type KeysOf<T> = Array<
+  T extends T ? (keyof T extends string ? keyof T : never) : never
+>
+/** Port from nuxt runtime */
+type PickFrom<T, K extends Array<string>> =
+  T extends Array<any>
+    ? T
+    : T extends Record<string, any>
+      ? keyof T extends K[number]
+        ? T
+        : K[number] extends never
+          ? T
+          : Pick<T, K[number]>
+      : T
