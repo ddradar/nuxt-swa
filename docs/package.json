@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "pnpm -C ../packages/nuxt-swa prepare:docs && nuxi prepare",
     "dev": "nuxi dev",
-    "build": "nuxi build && node -e \"fs.renameSync('./staticwebapp.config.json', './.output/public/staticwebapp.config.json')\"",
+    "build": "nuxi build",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
