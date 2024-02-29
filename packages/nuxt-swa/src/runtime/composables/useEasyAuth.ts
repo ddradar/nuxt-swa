@@ -18,7 +18,7 @@ type AuthMeResult = { clientPrincipal: ClientPrincipal | null }
  * Use authentication & authorization features provided by Azure Static Web Apps.
  * @see https://learn.microsoft.com/en-us/azure/static-web-apps/authentication-authorization
  */
-export async function useEasyAuth(): Promise<{
+export const useEasyAuth = async (): Promise<{
   /** Client Principal data */
   clientPrincipal: DeepReadonly<Ref<ClientPrincipal | null>>
   /** Returns user is logged in app or not. (shorthand of `!!clientPrincipal.value`) */
@@ -48,7 +48,7 @@ export async function useEasyAuth(): Promise<{
    * @see https://learn.microsoft.com/azure/static-web-apps/authentication-authorization#remove-personal-data
    */
   purge: (provider: IdentityProvider) => Promise<void>
-}> {
+}> => {
   const { data: _auth, refresh } = await useAsyncData<ClientPrincipal | null>(
     _authDataKey,
     async () => {
