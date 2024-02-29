@@ -77,5 +77,9 @@ export function resolveAuthProviders(
 }
 
 export interface ModulePublicRuntimeConfig {
-  swa: { rest: string; graphql: string }
+  /** Nuxt SWA config */
+  swa: {
+    /** REST API endpoint */ rest: string
+    /** GraphQL endpoint */ graphql: string
+  }
 }
