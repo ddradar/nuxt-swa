@@ -2,7 +2,7 @@ import {
   addImports,
   addRouteMiddleware,
   addServerHandler,
-  addServerImportsDir,
+  addServerImports,
   addTypeTemplate,
   createResolver,
   defineNuxtModule,
@@ -65,11 +65,12 @@ export default defineNuxtModule({
         path: resolve('runtime/middleware/auth'),
         global: true,
       })
-      addTypeTemplate({
-        filename: 'types/nuxt-swa.meta.d.ts',
-        src: resolve('runtime/types/nuxt-swa.meta.d.ts'),
-      })
-      addServerImportsDir(resolve('runtime/server/utils'))
+      addServerImports(
+        ['getClientPrincipal', 'hasRole'].map(name => ({
+          name,
+          from: resolve('runtime/server/utils/auth'),
+        }))
+      )
     }
 
     // Data API feature
