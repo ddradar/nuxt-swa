@@ -2,10 +2,7 @@
 import { getHeader } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import {
-  getClientPrincipal,
-  hasRole,
-} from '~/src/runtime/server/utils/swa-auth'
+import { getClientPrincipal, hasRole } from '~/src/runtime/server/utils/auth'
 import { parseClientPrincipal } from '~/src/runtime/utils/auth'
 import { _clientPrincipal } from '~/test/unit/constants'
 
