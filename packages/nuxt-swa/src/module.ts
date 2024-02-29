@@ -2,7 +2,7 @@ import {
   addImports,
   addRouteMiddleware,
   addServerHandler,
-  addServerImportsDir,
+  addServerImports,
   addTypeTemplate,
   createResolver,
   defineNuxtModule,
@@ -24,7 +24,7 @@ export default defineNuxtModule({
   },
   defaults,
   setup(options, nuxt) {
-    const resolver = createResolver(import.meta.url)
+    const { resolve } = createResolver(import.meta.url)
     const logger = useLogger('nuxt-swa')
 
     if (!nuxt.options.nitro?.azure?.config)
@@ -40,36 +40,37 @@ export default defineNuxtModule({
     // Core Type definition
     addTypeTemplate({
       filename: 'types/nuxt-swa.d.ts',
-      src: resolver.resolve('runtime/types/nuxt-swa.d.ts.template'),
+      src: resolve('runtime/types/nuxt-swa.d.ts.template'),
       options,
     })
 
     // Proxy Azure SWA built-in API
     addServerHandler({
       route: `${_dataApiBasePath}/**`,
-      handler: resolver.resolve('./runtime/server/proxy'),
+      handler: resolve('./runtime/server/proxy'),
     })
     addServerHandler({
       route: `${_authBasePath}/**`,
-      handler: resolver.resolve('./runtime/server/proxy'),
+      handler: resolve('./runtime/server/proxy'),
     })
 
     // Auth Feature
     if (options.authProviders.length) {
       addImports({
         name: 'useEasyAuth',
-        from: resolver.resolve('runtime/composables/useEasyAuth'),
+        from: resolve('runtime/composables/useEasyAuth'),
       })
       addRouteMiddleware({
         name: 'auth',
-        path: resolver.resolve('runtime/middleware/auth'),
+        path: resolve('runtime/middleware/auth'),
         global: true,
       })
-      addTypeTemplate({
-        filename: 'types/nuxt-swa.meta.d.ts',
-        src: resolver.resolve('runtime/types/nuxt-swa.meta.d.ts'),
-      })
-      addServerImportsDir(resolver.resolve('runtime/server/utils'))
+      addServerImports(
+        ['getClientPrincipal', 'hasRole'].map(name => ({
+          name,
+          from: resolve('runtime/server/utils/auth'),
+        }))
+      )
     }
 
     // Data API feature
@@ -84,7 +85,7 @@ export default defineNuxtModule({
       addImports(
         ['useDataApi', 'useFetchRest', 'useFetchGraphQL'].map(name => ({
           name,
-          from: resolver.resolve('runtime/composables/useDataApi'),
+          from: resolve('runtime/composables/useDataApi'),
         }))
       )
     }
@@ -321,11 +322,5 @@ declare module 'nitropack' {
       }
       [k: string]: unknown
     }
-  }
-}
-
-declare module 'nuxt/schema' {
-  interface PublicRuntimeConfig {
-    swa: { rest: string; graphql: string }
   }
 }

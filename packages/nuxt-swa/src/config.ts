@@ -5,7 +5,7 @@ import {
   _preConfiguredProviders,
 } from './runtime/constants'
 
-export interface SWAModuleOptions {
+export interface ModuleOptions {
   /**
    * Authentication Provider list to login your app.
    * If your app does not use built-in Authentication/Authorization, please set this to `[]`.
@@ -28,7 +28,7 @@ export interface SWAModuleOptions {
       }
     | false
 }
-export const defaults: SWAModuleOptions = {
+export const defaults: ModuleOptions = {
   customRoles: [],
   dataApi: { rest: '/rest', graphql: '/graphql' },
 }
@@ -36,12 +36,12 @@ export const defaults: SWAModuleOptions = {
 /** Resolve `authProviders` option from Nitro config. */
 export function resolveAuthProviders(
   options: Required<Required<NuxtConfig>['nitro']>['azure']['config']
-): Required<SWAModuleOptions>['authProviders'] {
+): Required<ModuleOptions>['authProviders'] {
   if (!options?.auth?.identityProviders) return _preConfiguredProviders
 
   const identityProviders = options?.auth?.identityProviders
 
-  const result: Required<SWAModuleOptions>['authProviders'] = []
+  const result: Required<ModuleOptions>['authProviders'] = []
 
   addPreConfiguredProviderIfEnabled('aad') // Microsoft Entra ID (formerly Azure Active Directory)
   addCustomProviderIfEnabled('apple') // Apple
@@ -73,5 +73,29 @@ export function resolveAuthProviders(
       identityProviders[provider]?.enabled !== false
     )
       result.push(provider)
+  }
+}
+
+export interface ModulePublicRuntimeConfig {
+  /** Nuxt SWA config */
+  swa: {
+    /** REST API endpoint */ rest: string
+    /** GraphQL endpoint */ graphql: string
+  }
+}
+
+type SpecifiedRole = Exclude<UserRole, 'anonymous'>
+
+declare module '#app' {
+  interface PageMeta {
+    /** List of roles required to view this page */
+    allowedRoles?: SpecifiedRole | SpecifiedRole[]
+  }
+}
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    /** List of roles required to view this page */
+    allowedRoles?: SpecifiedRole | SpecifiedRole[]
   }
 }
