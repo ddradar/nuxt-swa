@@ -1,5 +1,3 @@
-import { consola } from 'consola'
-
 // Azure Static Web Apps
 export const _authBasePath = '/.auth'
 export const _dataApiBasePath = '/data-api'
@@ -13,5 +11,4 @@ export const _knownIdentityProviders = [
 ] as const
 
 // My App
-export const logger = consola.withTag('nuxt-swa')
 export const _authDataKey = 'swa-principal'
