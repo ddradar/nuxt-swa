@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.4.0
+
+Highlights:
+- Warn log if `nitro.preset` is not "azure"
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.3.2...v0.4.0)
+
+### 🚀 Enhancements
+
+- Warn if `nitro.preset` is not "azure" ([#71](https://github.com/ddradar/nuxt-swa/pull/71), resolved [#63](https://github.com/ddradar/nuxt-swa/issues/63))
+
+### 🩹 Fixes
+
+- Provide middleware & server type on build package ([#70](https://github.com/ddradar/nuxt-swa/pull/70))
+
+### 🤖 CI
+
+#### Dependencies Update
+
+|kind|package|old|new|PRs|
+|----|-------|--:|--:|---|
+|NPM|@iconify-json/heroicons|1.1.19|1.1.20|#75|
+|NPM|@iconify-json/simple-icons|1.1.92|1.1.93|#75|
+|NPM(dev)|@nuxthq/studio|1.0.11|1.0.12|#75|
+|NPM(dev)|nuxt-applicationinsights|0.3.1|0.3.2|#75|
+|NPM(dev)|happy-dom|13.6.0|13.6.2|#75|
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.3.2
 
 - No enhancements on packages
