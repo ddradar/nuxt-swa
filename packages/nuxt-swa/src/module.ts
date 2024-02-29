@@ -27,6 +27,11 @@ export default defineNuxtModule({
     const { resolve } = createResolver(import.meta.url)
     const logger = useLogger('nuxt-swa')
 
+    if (nuxt.options.nitro.preset !== 'azure')
+      logger.warn(
+        `\`nitro.preset\` in your \`nuxt.config.ts\` file is ${nuxt.options.nitro.preset ? `"${nuxt.options.nitro.preset}"` : nuxt.options.nitro.preset}.\nConsider set it to "azure".`
+      )
+
     if (!nuxt.options.nitro?.azure?.config)
       logger.warn(
         '`nitro.azure.config` in your `nuxt.config.ts` file is undefined.\nIf you are using `staticwebapp.config.json`, consider migrating that configuration.'
