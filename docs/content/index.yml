@@ -6,8 +6,8 @@ hero:
   description: Provides Azure Static Web Apps features to your Nuxt apps.
   orientation: horizontal
   headline:
-    label: Released v0.3.0
-    to: https://github.com/ddradar/nuxt-swa/releases/tag/v0.3.0
+    label: Released v0.3.2
+    to: https://github.com/ddradar/nuxt-swa/releases/tag/v0.3.2
     icon: i-heroicons-rocket-launch-20-solid
   links:
     - label: Get started

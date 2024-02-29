@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.3.2
+
+- No enhancements on packages
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.3.1...v0.3.2)
+
+### 🩹 Fixes
+
+- ship type definition on build package ([#69](https://github.com/ddradar/nuxt-swa/pull/69), resolve [#67](https://github.com/ddradar/nuxt-swa/issues/67))
+
+### 🏡 Chore
+
+- **lint:** Add eslint-plugin-simple-import ([#68](https://github.com/ddradar/nuxt-swa/pull/68))
+
+### ❤️ Contributors
+
+- Nogic
+
 ## v0.3.1
 
 - No enhancements on packages
