@@ -1,4 +1,4 @@
-import type { ClientPrincipal } from '../composables/useEasyAuth'
+import type { ClientPrincipal } from '../types'
 
 export function parseClientPrincipal(
   header: string | null | undefined
