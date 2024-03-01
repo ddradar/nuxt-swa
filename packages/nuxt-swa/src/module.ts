@@ -93,6 +93,12 @@ export default defineNuxtModule({
           from: resolve('runtime/composables/useDataApi'),
         }))
       )
+      addServerImports(
+        ['$rest', '$graphQL'].map(name => ({
+          name,
+          from: resolve('runtime/server/utils/data-api'),
+        }))
+      )
     }
   },
 })
