@@ -22,7 +22,7 @@ export const getClientPrincipal = (event: H3Event): ClientPrincipal | null => {
  */
 export const hasRole = (
   event: H3Event,
-  ...roles: Exclude<UserRole, 'anonymous'>[]
+  ...roles: Exclude<string, 'anonymous'>[]
 ): boolean => {
   const auth = getClientPrincipal(event)
   return !!auth?.userRoles.some(s =>
