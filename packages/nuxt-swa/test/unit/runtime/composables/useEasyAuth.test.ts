@@ -46,7 +46,7 @@ describe('runtime/composables/useEasyAuth', () => {
 
         // Act - Assert
         const { hasRole } = await useEasyAuth()
-        expect(hasRole(role)).toBe(expected)
+        expect(hasRole(role).value).toBe(expected)
       }
     )
   })

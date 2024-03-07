@@ -31,7 +31,7 @@ export const useEasyAuth = async (): Promise<{
    * @param role Role name
    * @returns true when `role` is "anonymous" or {@link ClientPrincipal.userRoles clientPrincipal.userRoles} includes `role`.
    */
-  hasRole: (role: UserRole) => boolean
+  hasRole: (role: UserRole) => ComputedRef<boolean>
   /**
    * Sign in to your app.
    * @param provider Authorization provider used for login
@@ -72,8 +72,10 @@ export const useEasyAuth = async (): Promise<{
   const isLoggedIn = computed(() => !!_auth.value)
 
   // Method
-  function hasRole(role: UserRole): boolean {
-    return role === 'anonymous' || !!_auth.value?.userRoles.includes(role)
+  function hasRole(role: UserRole) {
+    return computed(
+      () => role === 'anonymous' || !!_auth.value?.userRoles.includes(role)
+    )
   }
   async function login(provider: IdentityProvider): Promise<void> {
     await navigateTo(`${_authBasePath}/login/${provider}`, {

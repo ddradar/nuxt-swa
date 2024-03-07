@@ -1,5 +1,32 @@
 # Changelog
 
+## v0.5.0
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.4.0...v0.5.0)
+
+### ⚠️ Breaking Changes
+
+- `hasRole` returns `ComputedRef<boolean>` instead of `boolean` ([#80](https://github.com/ddradar/nuxt-swa/pull/80))
+
+### 🩹 Fixes
+
+- ⚠️  `hasRole` returns `ComputedRef<boolean>` instead of `boolean` ([#80](https://github.com/ddradar/nuxt-swa/pull/80))
+- Read cookie if auth header is undefined ([#79](https://github.com/ddradar/nuxt-swa/pull/79))
+
+### 🤖 CI
+
+#### Dependencies Update
+
+|kind|package|old|new|PRs|
+|----|-------|--:|--:|---|
+|NPM(dev)|@types/node|18.19.18|18.19.22|[#81](https://github.com/ddradar/nuxt-swa/pull/81)|
+|GitHub Actions|actions/download-artifact|4.1.2|4.1.3|[#77](https://github.com/ddradar/nuxt-swa/pull/77)|
+|GitHub Actions|codecov/codecov-action|4.0.2|4.1.0|[#78](https://github.com/ddradar/nuxt-swa/pull/78)|
+
+### ❤️ Contributors
+
+- Nogic ([@nogic1008](http://github.com/nogic1008))
+
 ## v0.4.0
 
 Highlights:
