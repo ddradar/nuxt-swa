@@ -32,7 +32,9 @@ describe('runtime/middleware/auth', () => {
     '{ allowedRoles: %o } returns 200',
     async allowedRoles => {
       // Arrange
-      useEasyAuthMock.mockResolvedValue({ hasRole: (_role: string) => true })
+      useEasyAuthMock.mockResolvedValue({
+        hasRole: (_role: string) => ref(true),
+      })
 
       // Act
       await authRouteMiddleware({ meta: { allowedRoles } } as any, {} as any)
@@ -46,7 +48,7 @@ describe('runtime/middleware/auth', () => {
     async allowedRoles => {
       // Arrange
       useEasyAuthMock.mockResolvedValue({
-        hasRole: (_role: string) => false,
+        hasRole: (_role: string) => ref(false),
         isLoggedIn: ref(false),
       })
 
@@ -62,7 +64,7 @@ describe('runtime/middleware/auth', () => {
     async allowedRoles => {
       // Arrange
       useEasyAuthMock.mockResolvedValue({
-        hasRole: (_role: string) => false,
+        hasRole: (_role: string) => ref(false),
         isLoggedIn: ref(true),
       })
 
