@@ -1,7 +1,7 @@
 {
   "name": "nuxt-swa-monorepo",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Nuxt 3 module for Azure Static Web Apps",
   "repository": "ddradar/nuxt-swa",
   "license": "MIT",
