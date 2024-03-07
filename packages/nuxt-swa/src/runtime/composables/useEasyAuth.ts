@@ -1,11 +1,12 @@
 import type { ComputedRef, DeepReadonly, Ref } from 'vue'
 
 import { navigateTo, useAsyncData } from '#app'
-import { computed, readonly, useRequestHeader } from '#imports'
+import { computed, readonly, useCookie, useRequestHeader } from '#imports'
 
 import {
   _authBasePath,
   _authDataKey,
+  _clientPrincipalCookie,
   _clientPrincipalHeader,
 } from '../constants'
 import type { ClientPrincipal } from '../types'
@@ -57,8 +58,12 @@ export const useEasyAuth = async (): Promise<{
           .clientPrincipal
       }
 
-      if (import.meta.server)
-        return parseClientPrincipal(useRequestHeader(_clientPrincipalHeader))
+      if (import.meta.server) {
+        const header =
+          useRequestHeader(_clientPrincipalHeader) ||
+          useCookie(_clientPrincipalCookie).value
+        return parseClientPrincipal(header)
+      }
       return null
     }
   )
@@ -97,5 +102,3 @@ export const useEasyAuth = async (): Promise<{
     purge,
   }
 }
-
-export {}
