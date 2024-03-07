@@ -1,6 +1,6 @@
-import { getHeader, type H3Event } from 'h3'
+import { getCookie, getHeader, type H3Event } from 'h3'
 
-import { _clientPrincipalHeader } from '../../constants'
+import { _clientPrincipalCookie, _clientPrincipalHeader } from '../../constants'
 import type { ClientPrincipal } from '../../types'
 import { parseClientPrincipal } from '../../utils/auth'
 
@@ -10,7 +10,9 @@ import { parseClientPrincipal } from '../../utils/auth'
  * @returns Client Principal if parsed, otherwise null.
  */
 export const getClientPrincipal = (event: H3Event): ClientPrincipal | null => {
-  const header = getHeader(event, _clientPrincipalHeader)
+  const header =
+    getHeader(event, _clientPrincipalHeader) ||
+    getCookie(event, _clientPrincipalCookie)
   return parseClientPrincipal(header)
 }
 
