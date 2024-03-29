@@ -64,8 +64,8 @@ importers:
         specifier: ^1.0.8
         version: 1.0.8(nuxt@3.10.3)(vite@5.2.6)
       '@nuxthq/studio':
-        specifier: ^1.0.12
-        version: 1.0.12
+        specifier: ^1.0.13
+        version: 1.0.13
       nuxt-applicationinsights:
         specifier: ^0.3.4
         version: 0.3.4(eslint@8.57.0)(tslib@2.6.2)(typescript@5.4.3)
@@ -2212,8 +2212,8 @@ packages:
       - vti
       - vue-tsc
 
-  /@nuxthq/studio@1.0.12:
-    resolution: {integrity: sha512-3Ak5reS5B6onFg41dgB8a5vcZRXeoSIlReHDiWghz7gMjlpE0cGSAdu/xYcOZvHWgjOKVhPAQ6zNwUbUvBlU1w==}
+  /@nuxthq/studio@1.0.13:
+    resolution: {integrity: sha512-C4j+K53om5Kj5xLrehWEbnDJlid5tDsHP7QdOIsK550dHOxPmvaXMH4YxsSNU8cDppMheMbN59zdYhQaQfko6g==}
     dependencies:
       '@nuxt/kit': 3.10.3(rollup@3.29.4)
       defu: 6.1.4
@@ -2222,7 +2222,7 @@ packages:
       parse-git-config: 3.0.0
       pkg-types: 1.0.3
       socket.io-client: 4.7.4
-      ufo: 1.4.0
+      ufo: 1.5.3
       untyped: 1.4.2
     transitivePeerDependencies:
       - bufferutil
