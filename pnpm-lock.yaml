@@ -85,8 +85,8 @@ importers:
         specifier: ^6.1.4
         version: 6.1.4
       ufo:
-        specifier: ^1.4.0
-        version: 1.4.0
+        specifier: ^1.5.3
+        version: 1.5.3
     devDependencies:
       '@nuxt/module-builder':
         specifier: ^0.5.5
@@ -1858,7 +1858,7 @@ packages:
       pkg-types: 1.0.3
       scule: 1.3.0
       semver: 7.6.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       unctx: 2.3.1
       unimport: 3.7.1(rollup@3.29.4)
       untyped: 1.4.2
@@ -1898,7 +1898,7 @@ packages:
       pkg-types: 1.0.3
       scule: 1.3.0
       std-env: 3.7.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       unimport: 3.7.1(rollup@3.29.4)
       untyped: 1.4.2
     transitivePeerDependencies:
@@ -1989,7 +1989,7 @@ packages:
       radix3: 1.1.0
       scule: 1.3.0
       std-env: 3.7.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       unenv: 1.9.0
       unplugin: 1.7.1
       vite: 5.2.6(@types/node@18.19.22)
@@ -2122,7 +2122,7 @@ packages:
       rollup-plugin-visualizer: 5.12.0(rollup@3.29.4)
       std-env: 3.7.0
       strip-literal: 2.0.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       unenv: 1.9.0
       unplugin: 1.7.1
       vite: 5.2.6(@types/node@18.19.22)
@@ -2184,7 +2184,7 @@ packages:
       rollup-plugin-visualizer: 5.12.0(rollup@3.29.4)
       std-env: 3.7.0
       strip-literal: 2.0.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       unenv: 1.9.0
       unplugin: 1.7.1
       vite: 5.2.6(@types/node@18.19.22)
@@ -2340,7 +2340,7 @@ packages:
       remark-rehype: 11.1.0
       scule: 1.3.0
       shiki: 1.1.2
-      ufo: 1.4.0
+      ufo: 1.5.3
       unified: 11.0.4
       unist-builder: 4.0.0
       unist-util-visit: 5.0.0
@@ -2367,7 +2367,7 @@ packages:
       postcss-nesting: 12.0.2(postcss@8.4.38)
       tailwind-config-viewer: 1.7.3(tailwindcss@3.4.1)
       tailwindcss: 3.4.1
-      ufo: 1.4.0
+      ufo: 1.5.3
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -6113,7 +6113,7 @@ packages:
       enhanced-resolve: 5.15.0
       mlly: 1.6.1
       pathe: 1.1.2
-      ufo: 1.4.0
+      ufo: 1.5.3
 
   /fake-indexeddb@5.0.2:
     resolution: {integrity: sha512-cB507r5T3D55DfclY01GLkninZLfU7HXV/mhVRTnTRm5k2u+fY7Fof2dBkr80p5t7G7dlA/G5dI87QiMdPpMCQ==}
@@ -6231,7 +6231,7 @@ packages:
       magic-regexp: 0.7.0
       magic-string: 0.30.8
       pathe: 1.1.2
-      ufo: 1.4.0
+      ufo: 1.5.3
       unplugin: 1.7.1
     transitivePeerDependencies:
       - encoding
@@ -6596,7 +6596,7 @@ packages:
       deepmerge: 4.3.1
       hookable: 5.5.3
       ofetch: 1.3.3
-      ufo: 1.4.0
+      ufo: 1.5.3
     dev: false
 
   /gopd@1.0.1:
@@ -6646,7 +6646,7 @@ packages:
       iron-webcrypto: 1.0.0
       ohash: 1.1.3
       radix3: 1.1.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       uncrypto: 0.1.3
       unenv: 1.9.0
     transitivePeerDependencies:
@@ -7767,7 +7767,7 @@ packages:
       node-forge: 1.3.1
       pathe: 1.1.2
       std-env: 3.7.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       untun: 0.1.3
       uqr: 0.1.2
     transitivePeerDependencies:
@@ -7936,7 +7936,7 @@ packages:
       magic-string: 0.30.8
       mlly: 1.6.1
       type-level-regexp: 0.1.17
-      ufo: 1.4.0
+      ufo: 1.5.3
       unplugin: 1.7.1
     dev: false
 
@@ -8609,7 +8609,7 @@ packages:
       acorn: 8.11.3
       pathe: 1.1.2
       pkg-types: 1.0.3
-      ufo: 1.4.0
+      ufo: 1.5.3
 
   /module-details-from-path@1.0.3:
     resolution: {integrity: sha512-ySViT69/76t8VhE1xXHK6Ch4NcDd26gx0MzKXLO+F7NOtnqH68d9zF94nT8ZWSxXh8ELOERsnJO/sWt1xZYw5A==}
@@ -8764,7 +8764,7 @@ packages:
       serve-placeholder: 2.0.1
       serve-static: 1.15.0
       std-env: 3.7.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       uncrypto: 0.1.3
       unctx: 2.3.1
       unenv: 1.9.0
@@ -9106,7 +9106,7 @@ packages:
       scule: 1.3.0
       std-env: 3.7.0
       strip-literal: 2.0.0
-      ufo: 1.4.0
+      ufo: 1.5.3
       ultrahtml: 1.5.3
       uncrypto: 0.1.3
       unctx: 2.3.1
@@ -9270,7 +9270,7 @@ packages:
       citty: 0.1.5
       execa: 8.0.1
       pathe: 1.1.2
-      ufo: 1.4.0
+      ufo: 1.5.3
 
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -9333,7 +9333,7 @@ packages:
     dependencies:
       destr: 2.0.3
       node-fetch-native: 1.6.2
-      ufo: 1.4.0
+      ufo: 1.5.3
 
   /ohash@1.1.3:
     resolution: {integrity: sha512-zuHHiGTYTA1sYJ/wZN+t5HKZaH23i4yI1HMwbuXm24Nid7Dv0KcuRlKoNKS9UNfAVSBlnGLcuQrnOKWOZoEGaw==}
@@ -11641,6 +11641,9 @@ packages:
   /ufo@1.4.0:
     resolution: {integrity: sha512-Hhy+BhRBleFjpJ2vchUNN40qgkh0366FWJGqVLYBHev0vpHTrXSA0ryT+74UiW6KWsldNurQMKGqCm1M2zBciQ==}
 
+  /ufo@1.5.3:
+    resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
+
   /ultrahtml@1.5.3:
     resolution: {integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==}
 
@@ -11954,7 +11957,7 @@ packages:
       mri: 1.2.0
       node-fetch-native: 1.6.2
       ofetch: 1.3.3
-      ufo: 1.4.0
+      ufo: 1.5.3
     transitivePeerDependencies:
       - supports-color
       - uWebSockets.js
@@ -12364,7 +12367,7 @@ packages:
   /vue-bundle-renderer@2.0.0:
     resolution: {integrity: sha512-oYATTQyh8XVkUWe2kaKxhxKVuuzK2Qcehe+yr3bGiaQAhK3ry2kYE4FWOfL+KO3hVFwCdLmzDQTzYhTi9C+R2A==}
     dependencies:
-      ufo: 1.4.0
+      ufo: 1.5.3
 
   /vue-component-meta@1.8.27(typescript@5.4.3):
     resolution: {integrity: sha512-j3WJsyQHP4TDlvnjHc/eseo0/eVkf0FaCpkqGwez5zD+Tj31onBzWZEXTnWKs8xRj0n3dMNYdy3SpiS6NubSvg==}
