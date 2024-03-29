@@ -1,4 +1,5 @@
 // @vitest-environment node
+import type { H3Event } from 'h3'
 import { getHeader, proxyRequest } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -35,7 +36,7 @@ describe('runtime/server/proxy', () => {
     // Arrange
     vi.mocked(getHeader).mockReturnValue(event.header)
     // Act
-    proxyHandler(event as any)
+    proxyHandler(event as unknown as H3Event)
     // Assert
     expect(vi.mocked(getHeader)).toBeCalledWith(event, 'x-ms-original-url')
     expect(vi.mocked(proxyRequest)).toBeCalledWith(event, uri)

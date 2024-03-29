@@ -1,7 +1,7 @@
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { RouteLocationNormalized } from '#vue-router'
+import type { RouteLocationNormalized as Route } from '#vue-router'
 import authRouteMiddleware from '~/src/runtime/middleware/auth'
 
 const { abortNavigationMock, useEasyAuthMock } = vi.hoisted(() => ({
@@ -10,7 +10,7 @@ const { abortNavigationMock, useEasyAuthMock } = vi.hoisted(() => ({
 }))
 mockNuxtImport(
   'defineNuxtRouteMiddleware',
-  () => (func: (to: RouteLocationNormalized) => void) => func
+  () => (func: (to: Route) => void) => func
 )
 mockNuxtImport('useEasyAuth', () => useEasyAuthMock)
 mockNuxtImport('abortNavigation', () => abortNavigationMock)
@@ -23,7 +23,7 @@ describe('runtime/middleware/auth', () => {
 
   it('{ allowedRoles: undefined } returns 200', async () => {
     // Arrange - Act
-    await authRouteMiddleware({ meta: {} } as any, {} as any)
+    await authRouteMiddleware({ meta: {} } as Route, {} as Route)
 
     // Assert
     expect(abortNavigationMock).not.toBeCalled()
@@ -37,7 +37,10 @@ describe('runtime/middleware/auth', () => {
       })
 
       // Act
-      await authRouteMiddleware({ meta: { allowedRoles } } as any, {} as any)
+      await authRouteMiddleware(
+        { meta: { allowedRoles } } as Route,
+        {} as Route
+      )
 
       // Assert
       expect(abortNavigationMock).not.toBeCalled()
@@ -53,7 +56,10 @@ describe('runtime/middleware/auth', () => {
       })
 
       // Act
-      await authRouteMiddleware({ meta: { allowedRoles } } as any, {} as any)
+      await authRouteMiddleware(
+        { meta: { allowedRoles } } as Route,
+        {} as Route
+      )
 
       // Assert
       expect(abortNavigationMock).toBeCalledWith({ statusCode: 401 })
@@ -69,7 +75,10 @@ describe('runtime/middleware/auth', () => {
       })
 
       // Act
-      await authRouteMiddleware({ meta: { allowedRoles } } as any, {} as any)
+      await authRouteMiddleware(
+        { meta: { allowedRoles } } as Route,
+        {} as Route
+      )
 
       // Assert
       expect(abortNavigationMock).toBeCalledWith({ statusCode: 403 })
