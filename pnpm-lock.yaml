@@ -67,8 +67,8 @@ importers:
         specifier: ^1.0.12
         version: 1.0.12
       nuxt-applicationinsights:
-        specifier: ^0.3.2
-        version: 0.3.2(eslint@8.57.0)(tslib@2.6.2)(typescript@5.4.3)
+        specifier: ^0.3.4
+        version: 0.3.4(eslint@8.57.0)(tslib@2.6.2)(typescript@5.4.3)
       nuxt-swa:
         specifier: workspace:*
         version: link:../packages/nuxt-swa
@@ -8986,8 +8986,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /nuxt-applicationinsights@0.3.2(eslint@8.57.0)(tslib@2.6.2)(typescript@5.4.3):
-    resolution: {integrity: sha512-vHakxdA/juFbYV33qlDhFYnpJJcwyUfUBkhhtd6P/Mt8bmOmJbAi1QHSKK+EBbfzpcVXdee1d8h2V7SgCyizZA==}
+  /nuxt-applicationinsights@0.3.4(eslint@8.57.0)(tslib@2.6.2)(typescript@5.4.3):
+    resolution: {integrity: sha512-s923nIt6JbCDrKdE39R82BXIbTpeylOZJOtOn7wxm4a7OZW3usfMgjZkYZ2hOuBDHF9PeITBGOk5T4HUiaRtdQ==}
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.1.0(tslib@2.6.2)
       '@microsoft/applicationinsights-web': 3.1.0(tslib@2.6.2)
