@@ -1,4 +1,5 @@
 // @vitest-environment node
+import type { H3Event } from 'h3'
 import { getCookie, getHeader } from 'h3'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -8,6 +9,8 @@ import { _clientPrincipal } from '~/test/unit/constants'
 
 vi.mock('h3')
 vi.mock('~/src/runtime/utils/auth')
+
+type Role = Parameters<typeof hasRole>[1]
 
 describe('runtime/server/utils/auth', () => {
   beforeEach(() => {
@@ -23,7 +26,7 @@ describe('runtime/server/utils/auth', () => {
         // Arrange
         vi.mocked(parseClientPrincipal).mockReturnValue(auth)
         // Act
-        const res = getClientPrincipal({} as any)
+        const res = getClientPrincipal({} as H3Event)
         // Assert
         expect(res).toStrictEqual(auth)
         expect(vi.mocked(getHeader)).toBeCalled()
@@ -41,16 +44,16 @@ describe('runtime/server/utils/auth', () => {
       // Arrange
       vi.mocked(parseClientPrincipal).mockReturnValue(auth)
       // Act - Assert
-      expect(hasRole({} as any, role as any)).toBe(expected)
+      expect(hasRole({} as H3Event, role as Role)).toBe(expected)
     })
     it.each([
       [null, ['anonymous', 'authenticated'], false],
       [_clientPrincipal, ['administrator', 'authenticated'], true],
-    ])('{ auth: %o } (%o) returns %o', (auth, role, expected) => {
+    ])('{ auth: %o } (%o) returns %o', (auth, roles, expected) => {
       // Arrange
       vi.mocked(parseClientPrincipal).mockReturnValue(auth)
       // Act - Assert
-      expect(hasRole({} as any, ...(role as any))).toBe(expected)
+      expect(hasRole({} as H3Event, ...(roles as Role[]))).toBe(expected)
     })
   })
 })

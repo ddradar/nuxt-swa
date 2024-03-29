@@ -42,7 +42,7 @@ export const useFetchRest = <
 >(
   request: MaybeRef<string>,
   opts?: UseFetchOptions<RestResult<SchemaT>, DataT, PickKeys, DefaultT>
-): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError<any> | null> => {
+): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError | null> => {
   const endpoint = useRuntimeConfig().public.swa.rest
   const requestRef = toRef(request)
   const computedUrl = computed(() => joinURL(endpoint, requestRef.value))
@@ -69,18 +69,18 @@ export const useFetchGraphQL = <
 >(
   key: string,
   query: string,
-  variables?: MaybeRef<{}>,
+  variables?: MaybeRef<Record<string, never>>,
   opts?: Omit<
     UseFetchOptions<GraphQLResult<SchemaT>, DataT, PickKeys, DefaultT>,
     'body' | 'key' | 'method'
   >
-): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError<any> | null> => {
+): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError | null> => {
   const endpoint = useRuntimeConfig().public.swa.graphql
   const variablesRef = toRef(variables)
 
   return useFetch<
     GraphQLResult<SchemaT>,
-    FetchError<any>,
+    FetchError,
     string,
     'POST',
     GraphQLResult<SchemaT>,
@@ -91,7 +91,7 @@ export const useFetchGraphQL = <
     key,
     method: 'POST',
     body: { query, variables: variablesRef.value },
-    transform: (d: GraphQLResult<SchemaT>) => d.data as any,
+    transform: (d: GraphQLResult<SchemaT>) => d.data as unknown as DataT,
     ...opts,
   })
 }
@@ -101,6 +101,7 @@ type KeysOf<T> = Array<
   T extends T ? (keyof T extends string ? keyof T : never) : never
 >
 /** Port from nuxt runtime */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type PickFrom<T, K extends Array<string>> =
   T extends Array<any>
     ? T
@@ -111,3 +112,4 @@ type PickFrom<T, K extends Array<string>> =
           ? T
           : Pick<T, K[number]>
       : T
+/* eslint-enable @typescript-eslint/no-explicit-any */
