@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",
-    "@nuxthq/studio": "^1.0.13",
+    "@nuxthq/studio": "^1.0.15",
     "nuxt-applicationinsights": "^0.3.4",
     "nuxt-swa": "workspace:*",
     "vue-tsc": "^2.0.16"
