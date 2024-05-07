@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",
+    "@nuxt/eslint": "^0.3.10",
     "@nuxthq/studio": "^1.0.15",
     "nuxt-applicationinsights": "^0.3.4",
     "nuxt-swa": "workspace:*",
