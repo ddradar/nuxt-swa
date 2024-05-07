@@ -5,6 +5,9 @@
   "description": "Nuxt 3 module for Azure Static Web Apps",
   "repository": "ddradar/nuxt-swa",
   "license": "MIT",
+  "engines": {
+    "pnpm": "9.x"
+  },
   "scripts": {
     "prepare": "husky",
     "dev": "swa start",
