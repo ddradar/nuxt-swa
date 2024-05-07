@@ -1,9 +1,12 @@
 import type { NuxtConfig } from 'nuxt/config'
 
-import {
-  type _knownIdentityProviders,
-  _preConfiguredProviders,
-} from './runtime/constants'
+export const preConfiguredProviders = ['aad' as const, 'github' as const]
+const knownIdentityProviders = [
+  'apple',
+  'facebook',
+  'google',
+  'twitter',
+] as const
 
 export interface ModuleOptions {
   /**
@@ -12,8 +15,8 @@ export interface ModuleOptions {
    * @default ['aad', 'github']
    */
   authProviders?: (
-    | (typeof _knownIdentityProviders)[number]
-    | Omit<string, (typeof _knownIdentityProviders)[number]>
+    | (typeof knownIdentityProviders)[number]
+    | Omit<string, (typeof knownIdentityProviders)[number]>
   )[]
   /**
    * Define custom roles to use in your app besides the default roles (`anonymous`, `authenticated`).
@@ -37,7 +40,7 @@ export const defaults: ModuleOptions = {
 export function resolveAuthProviders(
   options: Required<Required<NuxtConfig>['nitro']>['azure']['config']
 ): Required<ModuleOptions>['authProviders'] {
-  if (!options?.auth?.identityProviders) return _preConfiguredProviders
+  if (!options?.auth?.identityProviders) return preConfiguredProviders
 
   const identityProviders = options?.auth?.identityProviders
 
@@ -59,14 +62,14 @@ export function resolveAuthProviders(
   return result
 
   function addPreConfiguredProviderIfEnabled(
-    provider: (typeof _preConfiguredProviders)[number]
+    provider: (typeof preConfiguredProviders)[number]
   ) {
     const key = provider === 'aad' ? 'azureActiveDirectory' : provider
     if (identityProviders[key]?.enabled !== false) result.push(provider)
   }
 
   function addCustomProviderIfEnabled(
-    provider: (typeof _knownIdentityProviders)[number]
+    provider: (typeof knownIdentityProviders)[number]
   ) {
     if (
       identityProviders[provider] &&

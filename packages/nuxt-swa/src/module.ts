@@ -12,11 +12,14 @@ import { defu } from 'defu'
 import { joinURL } from 'ufo'
 
 import { defaults, resolveAuthProviders } from './config'
-import { _authBasePath, _dataApiBasePath } from './runtime/constants'
+
+const packageName = 'nuxt-swa'
+const authEndpoint = '/.auth'
+const dataApiEndpoint = '/data-api'
 
 export default defineNuxtModule({
   meta: {
-    name: 'nuxt-swa',
+    name: packageName,
     configKey: 'swa',
     compatibility: {
       nuxt: '^3.9.0',
@@ -25,11 +28,12 @@ export default defineNuxtModule({
   defaults,
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-    const logger = useLogger('nuxt-swa')
+    const logger = useLogger(packageName)
 
-    if (nuxt.options.nitro.preset !== 'azure')
+    const preset = nuxt.options.nitro?.preset
+    if (preset !== 'azure')
       logger.warn(
-        `\`nitro.preset\` in your \`nuxt.config.ts\` file is ${nuxt.options.nitro.preset ? `"${nuxt.options.nitro.preset}"` : nuxt.options.nitro.preset}.\nConsider set it to "azure".`
+        `\`nitro.preset\` in your \`nuxt.config.ts\` file is ${preset ? `"${preset}"` : preset}.\nConsider set it to "azure".`
       )
 
     if (!nuxt.options.nitro?.azure?.config)
@@ -44,18 +48,22 @@ export default defineNuxtModule({
 
     // Core Type definition
     addTypeTemplate({
-      filename: 'types/nuxt-swa.d.ts',
+      filename: `types/${packageName}.d.ts`,
       src: resolve('runtime/types/nuxt-swa.d.ts.template'),
       options,
+    })
+    nuxt.hook('prepare:types', ({ references }) => {
+      references.push({ path: `types/${packageName}.d.ts` })
+      references.push({ path: resolve('./runtime/types.d.ts') })
     })
 
     // Proxy Azure SWA built-in API
     addServerHandler({
-      route: `${_dataApiBasePath}/**`,
+      route: `${dataApiEndpoint}/**`,
       handler: resolve('./runtime/server/proxy'),
     })
     addServerHandler({
-      route: `${_authBasePath}/**`,
+      route: `${authEndpoint}/**`,
       handler: resolve('./runtime/server/proxy'),
     })
 
@@ -83,8 +91,8 @@ export default defineNuxtModule({
       nuxt.options.runtimeConfig.public.swa = defu(
         nuxt.options.runtimeConfig.public.swa,
         {
-          rest: joinURL(_dataApiBasePath, options.dataApi.rest),
-          graphql: joinURL(_dataApiBasePath, options.dataApi.graphql),
+          rest: joinURL(dataApiEndpoint, options.dataApi.rest),
+          graphql: joinURL(dataApiEndpoint, options.dataApi.graphql),
         }
       )
       addImports(
