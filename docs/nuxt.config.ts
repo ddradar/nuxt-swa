@@ -32,7 +32,9 @@ export default defineNuxtConfig({
     icons: ['heroicons', 'simple-icons'],
   },
   devtools: { enabled: true },
-  applicationinsights: {
-    connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+  runtimeConfig: {
+    applicationinsights: {
+      connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING || '',
+    },
   },
 })
