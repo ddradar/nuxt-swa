@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  $production: {
+    modules: ['nuxt-applicationinsights'],
+  },
   extends: ['@nuxt/ui-pro'],
   experimental: { asyncContext: true },
   nitro: {
@@ -16,7 +19,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxthq/studio',
     'nuxt-swa',
-    'nuxt-applicationinsights',
   ],
   hooks: {
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
@@ -33,8 +35,10 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   runtimeConfig: {
-    applicationinsights: {
-      connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING || '',
+    public: {
+      applicationinsights: {
+        connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+      },
     },
   },
 })
