@@ -35,8 +35,10 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   runtimeConfig: {
-    applicationinsights: {
-      connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING || '',
+    public: {
+      applicationinsights: {
+        connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+      },
     },
   },
 })
