@@ -58,11 +58,11 @@ const navigation = inject<Ref<NavItem[]>>('navigation')
 
         <hr v-if="surround?.length" />
 
-        <UDocsSurround :surround="surround!" />
+        <UContentSurround :surround="surround!" />
       </UPageBody>
 
       <template v-if="page?.toc !== false" #right>
-        <UDocsToc :title="toc?.title" :links="page!.body?.toc?.links">
+        <UContentToc :title="toc?.title" :links="page!.body?.toc?.links">
           <template v-if="toc?.bottom" #bottom>
             <div
               class="hidden lg:block space-y-6"
@@ -73,7 +73,7 @@ const navigation = inject<Ref<NavItem[]>>('navigation')
               <UPageLinks :title="toc.bottom.title" :links="links" />
             </div>
           </template>
-        </UDocsToc>
+        </UContentToc>
       </template>
     </UPage>
   </UContainer>

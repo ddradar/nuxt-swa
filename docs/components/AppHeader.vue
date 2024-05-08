@@ -30,11 +30,11 @@ const items: DropdownItem[][] = [
     </template>
 
     <template v-if="header?.search" #center>
-      <UDocsSearchButton class="hidden lg:flex" />
+      <UContentSearchButton class="hidden lg:flex" />
     </template>
 
     <template #right>
-      <UDocsSearchButton v-if="header?.search" class="lg:hidden" />
+      <UContentSearchButton v-if="header?.search" class="lg:hidden" />
 
       <UColorModeButton v-if="header?.colorMode" />
 
