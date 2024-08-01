@@ -12,6 +12,7 @@
         "Jacano.vscode-pnpm",
         "ms-azuretools.vscode-azurestaticwebapps",
         "ms-mssql.mssql",
+        "Nuxt.mdc",
         "Vue.volar"
       ]
     }
@@ -31,10 +32,6 @@
       "onAutoForward": "ignore"
     }
   },
-  "features": {
-    "ghcr.io/devcontainers-contrib/features/pnpm:2": {
-      "version": "8.x"
-    }
-  },
-  "postCreateCommand": "pnpm install --frozen-lockfile"
+  "postCreateCommand": ["corepack enable", "pnpm install --frozen-lockfile"],
+  "remoteUser": "node"
 }
