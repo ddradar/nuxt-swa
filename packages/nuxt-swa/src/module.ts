@@ -474,11 +474,11 @@ export interface ClientPrincipal {
    */
   claims?: Claim[]
 }
-${
-  options.authProviders
-    ? `
+
 // Auth Feature
-/**
+${
+  options.authProviders?.length
+    ? `/**
  * Authentication Provider list to login your app.
  * @see https://learn.microsoft.com/azure/static-web-apps/authentication-custom#configure-a-custom-identity-provider
  */
@@ -486,10 +486,10 @@ type IdentityProvider = ${options.authProviders.map(s => `'${s}'`).join(' | ')}
 `
     : ''
 }
+// Data API (preview) Feature
 ${
   options.dataApi
-    ? `// Data API (preview) Feature
-/**
+    ? `/**
  * Data API (REST) response
  * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
  */

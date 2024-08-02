@@ -1,9 +1,13 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest'
 
-import { resolveAuthProviders } from '~/src/config'
+import {
+  generateTypeDefinition,
+  resolveAuthProviders,
+  type ModuleOptions,
+} from '~~/src/module'
 
-describe('config', () => {
+describe('module.ts', () => {
   describe('resolveAuthProviders', () => {
     it.each([undefined, {}, { auth: {} }])(
       '(%o) returns ["aad", "github"]',
@@ -30,6 +34,29 @@ describe('config', () => {
         expect(
           resolveAuthProviders({ auth: { identityProviders } })
         ).toStrictEqual(expected)
+    )
+  })
+
+  describe('generateTypeDefinition', () => {
+    it.each([
+      {
+        authProviders: ['aad', 'github'],
+        customRoles: [],
+        dataApi: { rest: '/rest', graphql: '/graphql' },
+      },
+      {
+        authProviders: [],
+        customRoles: [],
+        dataApi: false,
+      },
+      {
+        authProviders: ['github', 'twitter', 'line'],
+        customRoles: ['administrator'],
+        dataApi: { rest: '/rest', graphql: '/graphql' },
+      },
+    ] satisfies ModuleOptions[])(
+      '(%o) renders expected Type Definition',
+      options => expect(generateTypeDefinition(options)).toMatchSnapshot()
     )
   })
 })
