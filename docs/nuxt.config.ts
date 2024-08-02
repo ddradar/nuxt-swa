@@ -2,6 +2,13 @@
 export default defineNuxtConfig({
   $production: {
     modules: ['nuxt-applicationinsights'],
+    runtimeConfig: {
+      public: {
+        applicationinsights: {
+          connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+        },
+      },
+    },
   },
   extends: ['@nuxt/ui-pro'],
   experimental: { asyncContext: true },
@@ -30,15 +37,5 @@ export default defineNuxtConfig({
       globals.forEach(c => (c.global = true))
     },
   },
-  ui: {
-    icons: ['heroicons', 'simple-icons'],
-  },
   devtools: { enabled: true },
-  runtimeConfig: {
-    public: {
-      applicationinsights: {
-        connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
-      },
-    },
-  },
 })

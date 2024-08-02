@@ -11,7 +11,6 @@ export default defineVitestConfig({
       include: ['src/**/*.ts', 'src/**/*.vue'],
       exclude: [
         '.nuxt/**',
-        'src/module.ts',
         'test/**',
         '**.config.ts',
         '**/*.d.ts',
