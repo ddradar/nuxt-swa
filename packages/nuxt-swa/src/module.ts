@@ -9,15 +9,22 @@ import {
   useLogger,
 } from '@nuxt/kit'
 import { defu } from 'defu'
+import type { NuxtConfig } from 'nuxt/config'
 import { joinURL } from 'ufo'
 
-import { defaults, resolveAuthProviders } from './config'
+const preConfiguredProviders = ['aad' as const, 'github' as const]
+const knownIdentityProviders = [
+  'apple',
+  'facebook',
+  'google',
+  'twitter',
+] as const
 
 const packageName = 'nuxt-swa'
 const authEndpoint = '/.auth'
 const dataApiEndpoint = '/data-api'
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: packageName,
     configKey: 'swa',
@@ -25,7 +32,10 @@ export default defineNuxtModule({
       nuxt: '^3.9.0',
     },
   },
-  defaults,
+  defaults: {
+    customRoles: [],
+    dataApi: { rest: '/rest', graphql: '/graphql' },
+  },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const logger = useLogger(packageName)
@@ -49,12 +59,8 @@ export default defineNuxtModule({
     // Core Type definition
     addTypeTemplate({
       filename: `types/${packageName}.d.ts`,
-      src: resolve('runtime/types/nuxt-swa.d.ts.template'),
+      getContents: ({ options }) => generateTypeDefinition(options),
       options,
-    })
-    nuxt.hook('prepare:types', ({ references }) => {
-      references.push({ path: `types/${packageName}.d.ts` })
-      references.push({ path: resolve('./runtime/types.d.ts') })
     })
 
     // Proxy Azure SWA built-in API
@@ -192,7 +198,7 @@ declare module 'nitropack' {
      * If not empty, only role(s) listed are authorized to access the route.
      * Roles are only used for authorization; they are not used to evaluate whether the route matches the request.
      */
-    allowedRoles?: UserRole[]
+    allowedRoles?: string[]
     /** Override any matching global headers */
     headers?: { [k: string]: unknown }
     /**
@@ -336,4 +342,165 @@ declare module 'nitropack' {
       [k: string]: unknown
     }
   }
+}
+
+export interface ModuleOptions {
+  /**
+   * Authentication Provider list to login your app.
+   * If your app does not use built-in Authentication/Authorization, please set this to `[]`.
+   * @default ['aad', 'github']
+   */
+  authProviders?: (
+    | (typeof knownIdentityProviders)[number]
+    | Omit<string, (typeof knownIdentityProviders)[number]>
+  )[]
+  /**
+   * Define custom roles to use in your app besides the default roles (`anonymous`, `authenticated`).
+   * @default []
+   */
+  customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
+  /** Data API config */
+  dataApi:
+    | {
+        /** REST endpoint path (same value as `runtime.rest.path` in `staticwebapp.database.config.json`) */ rest: string
+        /** GraphQL endpoint path (same value as `runtime.graphql.path` in `staticwebapp.database.config.json`) */ graphql: string
+      }
+    | false
+}
+
+export interface ModulePublicRuntimeConfig {
+  /** Nuxt SWA config */
+  swa: {
+    /** REST API endpoint */ rest: string
+    /** GraphQL endpoint */ graphql: string
+  }
+}
+
+type SpecifiedRole = Exclude<string, 'anonymous'>
+
+declare module '#app' {
+  interface PageMeta {
+    /** List of roles required to view this page */
+    allowedRoles?: SpecifiedRole | SpecifiedRole[]
+  }
+}
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    /** List of roles required to view this page */
+    allowedRoles?: SpecifiedRole | SpecifiedRole[]
+  }
+}
+
+/** Resolve `authProviders` option from Nitro config. */
+export function resolveAuthProviders(
+  options: Required<Required<NuxtConfig>['nitro']>['azure']['config']
+): Required<ModuleOptions>['authProviders'] {
+  if (!options?.auth?.identityProviders) return preConfiguredProviders
+
+  const identityProviders = options?.auth?.identityProviders
+
+  const result: Required<ModuleOptions>['authProviders'] = []
+
+  addPreConfiguredProviderIfEnabled('aad') // Microsoft Entra ID (formerly Azure Active Directory)
+  addCustomProviderIfEnabled('apple') // Apple
+  addCustomProviderIfEnabled('facebook') // Facebook
+  addPreConfiguredProviderIfEnabled('github') // GitHub
+  addCustomProviderIfEnabled('google') // Google
+  addCustomProviderIfEnabled('twitter') // X (formerly Twitter)
+
+  // OpenID Connect
+  for (const key in identityProviders.customOpenIdConnectProviders) {
+    if (identityProviders.customOpenIdConnectProviders[key]?.enabled !== false)
+      result.push(key)
+  }
+
+  return result
+
+  function addPreConfiguredProviderIfEnabled(
+    provider: (typeof preConfiguredProviders)[number]
+  ) {
+    const key = provider === 'aad' ? 'azureActiveDirectory' : provider
+    if (identityProviders[key]?.enabled !== false) result.push(provider)
+  }
+
+  function addCustomProviderIfEnabled(
+    provider: (typeof knownIdentityProviders)[number]
+  ) {
+    if (
+      identityProviders[provider] &&
+      identityProviders[provider]?.enabled !== false
+    )
+      result.push(provider)
+  }
+}
+
+export function generateTypeDefinition(options: ModuleOptions) {
+  return `// Generated by nuxt-swa
+/**
+ * User roles to use in your app.
+ * @see https://learn.microsoft.com/azure/static-web-apps/authentication-custom#manage-roles
+ */
+type UserRole = ${['anonymous', 'authenticated', ...options.customRoles].map(s => `'${s}'`).join(' | ')}
+
+interface Claim {
+  typ: string
+  val: string
+}
+
+/**
+ * User-identifiable information to your app.
+ * @see https://learn.microsoft.com/azure/static-web-apps/user-information?tabs=javascript#client-principal-data
+ */
+export interface ClientPrincipal {
+  /** The name of the identity provider. */
+  identityProvider: IdentityProvider
+  /**
+   * An Azure Static Web Apps-specific unique identifier for the user.
+   * - The value is unique on a per-app basis. For instance, the same user returns a different \`userId\` value on a different Static Web Apps resource.
+   * - The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new \`userId\` is generated.
+   */
+  userId: string
+  /**
+   * Username or email address of the user.
+   * Some providers return the user's email address, while others send the user handle.
+   */
+  userDetails: string
+  /** An array of the user's assigned roles. */
+  userRoles: UserRole[]
+  /**
+   * An array of claims returned by your custom authentication provider.
+   * Only accessible in the direct-access endpoint (/.auth/me).
+   */
+  claims?: Claim[]
+}
+${
+  options.authProviders
+    ? `
+// Auth Feature
+/**
+ * Authentication Provider list to login your app.
+ * @see https://learn.microsoft.com/azure/static-web-apps/authentication-custom#configure-a-custom-identity-provider
+ */
+type IdentityProvider = ${options.authProviders.map(s => `'${s}'`).join(' | ')}
+`
+    : ''
+}
+${
+  options.dataApi
+    ? `// Data API (preview) Feature
+/**
+ * Data API (REST) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
+ */
+type RestResult<T> = { value: T[] }
+
+/**
+ * Data API (GraphQL) response
+ * @see https://learn.microsoft.com/azure/data-api-builder/graphql#resultset-format
+ */
+type GraphQLResult<T> = { data: T }`
+    : ''
+}
+`
 }
