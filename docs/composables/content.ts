@@ -1,4 +1,4 @@
-import type { NavItem, ParsedContent } from '@nuxt/content/dist/runtime/types'
+import type { NavItem, ParsedContent } from '@nuxt/content'
 import { withoutTrailingSlash } from 'ufo'
 
 export function useContentNavigation() {
