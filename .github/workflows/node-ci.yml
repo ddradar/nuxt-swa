@@ -24,7 +24,7 @@ jobs:
           cache: pnpm
 
       - name: Install Project Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: ESLint
         run: pnpm lint:eslint
@@ -47,7 +47,7 @@ jobs:
           cache: pnpm
 
       - name: Install Project Dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build
         run: pnpm build
@@ -105,6 +105,9 @@ jobs:
     environment:
       name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
       url: ${{ vars.NUXT_PUBLIC_SITE_URL }}
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout
