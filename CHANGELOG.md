@@ -1,5 +1,65 @@
 # Changelog
 
+## v0.6.0
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.5.0...v0.6.0)
+
+### 🩹 Fixes
+
+- **docs:** Move instrumentation key to public ([#129](https://github.com/ddradar/nuxt-swa/pull/129))
+- **docs:** Use UContent components instead of UDocs ([#130](https://github.com/ddradar/nuxt-swa/pull/130))
+- Avoid use lodash/template on generate types ([#158](https://github.com/ddradar/nuxt-swa/pull/158))
+
+### 🏡 Chore
+
+- Migrate to @nuxt/fonts ([#94](https://github.com/ddradar/nuxt-swa/pull/94), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#161](https://github.com/ddradar/nuxt-swa/pull/161))
+- Migrate to eslint v9 & @nuxt/eslint module & flat config ([#95](https://github.com/ddradar/nuxt-swa/pull/95), [#122](https://github.com/ddradar/nuxt-swa/pull/122), [#137](https://github.com/ddradar/nuxt-swa/pull/137), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#160](https://github.com/ddradar/nuxt-swa/pull/160), [#161](https://github.com/ddradar/nuxt-swa/pull/161), [#166](https://github.com/ddradar/nuxt-swa/pull/166)), closes [#107](https://github.com/ddradar/nuxt-swa/issues/107)
+- Update @nuxt/module-builder to 0.6.0 ([#125](https://github.com/ddradar/nuxt-swa/pull/125))
+- Migrate to pnpm v9 ([#127](https://github.com/ddradar/nuxt-swa/pull/127))
+- Use corepack ([#157](https://github.com/ddradar/nuxt-swa/pull/157)), closes [#148](https://github.com/ddradar/nuxt-swa/issues/148)
+- Use swa-cli on deploy ([#168](https://github.com/ddradar/nuxt-swa/pull/168), [#169](https://github.com/ddradar/nuxt-swa/pull/169), [#170](https://github.com/ddradar/nuxt-swa/pull/170)), closes [#62](https://github.com/ddradar/nuxt-swa/issues/62)
+
+### 🤖 CI
+
+#### Dependencies Update
+
+|kind|package|old|new|PRs|
+|----|-------|--:|--:|---|
+|NPM|@nuxt/kit|3.10.3|3.13.0|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|NPM|ufo|1.4.0|1.5.4|[#92](https://github.com/ddradar/nuxt-swa/pull/92), [#147](https://github.com/ddradar/nuxt-swa/pull/147)|
+|NPM(dev)|@azure/static-web-apps-cli|1.1.6|2.0.1|[#85](https://github.com/ddradar/nuxt-swa/pull/85), [#141](https://github.com/ddradar/nuxt-swa/pull/141)|
+|NPM(dev)|@nuxt/module-builder|0.5.5|0.8.3|[#125](https://github.com/ddradar/nuxt-swa/pull/125), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|NPM(dev)|@nuxt/schema|3.10.3|3.13.0|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|NPM(dev)|@nuxt/test-utils|3.11.0|3.14.1|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|NPM(dev)|@nuxthq/studio|1.0.12|2.0.3|[#90](https://github.com/ddradar/nuxt-swa/pull/90), [#111](https://github.com/ddradar/nuxt-swa/pull/111), [#139](https://github.com/ddradar/nuxt-swa/pull/139)|
+|NPM(dev)|@types/node|18.19.22|18.19.47|[#97](https://github.com/ddradar/nuxt-swa/pull/97), [#106](https://github.com/ddradar/nuxt-swa/pull/106), [#110](https://github.com/ddradar/nuxt-swa/pull/110), [#153](https://github.com/ddradar/nuxt-swa/pull/153), [#162](https://github.com/ddradar/nuxt-swa/pull/162)|
+|NPM(dev)|@vitest/coverage-v8|1.3.1|2.0.5|[#82](https://github.com/ddradar/nuxt-swa/pull/82), [#109](https://github.com/ddradar/nuxt-swa/pull/109), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#136](https://github.com/ddradar/nuxt-swa/pull/136), [#149](https://github.com/ddradar/nuxt-swa/pull/149)|
+|NPM(dev)|@vue/test-utils|2.4.4|2.4.6|[#86](https://github.com/ddradar/nuxt-swa/pull/86), [#128](https://github.com/ddradar/nuxt-swa/pull/128)|
+|NPM(dev)|eslint-plugin-simple-import-sort|12.0.0|12.1.1|[#128](https://github.com/ddradar/nuxt-swa/pull/128), [#137](https://github.com/ddradar/nuxt-swa/pull/137)|
+|NPM(dev)|happy-dom|13.6.2|14.12.3|[#93](https://github.com/ddradar/nuxt-swa/pull/93), [#103](https://github.com/ddradar/nuxt-swa/pull/103), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#142](https://github.com/ddradar/nuxt-swa/pull/142)|
+|NPM(dev)|husky|9.0.11|9.1.5|[#137](https://github.com/ddradar/nuxt-swa/pull/137), [#160](https://github.com/ddradar/nuxt-swa/pull/160)|
+|NPM(dev)|husky|9.1.3|9.1.4|[#150](https://github.com/ddradar/nuxt-swa/pull/150)|
+|NPM(dev)|lint-staged|15.2.2|15.2.9|[#137](https://github.com/ddradar/nuxt-swa/pull/137), [#160](https://github.com/ddradar/nuxt-swa/pull/160)|
+|NPM(dev)|nuxt-applicationinsights|0.3.2|0.6.0|[#84](https://github.com/ddradar/nuxt-swa/pull/84), [#113](https://github.com/ddradar/nuxt-swa/pull/113), [#140](https://github.com/ddradar/nuxt-swa/pull/140)|
+|NPM(dev)|prettier|3.2.5|3.3.3|[#137](https://github.com/ddradar/nuxt-swa/pull/137)|
+|NPM(dev)|vitest|1.3.1|2.0.5|[#82](https://github.com/ddradar/nuxt-swa/pull/82), [#109](https://github.com/ddradar/nuxt-swa/pull/109), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#136](https://github.com/ddradar/nuxt-swa/pull/136), [#149](https://github.com/ddradar/nuxt-swa/pull/149)|
+|NPM(dev)|vue-tsc|1.8.27|2.0.29|[#88](https://github.com/ddradar/nuxt-swa/pull/88), [#105](https://github.com/ddradar/nuxt-swa/pull/105), [#112](https://github.com/ddradar/nuxt-swa/pull/112), [#145](https://github.com/ddradar/nuxt-swa/pull/145)|
+|NPM(docs)|@iconify-json/heroicons|1.1.20|1.1.24|[#114](https://github.com/ddradar/nuxt-swa/pull/114), [#143](https://github.com/ddradar/nuxt-swa/pull/143), [#164](https://github.com/ddradar/nuxt-swa/pull/164)|
+|NPM(docs)|@iconify-json/simple-icons|1.1.93|1.1.115|[#91](https://github.com/ddradar/nuxt-swa/pull/91), [#104](https://github.com/ddradar/nuxt-swa/pull/104), [#116](https://github.com/ddradar/nuxt-swa/pull/116), [#146](https://github.com/ddradar/nuxt-swa/pull/146), [#152](https://github.com/ddradar/nuxt-swa/pull/152), [#163](https://github.com/ddradar/nuxt-swa/pull/163), [#166](https://github.com/ddradar/nuxt-swa/pull/166)|
+|NPM(docs)|@nuxt/content|2.12.0|2.13.2|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#138](https://github.com/ddradar/nuxt-swa/pull/138)|
+|NPM(docs)|@nuxt/ui-pro|1.0.1|1.4.1|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#129](https://github.com/ddradar/nuxt-swa/pull/129), [#138](https://github.com/ddradar/nuxt-swa/pull/138), [#151](https://github.com/ddradar/nuxt-swa/pull/151), [#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|NPM(docs)|nuxt|3.10.3|3.13.0|[#83](https://github.com/ddradar/nuxt-swa/pull/83), [#128](https://github.com/ddradar/nuxt-swa/pull/128), [#138](https://github.com/ddradar/nuxt-swa/pull/138),[#161](https://github.com/ddradar/nuxt-swa/pull/161)|
+|GitHub Actions|actions/checkout|4.1.1|4.1.7|[#100](https://github.com/ddradar/nuxt-swa/pull/100), [#119](https://github.com/ddradar/nuxt-swa/pull/119), [#131](https://github.com/ddradar/nuxt-swa/pull/131), [#134](https://github.com/ddradar/nuxt-swa/pull/134)|
+|GitHub Actions|actions/download-artifact|4.1.3|4.1.8|[#99](https://github.com/ddradar/nuxt-swa/pull/99), [#117](https://github.com/ddradar/nuxt-swa/pull/117), [#155](https://github.com/ddradar/nuxt-swa/pull/155)|
+|GitHub Actions|actions/setup-node|4.0.2|4.0.3|[#156](https://github.com/ddradar/nuxt-swa/pull/156)|
+|GitHub Actions|actions/upload-artifact|4.3.1|4.3.6|[#120](https://github.com/ddradar/nuxt-swa/pull/120), [#154](https://github.com/ddradar/nuxt-swa/pull/154), [#159](https://github.com/ddradar/nuxt-swa/pull/159)|
+|GitHub Actions|codecov/codecov-action|4.1.0|4.5.0|[#98](https://github.com/ddradar/nuxt-swa/pull/98), [#118](https://github.com/ddradar/nuxt-swa/pull/118), [#133](https://github.com/ddradar/nuxt-swa/pull/133), [#135](https://github.com/ddradar/nuxt-swa/pull/135)|
+|GitHub Actions|pnpm/action-setup|3.0.0|4.0.0|[#132](https://github.com/ddradar/nuxt-swa/pull/132)|
+
+### ❤️ Contributors
+
+- Nogic ([@nogic1008](http://github.com/nogic1008))
+
 ## v0.5.0
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.4.0...v0.5.0)
