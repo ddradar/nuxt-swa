@@ -137,7 +137,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Static Web Apps
-        run: swa deploy --env ${{ (github.event_name == 'release' && 'production') || 'staging' }}
+        run: pnpm swa deploy --env ${{ (github.event_name == 'release' && 'production') || 'staging' }}
 
   publish:
     name: Publish Package
