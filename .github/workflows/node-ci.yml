@@ -105,6 +105,9 @@ jobs:
     environment:
       name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
       url: ${{ vars.NUXT_PUBLIC_SITE_URL }}
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout
