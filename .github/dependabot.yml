@@ -11,7 +11,7 @@ updates:
       time: '19:00'
       timezone: Asia/Tokyo
     commit-message:
-      prefix: ci
+      prefix: ci(gh-actions)
       include: scope
     labels:
       - 'dependabot :robot:'
@@ -26,7 +26,7 @@ updates:
       time: '19:00'
       timezone: Asia/Tokyo
     commit-message:
-      prefix: ci
+      prefix: ci(devcontainer)
       include: scope
     labels:
       - 'dependabot :robot:'
