@@ -12,7 +12,7 @@ updates:
       timezone: Asia/Tokyo
     commit-message:
       prefix: ci(gh-actions)
-      include: scope
+    milestone: 8
     labels:
       - 'dependabot :robot:'
     reviewers:
@@ -27,7 +27,7 @@ updates:
       timezone: Asia/Tokyo
     commit-message:
       prefix: ci(devcontainer)
-      include: scope
+    milestone: 8
     labels:
       - 'dependabot :robot:'
     reviewers:
