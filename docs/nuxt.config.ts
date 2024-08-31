@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  compatibilityDate: '2024-08-31',
   extends: ['@nuxt/ui-pro'],
   experimental: { asyncContext: true },
   nitro: {
@@ -24,6 +25,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxt/fonts',
+    '@nuxt/image',
     '@nuxthq/studio',
     'nuxt-swa',
   ],
