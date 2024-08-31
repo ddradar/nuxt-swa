@@ -11,8 +11,8 @@ updates:
       time: '19:00'
       timezone: Asia/Tokyo
     commit-message:
-      prefix: ci
-      include: scope
+      prefix: ci(gh-actions)
+    milestone: 8
     labels:
       - 'dependabot :robot:'
     reviewers:
@@ -26,8 +26,8 @@ updates:
       time: '19:00'
       timezone: Asia/Tokyo
     commit-message:
-      prefix: ci
-      include: scope
+      prefix: ci(devcontainer)
+    milestone: 8
     labels:
       - 'dependabot :robot:'
     reviewers:
@@ -46,25 +46,27 @@ updates:
         patterns:
           - '@vitest/*'
           - vitest
+      iconify:
+        patterns:
+          - '@iconify-json/*'
       lint-tools:
         dependency-type: development
         patterns:
-          - '@nuxt/eslint-config'
           - 'eslint*'
           - husky
           - lint-staged
           - prettier
+        update-types: [minor, patch]
       nuxt:
         patterns:
           - '@nuxt/*'
           - 'nuxt'
-        exclude-patterns:
-          - '@nuxt/eslint-config'
+        update-types: [minor, patch]
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
-    milestone: 21
+    milestone: 8
     labels:
       - 'dependabot :robot:'
     reviewers:
