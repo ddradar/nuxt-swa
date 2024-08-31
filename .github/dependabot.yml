@@ -56,12 +56,12 @@ updates:
           - husky
           - lint-staged
           - prettier
-        update-types: minor
+        update-types: [minor, patch]
       nuxt:
         patterns:
           - '@nuxt/*'
           - 'nuxt'
-        update-types: minor
+        update-types: [minor, patch]
     commit-message:
       prefix: fix
       prefix-development: chore
