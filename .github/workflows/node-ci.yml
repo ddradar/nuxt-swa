@@ -70,6 +70,7 @@ jobs:
         with:
           name: package
           path: packages/nuxt-swa/dist
+          include-hidden-files: true
 
   test:
     name: Unit Test
