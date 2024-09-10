@@ -63,6 +63,7 @@ jobs:
         with:
           name: docs
           path: docs/.output
+          include-hidden-files: true
 
       - name: Upload Package Distribution
         uses: actions/upload-artifact@v4.4.0
