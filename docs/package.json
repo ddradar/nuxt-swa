@@ -25,7 +25,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^0.5.4",
     "@nuxthq/studio": "^2.0.3",
-    "nuxt-applicationinsights": "^0.6.0",
+    "nuxt-applicationinsights": "^0.6.1",
     "nuxt-swa": "workspace:*",
     "vue-tsc": "^2.1.4"
   }
