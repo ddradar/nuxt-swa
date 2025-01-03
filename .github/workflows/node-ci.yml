@@ -58,7 +58,7 @@ jobs:
           APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
 
       - name: Upload Docs Output
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4.5.0
         if: github.event_name != 'pull_request'
         with:
           name: docs
@@ -66,7 +66,7 @@ jobs:
           include-hidden-files: true
 
       - name: Upload Package Distribution
-        uses: actions/upload-artifact@v4.4.3
+        uses: actions/upload-artifact@v4.5.0
         if: github.event_name != 'pull_request'
         with:
           name: package
