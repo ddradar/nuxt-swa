@@ -27,6 +27,6 @@
     "@nuxthq/studio": "^2.2.1",
     "nuxt-applicationinsights": "^0.7.0",
     "nuxt-swa": "workspace:*",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^2.2.8"
   }
 }
