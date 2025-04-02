@@ -126,7 +126,7 @@ jobs:
         run: pnpm install --dev --ignore-scripts
 
       - name: Download Docs Output
-        uses: actions/download-artifact@v4.1.9
+        uses: actions/download-artifact@v4.2.1
         with:
           name: docs
           path: docs/.output
@@ -162,7 +162,7 @@ jobs:
           registry-url: ${{ vars.NPM_REGISTRY_URL }}
 
       - name: Download Package Distribution
-        uses: actions/download-artifact@v4.1.9
+        uses: actions/download-artifact@v4.2.1
         with:
           name: package
           path: packages/nuxt-swa/dist
