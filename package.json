@@ -33,11 +33,11 @@
     "@azure/static-web-apps-cli": "^2.0.2",
     "@vitest/eslint-plugin": "^1.1.24",
     "changelogen": "^0.5.7",
-    "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.2",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.2"
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.3"
   }
 }
