@@ -47,7 +47,7 @@
     "@vitest/coverage-v8": "^2.1.8",
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.5.7",
-    "happy-dom": "^16.8.1",
+    "happy-dom": "^17.5.6",
     "nuxt": "^3.15.0",
     "vitest": "^2.1.9"
   }
