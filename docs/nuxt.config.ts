@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   experimental: { asyncContext: true },
   nitro: {
     preset: 'azure',
-    azure: { config: { platform: { apiRuntime: 'node:18' } } },
+    azure: { config: { platform: { apiRuntime: 'node:20' } } },
   },
   routeRules: {
     '/api/search.json': { prerender: true },
