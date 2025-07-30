@@ -48,7 +48,7 @@
     "@vue/test-utils": "^2.4.6",
     "changelogen": "^0.5.7",
     "happy-dom": "^17.5.6",
-    "nuxt": "^3.15.0",
+    "nuxt": "^3.16.0",
     "vitest": "^3.2.4"
   }
 }
