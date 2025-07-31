@@ -8,13 +8,10 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-llms',
   ],
-
   devtools: {
     enabled: true,
   },
-
   css: ['~/assets/css/main.css'],
-
   content: {
     build: {
       markdown: {
@@ -24,30 +21,26 @@ export default defineNuxtConfig({
       },
     },
   },
-
   compatibilityDate: '2024-07-11',
-
   nitro: {
+    preset: 'azure-swa',
     prerender: {
       routes: ['/'],
       crawlLinks: true,
       autoSubfolderIndex: false,
     },
   },
-
   eslint: {
     config: {
       stylistic: {
-        commaDangle: 'never',
+        commaDangle: 'always-multiline',
         braceStyle: '1tbs',
       },
     },
   },
-
   icon: {
     provider: 'iconify',
   },
-
   llms: {
     domain: 'https://docs-template.nuxt.dev/',
     title: 'Nuxt Docs Template',

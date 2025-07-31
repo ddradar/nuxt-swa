@@ -6,13 +6,13 @@
       "apiDevserverUrl": "http://localhost:3000",
       "dataApiLocation": "swa-db-connections",
       "run": "pnpm dev",
-      "appLocation": "docs",
+      "appLocation": "docs-v3",
       "deploy": {
         "appName": "nuxt-swa",
         "apiLanguage": "node",
-        "apiVersion": "18",
-        "apiLocation": "docs/.output/server",
-        "appLocation": "docs/.output/public",
+        "apiVersion": "20",
+        "apiLocation": "docs-v3/.output/server",
+        "appLocation": "docs-v3/.output/public",
         "useKeychain": false
       }
     }
