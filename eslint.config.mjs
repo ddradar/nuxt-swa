@@ -4,10 +4,12 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 import docsConfig from './docs/.nuxt/eslint.config.mjs'
+import docsV3Config from './docs-v3/.nuxt/eslint.config.mjs'
 import nuxtSwaConfig from './packages/nuxt-swa/.nuxt/eslint.config.mjs'
 
-export default docsConfig({ ignores: ['packages'] })
-  .append(nuxtSwaConfig({ ignores: ['docs'] }))
+export default docsConfig({ ignores: ['packages', 'docs-v3'] })
+  .append(docsV3Config({ ignores: ['packages', 'docs'] }))
+  .append(nuxtSwaConfig({ ignores: ['docs', 'docs-v3'] }))
   .append(eslintConfigPrettier)
   .append({
     plugins: { 'simple-import-sort': simpleImportSort },
