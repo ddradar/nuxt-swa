@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-og-image',
     'nuxt-llms',
+    'nuxt-swa',
   ],
   devtools: {
     enabled: true,
@@ -28,14 +29,6 @@ export default defineNuxtConfig({
       routes: ['/'],
       crawlLinks: true,
       autoSubfolderIndex: false,
-    },
-  },
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'always-multiline',
-        braceStyle: '1tbs',
-      },
     },
   },
   icon: {

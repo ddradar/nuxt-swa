@@ -1,9 +1,0 @@
-title: API
-description: API usage sample
-links:
-  - label: View Source (Client side)
-    icon: i-simple-icons-github
-    to: https://github.com/ddradar/nuxt-swa/tree/main/docs/pages/playground/api.vue
-  - label: View Source (Server side)
-    icon: i-simple-icons-github
-    to: https://github.com/ddradar/nuxt-swa/tree/main/docs/server/api/user.get.ts

@@ -66,10 +66,11 @@ export const useFetchGraphQL = <
   DataT = SchemaT,
   PickKeys extends KeysOf<DataT> = KeysOf<DataT>,
   DefaultT = null,
+  VariablesT extends Record<string, any> = Record<string, any>,
 >(
   key: string,
   query: string,
-  variables?: MaybeRef<Record<string, never>>,
+  variables?: MaybeRef<VariablesT>,
   opts?: Omit<
     UseFetchOptions<GraphQLResult<SchemaT>, DataT, PickKeys, DefaultT>,
     'body' | 'key' | 'method'

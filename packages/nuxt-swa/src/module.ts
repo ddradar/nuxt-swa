@@ -29,7 +29,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: packageName,
     configKey: 'swa',
     compatibility: {
-      nuxt: '^3.9.0',
+      nuxt: '^3.9.0||^4.0.0',
     },
   },
   defaults: {
