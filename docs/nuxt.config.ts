@@ -1,15 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  $production: {
-    modules: ['nuxt-applicationinsights'],
-    runtimeConfig: {
-      public: {
-        applicationinsights: {
-          connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
-        },
-      },
-    },
-  },
   compatibilityDate: '2024-07-11',
   nitro: {
     preset: 'azure-swa',
@@ -33,6 +23,7 @@ export default defineNuxtConfig({
     provider: 'iconify',
   },
   llms: {
+    domain: 'https://proud-plant-0fe90bc00.4.azurestaticapps.net/',
     title: 'Nuxt SWA',
     description: 'Nuxt Module that provides Azure Static Web Apps features.',
     full: {
