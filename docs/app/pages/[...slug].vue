@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import type { ContentNavigationItem } from '@nuxt/content'
+import { findPageHeadline } from '@nuxt/content/utils'
 
-import { findPageHeadline } from '#ui-pro/utils/content'
-
-definePageMeta({
-  layout: 'docs',
-})
+definePageMeta({ layout: 'docs' })
 
 const route = useRoute()
 const { toc } = useAppConfig()
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
+// Fetch page contents and surroundings
 const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('docs').path(route.path).first()
 )
@@ -21,7 +19,6 @@ if (!page.value) {
     fatal: true,
   })
 }
-
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings('docs', route.path, {
     fields: ['description'],
@@ -30,7 +27,6 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
 
 const title = page.value.seo?.title || page.value.title
 const description = page.value.seo?.description || page.value.description
-
 useSeoMeta({
   title,
   ogTitle: title,
@@ -38,12 +34,8 @@ useSeoMeta({
   ogDescription: description,
 })
 
-const headline = computed(() => findPageHeadline(navigation?.value, page.value))
-
-defineOgImageComponent('Docs', {
-  headline: headline.value,
-})
-
+// Computed
+const headline = computed(() => findPageHeadline(navigation?.value, route.path))
 const links = computed(() => {
   const links = []
   if (toc?.bottom?.edit) {
@@ -57,6 +49,8 @@ const links = computed(() => {
 
   return [...links, ...(toc?.bottom?.links || [])].filter(Boolean)
 })
+
+defineOgImageComponent('Docs', { headline: headline.value })
 </script>
 
 <template>

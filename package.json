@@ -12,7 +12,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "swa start",
-    "build": "pnpm -C packages/nuxt-swa build && pnpm -C docs-v3 build",
+    "build": "pnpm -C packages/nuxt-swa build && pnpm -C docs build",
     "changelog": "changelogen --bump",
     "format": "pnpm run \"/^format:.*/\"",
     "format:eslint": "eslint . --fix",

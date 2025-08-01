@@ -25,11 +25,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-11',
   nitro: {
     preset: 'azure-swa',
-    prerender: {
-      routes: ['/'],
-      crawlLinks: true,
-      autoSubfolderIndex: false,
-    },
+    azure: { config: { platform: { apiRuntime: 'node:20' } } },
   },
   icon: {
     provider: 'iconify',

@@ -2,12 +2,25 @@
 import type { ContentNavigationItem } from '@nuxt/content'
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
-
 const { header } = useAppConfig()
+const { isLoggedIn, login, logout } = await useEasyAuth()
+
+const items = [
+  {
+    label: 'Login via GitHub',
+    icon: 'i-simple-icons-github',
+    onSelect: () => login('github'),
+  },
+  {
+    label: 'Login via Azure AD',
+    icon: 'i-simple-icons-microsoftazure',
+    onSelect: () => login('aad'),
+  },
+]
 </script>
 
 <template>
-  <UHeader :ui="{ center: 'flex-1' }" :to="header?.to || '/'">
+  <UHeader :ui="{ center: 'flex-1' }" :to="header?.to || '/'" title="Nuxt SWA">
     <UContentSearchButton
       v-if="header?.search"
       :collapsed="false"
@@ -31,14 +44,6 @@ const { header } = useAppConfig()
       </span>
     </template>
 
-    <template v-else #left>
-      <NuxtLink :to="header?.to || '/'">
-        <LogoPro class="w-auto h-6 shrink-0" />
-      </NuxtLink>
-
-      <TemplateMenu />
-    </template>
-
     <template #right>
       <UContentSearchButton v-if="header?.search" class="lg:hidden" />
 
@@ -51,6 +56,11 @@ const { header } = useAppConfig()
           v-bind="{ color: 'neutral', variant: 'ghost', ...link }"
         />
       </template>
+
+      <UButton v-if="isLoggedIn" @click="logout()">Logout</UButton>
+      <UDropdownMenu v-else :items="items">
+        <UButton>Login</UButton>
+      </UDropdownMenu>
     </template>
 
     <template #body>

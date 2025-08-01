@@ -39,7 +39,7 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
 
-  docs-v3:
+  docs:
     dependencies:
       '@iconify-json/lucide':
         specifier: ^1.2.57
@@ -9626,7 +9626,7 @@ snapshots:
 
   '@rollup/plugin-inject@5.0.5(rollup@4.46.2)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.46.2)
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.2)
       estree-walker: 2.0.2
       magic-string: 0.30.17
     optionalDependencies:
@@ -10221,7 +10221,7 @@ snapshots:
   '@vercel/nft@0.29.4(encoding@0.1.13)(rollup@4.46.2)':
     dependencies:
       '@mapbox/node-pre-gyp': 2.0.0(encoding@0.1.13)
-      '@rollup/pluginutils': 5.1.4(rollup@4.46.2)
+      '@rollup/pluginutils': 5.2.0(rollup@4.46.2)
       acorn: 8.15.0
       acorn-import-attributes: 1.9.5(acorn@8.15.0)
       async-sema: 3.1.1

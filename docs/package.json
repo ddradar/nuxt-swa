@@ -3,13 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint .",
-    "typecheck": "nuxt typecheck"
+    "prepare": "pnpm -C ../packages/nuxt-swa prepare:docs && nuxi prepare",
+    "dev": "nuxi dev",
+    "build": "nuxi build && node -e \"fs.renameSync('./staticwebapp.config.json', './.output/public/staticwebapp.config.json')\"",
+    "test:types": "nuxi typecheck"
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.57",
