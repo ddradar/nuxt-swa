@@ -19,6 +19,7 @@ const knownIdentityProviders = [
   'google',
   'twitter',
 ] as const
+const azureSwaPresets = ['azure', 'azure_swa', 'azureSwa', 'azure-swa']
 
 const packageName = 'nuxt-swa'
 const authEndpoint = '/.auth'
@@ -29,7 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: packageName,
     configKey: 'swa',
     compatibility: {
-      nuxt: '^3.9.0',
+      nuxt: '^3.9.0||^4.0.0',
     },
   },
   defaults: {
@@ -41,9 +42,9 @@ export default defineNuxtModule<ModuleOptions>({
     const logger = useLogger(packageName)
 
     const preset = nuxt.options.nitro?.preset
-    if (preset !== 'azure')
+    if (!preset || !azureSwaPresets.includes(preset))
       logger.warn(
-        `\`nitro.preset\` in your \`nuxt.config.ts\` file is ${preset ? `"${preset}"` : preset}.\nConsider set it to "azure".`
+        `\`nitro.preset\` in your \`nuxt.config.ts\` file is ${preset ? `"${preset}"` : preset}.\nConsider set it to "azure-swa".`
       )
 
     if (!nuxt.options.nitro?.azure?.config)

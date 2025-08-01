@@ -10,7 +10,7 @@
       "deploy": {
         "appName": "nuxt-swa",
         "apiLanguage": "node",
-        "apiVersion": "18",
+        "apiVersion": "20",
         "apiLocation": "docs/.output/server",
         "appLocation": "docs/.output/public",
         "useKeychain": false

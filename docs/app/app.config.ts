@@ -1,11 +1,15 @@
 export default defineAppConfig({
   ui: {
-    primary: 'blue',
-    gray: 'slate',
+    colors: {
+      primary: 'blue',
+      neutral: 'slate',
+    },
+  },
+  uiPro: {
     footer: {
-      bottom: {
-        left: 'text-sm text-gray-500 dark:text-gray-400',
-        wrapper: 'border-t border-gray-200 dark:border-gray-800',
+      slots: {
+        root: 'border-t border-default',
+        left: 'text-sm text-muted',
       },
     },
   },
@@ -13,6 +17,8 @@ export default defineAppConfig({
     siteName: 'Nuxt SWA',
   },
   header: {
+    title: '',
+    to: '/',
     logo: {
       alt: '',
       light: '',
@@ -30,7 +36,7 @@ export default defineAppConfig({
     ],
   },
   footer: {
-    credits: 'Copyright © 2024 DDRadar',
+    credits: `Copyright © 2024-2025 DDRadar`,
     colorMode: false,
     links: [
       {
@@ -51,12 +57,6 @@ export default defineAppConfig({
         target: '_blank',
         'aria-label': "Author's X account",
       },
-      {
-        icon: 'i-simple-icons-nuxtdotjs',
-        to: 'https://nuxt.studio',
-        target: '_blank',
-        'aria-label': 'Nuxt Studio',
-      },
     ],
   },
   toc: {
@@ -66,7 +66,7 @@ export default defineAppConfig({
       edit: 'https://github.com/ddradar/nuxt-swa/edit/main/docs/content',
       links: [
         {
-          icon: 'i-heroicons-star',
+          icon: 'i-lucide-star',
           label: 'Star on GitHub',
           to: 'https://github.com/ddradar/nuxt-swa',
           target: '_blank',
