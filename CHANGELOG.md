@@ -1,5 +1,106 @@
 # Changelog
 
+## v0.7.0
+
+[compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.6.0...v0.7.0)
+
+### 🚀 Enhancements
+
+- Migrate to Node.js 20 runtime ([#285](https://github.com/ddradar/nuxt-swa/pull/285))
+- ⚠️  Support Nuxt 4 & migrate docs site ([#286](https://github.com/ddradar/nuxt-swa/pull/286))
+
+### 🩹 Fixes
+
+- **deps:** Bump the iconify group with 2 updates ([#175](https://github.com/ddradar/nuxt-swa/pull/175))
+- Fix some deployment error ([#180](https://github.com/ddradar/nuxt-swa/pull/180))
+- **ci:** Add missing options ([#181](https://github.com/ddradar/nuxt-swa/pull/181))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.1 to 1.2.5 in the iconify group ([#183](https://github.com/ddradar/nuxt-swa/pull/183))
+- **ci:** Add auth-type ([#199](https://github.com/ddradar/nuxt-swa/pull/199))
+- **ci:** Revert ([#200](https://github.com/ddradar/nuxt-swa/pull/200))
+- **deps:** Bump the iconify group with 2 updates ([#203](https://github.com/ddradar/nuxt-swa/pull/203))
+- **deps:** Bump the nuxt group across 1 directory with 8 updates ([#201](https://github.com/ddradar/nuxt-swa/pull/201))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.10 to 1.2.13 in the iconify group ([#209](https://github.com/ddradar/nuxt-swa/pull/209))
+- **deps:** Bump the nuxt group with 5 updates ([#211](https://github.com/ddradar/nuxt-swa/pull/211))
+- **deps:** Bump the iconify group across 1 directory with 2 updates ([#227](https://github.com/ddradar/nuxt-swa/pull/227))
+- **deps:** Bump the nuxt group with 7 updates ([#219](https://github.com/ddradar/nuxt-swa/pull/219))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.18 to 1.2.23 in the iconify group ([#234](https://github.com/ddradar/nuxt-swa/pull/234))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.23 to 1.2.26 in the iconify group ([#247](https://github.com/ddradar/nuxt-swa/pull/247))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.27 to 1.2.30 in the iconify group ([#255](https://github.com/ddradar/nuxt-swa/pull/255))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.34 to 1.2.36 in the iconify group ([#278](https://github.com/ddradar/nuxt-swa/pull/278))
+- **deps:** Bump @iconify-json/simple-icons from 1.2.37 to 1.2.41 in the iconify group ([#284](https://github.com/ddradar/nuxt-swa/pull/284))
+
+### 🏡 Chore
+
+- **deps-dev:** Bump vue-tsc from 2.0.29 to 2.1.4 ([#176](https://github.com/ddradar/nuxt-swa/pull/176))
+- **deps-dev:** Bump nuxt-applicationinsights from 0.6.0 to 0.6.1 ([#189](https://github.com/ddradar/nuxt-swa/pull/189))
+- **deps-dev:** Bump vue-tsc from 2.1.4 to 2.1.6 ([#190](https://github.com/ddradar/nuxt-swa/pull/190))
+- **deps-dev:** Bump the lint-tools group with 3 updates ([#184](https://github.com/ddradar/nuxt-swa/pull/184))
+- **deps-dev:** Bump changelogen from 0.5.5 to 0.5.7 ([#188](https://github.com/ddradar/nuxt-swa/pull/188))
+- **deps-dev:** Bump @types/node from 18.19.47 to 18.19.54 ([#186](https://github.com/ddradar/nuxt-swa/pull/186))
+- **deps-dev:** Bump the vitest group across 1 directory with 3 updates ([#193](https://github.com/ddradar/nuxt-swa/pull/193))
+- **deps-dev:** Bump @nuxthq/studio from 2.0.3 to 2.1.1 ([#187](https://github.com/ddradar/nuxt-swa/pull/187))
+- **deps-dev:** Bump eslint from 9.11.1 to 9.14.0 in the lint-tools group ([#204](https://github.com/ddradar/nuxt-swa/pull/204))
+- **deps-dev:** Bump vue-tsc from 2.1.6 to 2.1.10 ([#207](https://github.com/ddradar/nuxt-swa/pull/207))
+- **deps-dev:** Bump the vitest group with 3 updates ([#202](https://github.com/ddradar/nuxt-swa/pull/202))
+- **deps-dev:** Bump @nuxthq/studio from 2.1.1 to 2.2.1 ([#206](https://github.com/ddradar/nuxt-swa/pull/206))
+- **deps-dev:** Bump the lint-tools group with 3 updates ([#210](https://github.com/ddradar/nuxt-swa/pull/210))
+- **deps-dev:** Bump the vitest group with 3 updates ([#208](https://github.com/ddradar/nuxt-swa/pull/208))
+- **deps-dev:** Bump happy-dom from 14.12.3 to 15.11.7 ([#215](https://github.com/ddradar/nuxt-swa/pull/215))
+- **deps-dev:** Bump nuxt-applicationinsights from 0.6.1 to 0.7.0 ([#213](https://github.com/ddradar/nuxt-swa/pull/213))
+- **deps-dev:** Bump vue-tsc from 2.1.10 to 2.2.0 ([#223](https://github.com/ddradar/nuxt-swa/pull/223))
+- **deps-dev:** Bump happy-dom from 15.11.7 to 16.3.0 ([#226](https://github.com/ddradar/nuxt-swa/pull/226))
+- **deps-dev:** Bump the vitest group across 1 directory with 3 updates ([#229](https://github.com/ddradar/nuxt-swa/pull/229))
+- **deps-dev:** Bump the lint-tools group with 3 updates ([#218](https://github.com/ddradar/nuxt-swa/pull/218))
+- **deps-dev:** Bump @azure/static-web-apps-cli from 2.0.1 to 2.0.2 ([#222](https://github.com/ddradar/nuxt-swa/pull/222))
+- **deps-dev:** Bump @types/node from 18.19.54 to 18.19.69 ([#220](https://github.com/ddradar/nuxt-swa/pull/220))
+- **deps-dev:** Bump @types/node from 18.19.69 to 18.19.74 ([#237](https://github.com/ddradar/nuxt-swa/pull/237))
+- **deps-dev:** Bump happy-dom from 16.3.0 to 16.8.1 ([#238](https://github.com/ddradar/nuxt-swa/pull/238))
+- **deps-dev:** Bump eslint-config-prettier from 9.1.0 to 10.0.1 ([#242](https://github.com/ddradar/nuxt-swa/pull/242))
+- **deps-dev:** Bump the lint-tools group with 2 updates ([#235](https://github.com/ddradar/nuxt-swa/pull/235))
+- **deps-dev:** Bump @nuxt/eslint from 0.7.4 to 1.0.1 ([#245](https://github.com/ddradar/nuxt-swa/pull/245))
+- **deps-dev:** Bump vitest from 2.1.8 to 2.1.9 ([#244](https://github.com/ddradar/nuxt-swa/pull/244))
+- **deps-dev:** Bump the lint-tools group with 3 updates ([#249](https://github.com/ddradar/nuxt-swa/pull/249))
+- **deps-dev:** Bump happy-dom from 16.8.1 to 17.5.6 ([#280](https://github.com/ddradar/nuxt-swa/pull/280))
+- **deps-dev:** Bump @types/node from 18.19.74 to 18.19.110 ([#279](https://github.com/ddradar/nuxt-swa/pull/279))
+- **deps-dev:** Bump vue-tsc from 2.2.0 to 2.2.10 ([#271](https://github.com/ddradar/nuxt-swa/pull/271))
+- **deps-dev:** Bump @azure/static-web-apps-cli from 2.0.2 to 2.0.6 ([#270](https://github.com/ddradar/nuxt-swa/pull/270))
+- **deps-dev:** Bump the vitest group across 1 directory with 3 updates ([#248](https://github.com/ddradar/nuxt-swa/pull/248))
+- **deps-dev:** Bump the lint-tools group across 1 directory with 3 updates ([#277](https://github.com/ddradar/nuxt-swa/pull/277))
+
+### 🤖 CI
+
+- **dependabot:** Add deps group & change milestone ([#172](https://github.com/ddradar/nuxt-swa/pull/172))
+- **gh-actions:** Bump actions/upload-artifact from 4.3.6 to 4.4.0 ([#173](https://github.com/ddradar/nuxt-swa/pull/173))
+- **gh-actions:** Bump actions/checkout from 4.1.7 to 4.2.0 ([#192](https://github.com/ddradar/nuxt-swa/pull/192))
+- **gh-actions:** Bump actions/setup-node from 4.0.3 to 4.0.4 ([#191](https://github.com/ddradar/nuxt-swa/pull/191))
+- **gh-actions:** Bump actions/upload-artifact from 4.4.0 to 4.4.3 ([#196](https://github.com/ddradar/nuxt-swa/pull/196))
+- **gh-actions:** Bump codecov/codecov-action from 4.5.0 to 4.6.0 ([#195](https://github.com/ddradar/nuxt-swa/pull/195))
+- **gh-actions:** Bump actions/setup-node from 4.0.4 to 4.1.0 ([#198](https://github.com/ddradar/nuxt-swa/pull/198))
+- **gh-actions:** Bump actions/checkout from 4.2.0 to 4.2.2 ([#197](https://github.com/ddradar/nuxt-swa/pull/197))
+- **gh-actions:** Bump codecov/codecov-action from 4.6.0 to 5.0.7 ([#214](https://github.com/ddradar/nuxt-swa/pull/214))
+- **gh-actions:** Bump actions/upload-artifact from 4.4.3 to 4.5.0 ([#225](https://github.com/ddradar/nuxt-swa/pull/225))
+- **gh-actions:** Bump codecov/codecov-action from 5.0.7 to 5.1.2 ([#224](https://github.com/ddradar/nuxt-swa/pull/224))
+- **gh-actions:** Bump actions/setup-node from 4.1.0 to 4.2.0 ([#230](https://github.com/ddradar/nuxt-swa/pull/230))
+- **gh-actions:** Bump actions/upload-artifact from 4.5.0 to 4.6.0 ([#231](https://github.com/ddradar/nuxt-swa/pull/231))
+- **gh-actions:** Bump codecov/codecov-action from 5.1.2 to 5.3.1 ([#232](https://github.com/ddradar/nuxt-swa/pull/232))
+- **gh-actions:** Bump actions/upload-artifact from 4.6.0 to 4.6.1 ([#251](https://github.com/ddradar/nuxt-swa/pull/251))
+- **gh-actions:** Bump actions/download-artifact from 4.1.8 to 4.1.9 ([#252](https://github.com/ddradar/nuxt-swa/pull/252))
+- **gh-actions:** Bump pnpm/action-setup from 4.0.0 to 4.1.0 ([#250](https://github.com/ddradar/nuxt-swa/pull/250))
+- **gh-actions:** Bump codecov/codecov-action from 5.3.1 to 5.4.0 ([#253](https://github.com/ddradar/nuxt-swa/pull/253))
+- **gh-actions:** Bump actions/upload-artifact from 4.6.1 to 4.6.2 ([#266](https://github.com/ddradar/nuxt-swa/pull/266))
+- **gh-actions:** Bump actions/setup-node from 4.2.0 to 4.4.0 ([#275](https://github.com/ddradar/nuxt-swa/pull/275))
+- **gh-actions:** Bump codecov/codecov-action from 5.4.0 to 5.4.2 ([#276](https://github.com/ddradar/nuxt-swa/pull/276))
+- **gh-actions:** Bump codecov/codecov-action from 5.4.2 to 5.4.3 ([#281](https://github.com/ddradar/nuxt-swa/pull/281))
+- **gh-actions:** Bump actions/download-artifact from 4.1.9 to 4.3.0 ([#274](https://github.com/ddradar/nuxt-swa/pull/274))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Support Nuxt 4 & migrate docs site ([#286](https://github.com/ddradar/nuxt-swa/pull/286))
+
+### ❤️ Contributors
+
+- Nogic ([@nogic1008](http://github.com/nogic1008))
+
 ## v0.6.0
 
 [compare changes](https://github.com/ddradar/nuxt-swa/compare/v0.5.0...v0.6.0)
