@@ -26,13 +26,8 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   content: {
-    build: {
-      markdown: {
-        toc: {
-          searchDepth: 1,
-        },
-      },
-    },
+    build: { markdown: { toc: { searchDepth: 1 } } },
+    preview: { api: 'https://api.nuxt.studio' },
   },
   icon: {
     provider: 'iconify',
