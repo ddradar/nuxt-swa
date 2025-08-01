@@ -1,7 +1,12 @@
 {
-  "name": "nuxt-ui-pro-template-docs",
+  "name": "nuxt-swa-docs",
   "private": true,
+  "version": "0.6.0",
+  "description": "Nuxt SWA module documentation and playground",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "prepare": "pnpm -C ../packages/nuxt-swa prepare:docs && nuxi prepare",
     "dev": "nuxi dev",
@@ -23,6 +28,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.5.2",
     "eslint": "^9.31.0",
+    "nuxt-applicationinsights": "^1.0.1",
     "nuxt-swa": "workspace:*",
     "typescript": "^5.8.3",
     "vue-tsc": "^3.0.1"

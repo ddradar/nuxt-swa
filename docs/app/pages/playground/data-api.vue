@@ -131,7 +131,7 @@ const onSubmit = async () => {
     <UPageBody>
       <UAlert
         v-if="!isLoggedIn"
-        icon="i-heroicons-lock-closed-20-solid"
+        icon="i-lucide-lock"
         color="warning"
         title="Login Required"
       />

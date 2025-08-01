@@ -1,5 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  $production: {
+    modules: ['nuxt-applicationinsights'],
+    runtimeConfig: {
+      public: {
+        applicationinsights: {
+          connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+        },
+      },
+    },
+  },
+  compatibilityDate: '2024-07-11',
+  nitro: {
+    preset: 'azure-swa',
+    azure: { config: { platform: { apiRuntime: 'node:20' } } },
+  },
   modules: [
     '@nuxt/eslint',
     '@nuxt/image',
@@ -9,9 +24,6 @@ export default defineNuxtConfig({
     'nuxt-llms',
     'nuxt-swa',
   ],
-  devtools: {
-    enabled: true,
-  },
   css: ['~/assets/css/main.css'],
   content: {
     build: {
@@ -22,22 +34,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  compatibilityDate: '2024-07-11',
-  nitro: {
-    preset: 'azure-swa',
-    azure: { config: { platform: { apiRuntime: 'node:20' } } },
-  },
   icon: {
     provider: 'iconify',
   },
   llms: {
-    domain: 'https://docs-template.nuxt.dev/',
-    title: 'Nuxt Docs Template',
-    description:
-      'A template for building documentation with Nuxt UI Pro and Nuxt Content.',
+    title: 'Nuxt SWA',
+    description: 'Nuxt Module that provides Azure Static Web Apps features.',
     full: {
-      title: 'Nuxt Docs Template - Full Documentation',
-      description: 'This is the full documentation for the Nuxt Docs Template.',
+      title: 'Nuxt SWA - Nuxt Module for Azure Static Web Apps',
+      description: 'Nuxt Module that provides Azure Static Web Apps features.',
     },
     sections: [
       {
@@ -48,12 +53,13 @@ export default defineNuxtConfig({
         ],
       },
       {
-        title: 'Essentials',
+        title: 'API',
         contentCollection: 'docs',
         contentFilters: [
-          { field: 'path', operator: 'LIKE', value: '/essentials%' },
+          { field: 'path', operator: 'LIKE', value: '/api-docs%' },
         ],
       },
     ],
   },
+  devtools: { enabled: true },
 })

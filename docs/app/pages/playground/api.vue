@@ -39,7 +39,7 @@ async function onClick() {
   await execute()
   if (error.value) {
     toast.add({
-      icon: 'i-heroicons-exclamation-circle-solid',
+      icon: 'i-lucide-circle-alert',
       color: 'error',
       title: error.value.statusCode?.toString(),
       description: error.value.message,
