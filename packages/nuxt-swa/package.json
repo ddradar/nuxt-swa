@@ -1,6 +1,6 @@
 {
   "name": "nuxt-swa",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "Nuxt module for Azure Static Web Apps",
   "repository": {
     "type": "git",
