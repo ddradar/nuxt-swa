@@ -20,6 +20,7 @@
     "lint": "pnpm run \"/^lint:.*/\"",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier -l \"**/*.{json,yml,js,mjs,ts,vue}\"",
+    "preview": "swa start docs/.output/public --api-location docs/.output/server",
     "test": "pnpm -r test"
   },
   "lint-staged": {
