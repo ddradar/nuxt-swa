@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  $production: {
+    modules: ['nuxt-applicationinsights'],
+    applicationinsights: {
+      connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+    },
+  },
   compatibilityDate: '2024-07-11',
   nitro: {
     preset: 'azure-swa',
