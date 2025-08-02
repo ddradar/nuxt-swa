@@ -124,6 +124,11 @@ jobs:
 
       - name: Install Project Dependencies
         run: pnpm install --dev --ignore-scripts
+      - name: Cache Azure Static Web Apps CLI Downloaded Files
+        uses: actions/cache@v4.2.0
+        with:
+          key: swa-${{ runner.arch }}-${{ runner.os }}
+          path: ~/.swa
 
       - name: Download Docs Output
         uses: actions/download-artifact@v4.3.0
