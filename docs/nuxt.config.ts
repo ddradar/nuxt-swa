@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   content: {
     build: { markdown: { toc: { searchDepth: 1 } } },
+    database: { type: 'sqlite', filename: '/tmp/contents.sqlite' },
     preview: { api: 'https://api.nuxt.studio' },
   },
   icon: {

@@ -63,7 +63,7 @@ defineOgImageComponent('Docs', { headline: headline.value })
     />
 
     <UPageBody>
-      <ContentRenderer v-if="page" :value="page" />
+      <ContentRenderer :value="page" />
 
       <USeparator v-if="surround?.length" />
 
