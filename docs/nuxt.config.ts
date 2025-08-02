@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     applicationinsights: {
       connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
     },
+    content: {
+      database: { type: 'sqlite', filename: '/tmp/contents.sqlite' },
+    },
   },
   compatibilityDate: '2024-07-11',
   nitro: {
@@ -23,10 +26,6 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   content: {
     build: { markdown: { toc: { searchDepth: 1 } } },
-    database: {
-      type: 'sqlite',
-      filename: process.env.NUXT_CONTENT_DB_PATH || './.nuxt/contents.sqlite',
-    },
     preview: { api: 'https://api.nuxt.studio' },
   },
   icon: {
