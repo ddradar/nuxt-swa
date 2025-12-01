@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.5.2",
-    "eslint": "^9.31.0",
+    "eslint": "^9.39.1",
     "nuxt-applicationinsights": "^1.0.1",
     "nuxt-swa": "workspace:*",
     "typescript": "^5.8.3",
