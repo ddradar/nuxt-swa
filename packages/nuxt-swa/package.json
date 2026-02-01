@@ -42,7 +42,7 @@
   "dependencies": {
     "@nuxt/kit": "^4.0.2",
     "defu": "^6.1.4",
-    "ufo": "^1.6.1"
+    "ufo": "^1.6.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.5.2",
