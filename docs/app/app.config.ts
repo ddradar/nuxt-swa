@@ -4,8 +4,6 @@ export default defineAppConfig({
       primary: 'blue',
       neutral: 'slate',
     },
-  },
-  uiPro: {
     footer: {
       slots: {
         root: 'border-t border-default',
@@ -36,7 +34,7 @@ export default defineAppConfig({
     ],
   },
   footer: {
-    credits: `Copyright © 2024-2025 DDRadar`,
+    credits: `Copyright © 2024-2026 DDRadar`,
     colorMode: false,
     links: [
       {
