@@ -5,6 +5,7 @@ const rest = '/data-api/rest'
 const graphql = '/data-api/graphql'
 const { useFetchMock } = vi.hoisted(() => ({ useFetchMock: vi.fn() }))
 mockNuxtImport('useRuntimeConfig', () => () => ({
+  app: { baseURL: '/' },
   public: { swa: { rest, graphql } },
 }))
 mockNuxtImport('useFetch', () => useFetchMock)
