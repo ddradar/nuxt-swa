@@ -134,7 +134,7 @@ jobs:
           path: ~/.swa
 
       - name: Download Docs Output
-        uses: actions/download-artifact@v4.3.0
+        uses: actions/download-artifact@v8.0.1
         with:
           name: docs
           path: docs/.output
@@ -170,7 +170,7 @@ jobs:
           registry-url: ${{ vars.NPM_REGISTRY_URL }}
 
       - name: Download Package Distribution
-        uses: actions/download-artifact@v4.3.0
+        uses: actions/download-artifact@v8.0.1
         with:
           name: package
           path: packages/nuxt-swa/dist
