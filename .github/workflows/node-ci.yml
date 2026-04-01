@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
@@ -39,7 +39,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
@@ -84,7 +84,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
@@ -118,7 +118,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
@@ -162,7 +162,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
