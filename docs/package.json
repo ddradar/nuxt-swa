@@ -31,7 +31,7 @@
     "eslint": "^9.31.0",
     "nuxt-applicationinsights": "^1.0.1",
     "nuxt-swa": "workspace:*",
-    "typescript": "^5.8.3",
+    "typescript": "^6.0.2",
     "vue-tsc": "^3.2.6"
   }
 }
