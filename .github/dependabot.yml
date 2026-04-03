@@ -7,12 +7,13 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: monthly
+      interval: daily
       time: '19:00'
       timezone: Asia/Tokyo
+    cooldown:
+      default-days: 5
     commit-message:
       prefix: ci(gh-actions)
-    milestone: 9
     labels:
       - 'dependabot :robot:'
 
@@ -20,22 +21,73 @@ updates:
   - package-ecosystem: devcontainers
     directory: /
     schedule:
-      interval: monthly
+      interval: daily
       time: '19:00'
       timezone: Asia/Tokyo
+    cooldown:
+      default-days: 5
     commit-message:
       prefix: ci(devcontainer)
-    milestone: 9
     labels:
       - 'dependabot :robot:'
 
-  # Node.js (/**/package.json)
+  # Node.js - packages/* (/packages/*/package.json)
   - package-ecosystem: npm
-    directory: /
+    directories:
+      - /packages/*
+    versioning-strategy: widen
     schedule:
-      interval: monthly
+      interval: daily
       time: '18:00'
       timezone: Asia/Tokyo
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
+    groups:
+      vitest:
+        dependency-type: development
+        patterns:
+          - '@vitest/*'
+          - vitest
+      lint-tools:
+        dependency-type: development
+        patterns:
+          - 'eslint*'
+        update-types: [minor, patch]
+      nuxt:
+        patterns:
+          - '@nuxt/*'
+          - 'nuxt'
+        update-types: [minor, patch]
+    ignore:
+      # Should match the runtime Node.js major version, so keep it manually updated.
+      - dependency-name: '@types/node'
+        update-types:
+          - version-update:semver-major
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+    labels:
+      - 'dependabot :robot:'
+    open-pull-requests-limit: 20
+
+  # Node.js - root & docs (/package.json, pnpm workspace packages excluding packages/*)
+  - package-ecosystem: npm
+    directory: /
+    exclude-paths:
+      - packages/*
+    schedule:
+      interval: daily
+      time: '18:00'
+      timezone: Asia/Tokyo
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3
     groups:
       vitest:
         dependency-type: development
@@ -58,11 +110,15 @@ updates:
           - '@nuxt/*'
           - 'nuxt'
         update-types: [minor, patch]
+    ignore:
+      # Should match the runtime Node.js major version, so keep it manually updated.
+      - dependency-name: '@types/node'
+        update-types:
+          - version-update:semver-major
     commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
-    milestone: 9
     labels:
       - 'dependabot :robot:'
     open-pull-requests-limit: 20
