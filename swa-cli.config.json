@@ -9,6 +9,7 @@
       "appLocation": "docs",
       "deploy": {
         "appName": "nuxt-swa",
+        "resourceGroup": "nuxt-swa",
         "apiLanguage": "node",
         "apiVersion": "20",
         "apiLocation": "docs/.output/server",
