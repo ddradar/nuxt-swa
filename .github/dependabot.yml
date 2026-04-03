@@ -31,11 +31,10 @@ updates:
     labels:
       - 'dependabot :robot:'
 
-  # Node.js - packages/* (/packages/*/package.json)
+  # Node.js(/**/package.json)
   - package-ecosystem: npm
     directories:
-      - /packages/*
-    versioning-strategy: widen
+      - /
     schedule:
       interval: daily
       time: '18:00'
@@ -46,57 +45,19 @@ updates:
       semver-minor-days: 7
       semver-patch-days: 3
     groups:
-      vitest:
-        dependency-type: development
+      iconify:
         patterns:
-          - '@vitest/*'
-          - vitest
-      lint-tools:
-        dependency-type: development
-        patterns:
-          - 'eslint*'
-        update-types: [minor, patch]
+          - '@iconify-json/*'
       nuxt:
         patterns:
           - '@nuxt/*'
           - 'nuxt'
         update-types: [minor, patch]
-    ignore:
-      # Should match the runtime Node.js major version, so keep it manually updated.
-      - dependency-name: '@types/node'
-        update-types:
-          - version-update:semver-major
-    commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-    labels:
-      - 'dependabot :robot:'
-    open-pull-requests-limit: 20
-
-  # Node.js - root & docs (/package.json, pnpm workspace packages excluding packages/*)
-  - package-ecosystem: npm
-    directory: /
-    exclude-paths:
-      - packages/*
-    schedule:
-      interval: daily
-      time: '18:00'
-      timezone: Asia/Tokyo
-    cooldown:
-      default-days: 5
-      semver-major-days: 30
-      semver-minor-days: 7
-      semver-patch-days: 3
-    groups:
       vitest:
         dependency-type: development
         patterns:
           - '@vitest/*'
           - vitest
-      iconify:
-        patterns:
-          - '@iconify-json/*'
       lint-tools:
         dependency-type: development
         patterns:
@@ -104,11 +65,6 @@ updates:
           - husky
           - lint-staged
           - prettier
-        update-types: [minor, patch]
-      nuxt:
-        patterns:
-          - '@nuxt/*'
-          - 'nuxt'
         update-types: [minor, patch]
     ignore:
       # Should match the runtime Node.js major version, so keep it manually updated.
