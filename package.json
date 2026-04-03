@@ -42,7 +42,8 @@
     "prettier": "^3.8.1"
   },
   "resolutions": {
-    "unimport": "4.1.1"
+    "unimport": "4.1.1",
+    "eslint-flat-config-utils": "3.0.1"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
