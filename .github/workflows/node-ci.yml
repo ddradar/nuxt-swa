@@ -16,12 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
+        with: &setup-pnpm
+          cache: true
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
-        with:
+        with: &setup-node
           node-version: ${{ vars.NODE_VERSION }}
-          cache: pnpm
 
       - name: Install Project Dependencies
         run: pnpm install
@@ -39,12 +40,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
+        with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
-        with:
-          node-version: ${{ vars.NODE_VERSION }}
-          cache: pnpm
+        with: *setup-node
 
       - name: Install Project Dependencies
         run: pnpm install
@@ -84,12 +84,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
+        with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
-        with:
-          node-version: ${{ vars.NODE_VERSION }}
-          cache: pnpm
+        with: *setup-node
 
       - name: Install Project Dependencies
         run: pnpm install
@@ -118,12 +117,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
+        with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
-        with:
-          node-version: ${{ vars.NODE_VERSION }}
-          cache: pnpm
+        with: *setup-node
 
       - name: Install Project Dependencies
         run: pnpm install --dev --ignore-scripts
@@ -162,7 +160,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.2
       - name: Use pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5.0.0
+        with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
         with:
