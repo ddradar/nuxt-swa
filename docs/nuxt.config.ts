@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-llms',
     'nuxt-swa',
+    '@nuxt/fonts',
   ],
   css: ['~/assets/css/main.css'],
   content: {
