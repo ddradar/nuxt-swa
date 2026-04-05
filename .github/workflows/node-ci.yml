@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
-      url: ${{ steps.deploy.outputs.url }}
+      url: ${{ (github.event_name == 'release' && vars.NUXT_PUBLIC_SITE_URL) || steps.deploy.outputs.url }}
     permissions:
       id-token: write
       contents: read
@@ -167,8 +167,8 @@ jobs:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
       contents: read
-      packages: write
 
     steps:
       - name: Checkout
@@ -178,9 +178,7 @@ jobs:
         with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
         uses: actions/setup-node@v6.3.0
-        with:
-          node-version: ${{ vars.NODE_VERSION }}
-          registry-url: ${{ vars.NPM_REGISTRY_URL }}
+        with: *setup-node
 
       - name: Download Package Distribution
         uses: actions/download-artifact@v8.0.1
@@ -189,7 +187,5 @@ jobs:
           path: packages/nuxt-swa/dist
 
       - name: Publish
-        run: pnpm -r publish --no-git-checks --ignore-scripts
+        run: pnpm -r publish --no-git-checks --ignore-scripts --provenance
         working-directory: packages/nuxt-swa
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
