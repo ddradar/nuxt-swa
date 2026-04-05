@@ -6,8 +6,15 @@
   "repository": "ddradar/nuxt-swa",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
-  "engines": {
-    "pnpm": "10.x"
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.x"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^10.13.1"
+    }
   },
   "scripts": {
     "prepare": "husky",
@@ -42,8 +49,7 @@
     "prettier": "^3.8.1"
   },
   "resolutions": {
-    "@nuxt/test-utils>h3-next": "npm:h3@^2.0.1-rc.15",
-    "eslint-flat-config-utils": "3.0.1"
+    "@nuxt/test-utils>h3-next": "npm:h3@^2.0.1-rc.15"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
