@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ (github.event_name == 'release' && 'production') || 'staging' }}
-      url: ${{ (github.event_name == 'release' && vars.NUXT_PUBLIC_SITE_URL) || steps.deploy.outputs.url }}
+      url: ${{ (github.event_name == 'release' && vars.NUXT_PUBLIC_SITE_URL) || steps.deploy.outputs.url || vars.NUXT_PUBLIC_SITE_URL }}
     permissions:
       id-token: write
       contents: read
