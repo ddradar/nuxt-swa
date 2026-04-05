@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-07-11',
   nitro: {
     preset: 'azure-swa',
-    azure: { config: { platform: { apiRuntime: 'node:20' } } },
+    azure: { config: { platform: { apiRuntime: 'node:24' } } },
   },
   modules: [
     '@nuxt/eslint',

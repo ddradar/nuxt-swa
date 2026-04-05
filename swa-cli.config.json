@@ -11,7 +11,7 @@
         "appName": "nuxt-swa",
         "resourceGroup": "nuxt-swa",
         "apiLanguage": "node",
-        "apiVersion": "20",
+        "apiVersion": "24",
         "apiLocation": "docs/.output/server",
         "appLocation": "docs/.output/public",
         "useKeychain": false

@@ -173,7 +173,7 @@ declare module 'nitropack' {
     /** Platform configuration */
     platform?: {
       /** Language runtime for the managed functions API */
-      apiRuntime?: 'node:12' | 'node:14' | 'node:16' | 'node:18' | 'node:20'
+      apiRuntime?: `node:${number}`
       [key: string]: unknown
     }
     /** Trailing slash configuration */
