@@ -112,6 +112,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      deployments: write
 
     steps:
       - name: Checkout
@@ -147,10 +148,17 @@ jobs:
       - name: Deploy to Azure Static Web Apps
         id: deploy
         run: |
+          # Run the actual deployment and capture the output
           output=$(pnpm swa deploy --env ${{ (github.event_name == 'release' && 'production') || 'preview' }} 2>&1)
+
+          # Display the deployment log
           echo "$output"
+
+          # Assert deployment succeeded (swa CLI may exit with code 0 even on failure)
           echo "$output" | grep -q "Project deployed to"
-          url=$(echo "$output" | grep -oE 'https://[^ ]+')
+
+          # Extract the deployed URL from the log and set it as a step output
+          url=$(echo "$output" | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' | grep "Project deployed to" | grep -oE 'https://[^ ]+')
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
   publish:
