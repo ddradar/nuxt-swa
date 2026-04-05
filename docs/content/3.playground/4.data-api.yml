@@ -1,6 +1,0 @@
-title: Data API
-description: Data API usage sample
-links:
-  - label: View Source
-    icon: i-simple-icons-github
-    to: https://github.com/ddradar/nuxt-swa/tree/main/docs/pages/playground/data-api.vue
