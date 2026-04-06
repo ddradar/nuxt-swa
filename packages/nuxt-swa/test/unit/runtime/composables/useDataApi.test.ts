@@ -15,7 +15,6 @@ type User = { id: string; name: string }
 describe('runtime/composables/useDataApi', () => {
   beforeEach(() => {
     useFetchMock.mockClear()
-    vi.spyOn(console, 'warn').mockImplementation(() => {})
   })
 
   describe('useDataApi', () => {
@@ -30,13 +29,6 @@ describe('runtime/composables/useDataApi', () => {
         method: 'POST',
       })
       expect(vi.mocked($fetch.create)).toBeCalledWith({ baseURL: rest })
-    })
-
-    it('warns about deprecation', () => {
-      useDataApi()
-      expect(console.warn).toBeCalledWith(
-        '[nuxt-swa] useDataApi() is deprecated. Azure Static Web Apps has discontinued Data API support.'
-      )
     })
   })
 
@@ -59,13 +51,6 @@ describe('runtime/composables/useDataApi', () => {
         expect.any(String)
       )
       expect(useFetchMock.mock.calls[0][0].value).toBe(expected)
-    })
-
-    it('warns about deprecation', async () => {
-      await useFetchRest<User>('/User')
-      expect(console.warn).toBeCalledWith(
-        '[nuxt-swa] useFetchRest() is deprecated. Azure Static Web Apps has discontinued Data API support.'
-      )
     })
   })
 
@@ -98,13 +83,6 @@ describe('runtime/composables/useDataApi', () => {
           transform: expect.any(Function),
         },
         expect.any(String)
-      )
-    })
-
-    it('warns about deprecation', async () => {
-      await useFetchGraphQL<User>('users-get', '{ users { id, name } }')
-      expect(console.warn).toBeCalledWith(
-        '[nuxt-swa] useFetchGraphQL() is deprecated. Azure Static Web Apps has discontinued Data API support.'
       )
     })
   })

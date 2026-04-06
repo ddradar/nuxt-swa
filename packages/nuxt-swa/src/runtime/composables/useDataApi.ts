@@ -21,9 +21,6 @@ export const useDataApi = (): {
   /** `$fetch` object pre-configured for REST API */
   $rest: $Fetch
 } => {
-  console.warn(
-    '[nuxt-swa] useDataApi() is deprecated. Azure Static Web Apps has discontinued Data API support.'
-  )
   const { graphql, rest } = useRuntimeConfig().public.swa
   return {
     $graphql: $fetch.create({ baseURL: graphql, method: 'POST' }),
@@ -48,9 +45,6 @@ export const useFetchRest = <
   request: MaybeRef<string>,
   opts?: UseFetchOptions<RestResult<SchemaT>, DataT, PickKeys, DefaultT>
 ): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError | null> => {
-  console.warn(
-    '[nuxt-swa] useFetchRest() is deprecated. Azure Static Web Apps has discontinued Data API support.'
-  )
   const endpoint = useRuntimeConfig().public.swa.rest
   const requestRef = toRef(request)
   const computedUrl = computed(() => joinURL(endpoint, requestRef.value))
@@ -85,9 +79,6 @@ export const useFetchGraphQL = <
     'body' | 'key' | 'method'
   >
 ): AsyncData<PickFrom<DataT, PickKeys> | DefaultT, FetchError | null> => {
-  console.warn(
-    '[nuxt-swa] useFetchGraphQL() is deprecated. Azure Static Web Apps has discontinued Data API support.'
-  )
   const endpoint = useRuntimeConfig().public.swa.graphql
   const variablesRef = toRef(variables)
 
