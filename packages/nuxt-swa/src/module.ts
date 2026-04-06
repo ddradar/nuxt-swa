@@ -99,6 +99,9 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Data API feature
     if (options.dataApi) {
+      logger.warn(
+        '`swa.dataApi` option is deprecated. Azure Static Web Apps has discontinued Data API support. This option and related features will be removed in a future version.'
+      )
       nuxt.options.runtimeConfig.public.swa = defu(
         nuxt.options.runtimeConfig.public.swa,
         {
@@ -364,7 +367,10 @@ export interface ModuleOptions {
    * @default []
    */
   customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
-  /** Data API config */
+  /**
+   * Data API config
+   * @deprecated Azure Static Web Apps has discontinued Data API support. This option will be removed in a future version.
+   */
   dataApi:
     | {
         /** REST endpoint path (same value as `runtime.rest.path` in `staticwebapp.database.config.json`) */ rest: string

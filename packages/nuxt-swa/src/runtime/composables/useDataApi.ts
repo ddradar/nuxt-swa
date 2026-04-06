@@ -11,6 +11,7 @@ import {
 } from '#app'
 
 /**
+ * @deprecated Azure Static Web Apps has discontinued Data API support. This will be removed in a future version.
  * Use Azure Static Web Apps Data API Feature (preview).
  * @returns `$fetch` object pre-configured for Data API
  */
@@ -28,6 +29,7 @@ export const useDataApi = (): {
 }
 
 /**
+ * @deprecated Azure Static Web Apps has discontinued Data API support. This will be removed in a future version.
  * Use fetch from/to Azure Static Web Apps Data API (REST).
  * @param request Request Endpoint (example: `/User/id/0000` )
  * @param opts `useFetch` options
@@ -53,6 +55,7 @@ export const useFetchRest = <
 }
 
 /**
+ * @deprecated Azure Static Web Apps has discontinued Data API support. This will be removed in a future version.
  * Use fetch from/to Azure Static Web Apps Data API (GraphQL).
  * @param key `useFetch` key
  * @param query GraphQL Query or Mutation
