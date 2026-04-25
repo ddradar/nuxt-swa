@@ -33,6 +33,6 @@
     "nuxt-applicationinsights": "^1.0.1",
     "nuxt-swa": "workspace:*",
     "typescript": "^6.0.2",
-    "vue-tsc": "^3.2.6"
+    "vue-tsc": "^3.2.7"
   }
 }
