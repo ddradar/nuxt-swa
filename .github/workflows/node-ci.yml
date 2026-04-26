@@ -20,7 +20,7 @@ jobs:
         with: &setup-pnpm
           cache: true
       - name: Use Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with: &setup-node
           node-version-file: .node-version
 
@@ -43,7 +43,7 @@ jobs:
         uses: pnpm/action-setup@v5.0.0
         with: *setup-pnpm
       - name: Use Node.js ${{ vars.NODE_VERSION }}
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with: *setup-node
 
       - name: Install Project Dependencies
@@ -87,7 +87,7 @@ jobs:
         uses: pnpm/action-setup@v5.0.0
         with: *setup-pnpm
       - name: Use Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with: *setup-node
 
       - name: Install Project Dependencies
@@ -121,7 +121,7 @@ jobs:
         uses: pnpm/action-setup@v5.0.0
         with: *setup-pnpm
       - name: Use Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with: *setup-node
 
       - name: Install Project Dependencies
@@ -177,7 +177,7 @@ jobs:
         uses: pnpm/action-setup@v5.0.0
         with: *setup-pnpm
       - name: Use Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with: *setup-node
 
       - name: Download Package Distribution
