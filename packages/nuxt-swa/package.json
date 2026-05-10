@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^4.0.2",
-    "defu": "^6.1.4",
+    "defu": "^6.1.7",
     "ufo": "^1.6.1"
   },
   "devDependencies": {
