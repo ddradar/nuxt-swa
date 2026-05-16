@@ -47,13 +47,13 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^4.0.2",
-    "@nuxt/test-utils": "^4.0.0",
+    "@nuxt/schema": "^4.4.5",
+    "@nuxt/test-utils": "^4.0.3",
     "@types/node": "20.x",
     "@vitest/coverage-v8": "^4.1.6",
     "@vue/test-utils": "^2.4.10",
     "happy-dom": "^20.9.0",
-    "nuxt": "^4.1.0",
+    "nuxt": "^4.4.5",
     "vitest": "^4.1.6"
   }
 }
