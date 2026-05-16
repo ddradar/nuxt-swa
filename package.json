@@ -54,6 +54,12 @@
     ],
     "ignoredBuiltDependencies": [
       "vue-demi"
-    ]
+    ],
+    "overrides": {
+      "@opentelemetry/auto-instrumentations-node": "^0.76.0",
+      "@opentelemetry/exporter-trace-otlp-http": "^0.217.0",
+      "@opentelemetry/sdk-node": "^0.217.0",
+      "protobufjs": "^8.0.2"
+    }
   }
 }
