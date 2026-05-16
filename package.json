@@ -48,9 +48,6 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3"
   },
-  "resolutions": {
-    "@nuxt/test-utils>h3-next": "npm:h3@^2.0.1-rc.15"
-  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3"
