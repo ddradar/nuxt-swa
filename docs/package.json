@@ -23,7 +23,7 @@
     "@nuxt/ui": "^4.7.1",
     "@takumi-rs/core": "^1.0.9",
     "better-sqlite3": "^12.9.0",
-    "nuxt": "^4.4.5",
+    "nuxt": "^4.4.6",
     "nuxt-llms": "0.2.0",
     "nuxt-og-image": "^6.5.0",
     "tailwindcss": "^4.2.4"
