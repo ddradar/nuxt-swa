@@ -48,11 +48,11 @@ importers:
         specifier: ^1.2.109
         version: 1.2.109
       '@iconify-json/simple-icons':
-        specifier: ^1.2.83
-        version: 1.2.83
+        specifier: ^1.2.84
+        version: 1.2.84
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.50
-        version: 1.2.50
+        specifier: ^1.2.51
+        version: 1.2.51
       '@nuxt/content':
         specifier: 3.13.0
         version: 3.13.0(better-sqlite3@12.10.0)(magicast@0.5.3)
@@ -1079,11 +1079,11 @@ packages:
   '@iconify-json/lucide@1.2.109':
     resolution: {integrity: sha512-O5arvTVcu95soP3dGWJp/Nl5L5FYmFu2z75sSrQmGzrgrnsCU49t8+ZB7HPq//GRNXpWUoNfDRcs5yR7XMa+zw==}
 
-  '@iconify-json/simple-icons@1.2.83':
-    resolution: {integrity: sha512-6Pp9V++XisT9RKH7FB4RLPqUDzcmLtSma0ovOEIoEWGrXtHwBFsH7oN1z8vvCVCb95fb87QgR46/zRLyN9Y3kg==}
+  '@iconify-json/simple-icons@1.2.84':
+    resolution: {integrity: sha512-v4JVu6xIewGoETD4mm2k6UAdFAbTlY1duw5ZNSxYORfs2yFsHDhoU9Omn/BgrV0nR/ptWkF3ZIr/ZHoYXI/6Jw==}
 
-  '@iconify-json/vscode-icons@1.2.50':
-    resolution: {integrity: sha512-XqG9nO1m+IiY8/RvT5BJjM/eG3CDRXBGRRPqR/MAcVi734yZ0Pa+jqObshZfnpUeIsuDKNn9C/7ZW00ART6kog==}
+  '@iconify-json/vscode-icons@1.2.51':
+    resolution: {integrity: sha512-8bTDcS4RnXo64gpjafl7aXAsU0K4rMGhVCTCoA3e5CDabvP8aQnyUjl7N1ozi1pVJPXOndHtl5CR7gJEGljNwQ==}
 
   '@iconify/collections@1.0.684':
     resolution: {integrity: sha512-rF0xgqIgUVtjjGyOLscEhwi6Y3dLDQLOokGyXpE5BJXPTcT8Kb80Hrq68+f6WX8Zv4NRbVKBIVPP0+c7JbvNRA==}
@@ -7881,8 +7881,8 @@ packages:
     resolution: {integrity: sha512-JpJpFaR7yKNb6WqKvJJ1MLbiuIQWQnbUUb06nDtf2/i8YWYYLEfP6xf9BwSJoJQg1wAy61EQB8dssQg64oX4aA==}
     engines: {node: '>=12.0.0'}
 
-  protobufjs@8.4.2:
-    resolution: {integrity: sha512-64rfNzkWOZAIazXzpBFPWq6F9up6gMvTzjE2oWIzApx2N/dqVUEE7+bCn2+40780dFVtKOUab8QfxJ6KJDWbqA==}
+  protobufjs@8.5.0:
+    resolution: {integrity: sha512-df1jWDPA5VIBNRtuAHjqr09f2qN5D4Vke1wYqOQg1XJ7ZDpA7BD6L7E4tyChgGRLB5hqk2m79Zsy0WHwV9a84A==}
     engines: {node: '>=12.0.0'}
 
   protocols@2.0.2:
@@ -10377,11 +10377,11 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.83':
+  '@iconify-json/simple-icons@1.2.84':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.50':
+  '@iconify-json/vscode-icons@1.2.51':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -12631,7 +12631,7 @@ snapshots:
       '@opentelemetry/sdk-logs': 0.53.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-metrics': 1.26.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 1.26.0(@opentelemetry/api@1.9.0)
-      protobufjs: 8.4.2
+      protobufjs: 8.5.0
 
   '@opentelemetry/propagator-b3@1.30.1(@opentelemetry/api@1.9.0)':
     dependencies:
@@ -19225,7 +19225,7 @@ snapshots:
     dependencies:
       long: 5.3.2
 
-  protobufjs@8.4.2:
+  protobufjs@8.5.0:
     dependencies:
       long: 5.3.2
 
