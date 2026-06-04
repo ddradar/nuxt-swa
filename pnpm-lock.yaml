@@ -45,14 +45,14 @@ importers:
   docs:
     dependencies:
       '@iconify-json/lucide':
-        specifier: ^1.2.109
-        version: 1.2.109
+        specifier: ^1.2.111
+        version: 1.2.111
       '@iconify-json/simple-icons':
         specifier: ^1.2.84
         version: 1.2.84
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.51
-        version: 1.2.51
+        specifier: ^1.2.53
+        version: 1.2.53
       '@nuxt/content':
         specifier: 3.13.0
         version: 3.13.0(better-sqlite3@12.10.0)(magicast@0.5.3)
@@ -1076,14 +1076,14 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
-  '@iconify-json/lucide@1.2.109':
-    resolution: {integrity: sha512-O5arvTVcu95soP3dGWJp/Nl5L5FYmFu2z75sSrQmGzrgrnsCU49t8+ZB7HPq//GRNXpWUoNfDRcs5yR7XMa+zw==}
+  '@iconify-json/lucide@1.2.111':
+    resolution: {integrity: sha512-S6oXom2YOKuXFxWofhHa2oq++Z3WeZ78dRFDA7aEEJqyNCJlQd1UGAfN8u2gD2NzvYotmm+j5kH678viWfZbGQ==}
 
   '@iconify-json/simple-icons@1.2.84':
     resolution: {integrity: sha512-v4JVu6xIewGoETD4mm2k6UAdFAbTlY1duw5ZNSxYORfs2yFsHDhoU9Omn/BgrV0nR/ptWkF3ZIr/ZHoYXI/6Jw==}
 
-  '@iconify-json/vscode-icons@1.2.51':
-    resolution: {integrity: sha512-8bTDcS4RnXo64gpjafl7aXAsU0K4rMGhVCTCoA3e5CDabvP8aQnyUjl7N1ozi1pVJPXOndHtl5CR7gJEGljNwQ==}
+  '@iconify-json/vscode-icons@1.2.53':
+    resolution: {integrity: sha512-l7EU0XxVXufefqYg8gaBgsmM0Bk6Sg5EbF6JTnJ15YkRbC9eiDn5dtyV41IRpV/dabveEAl0iD7dQjv+A7fNLA==}
 
   '@iconify/collections@1.0.684':
     resolution: {integrity: sha512-rF0xgqIgUVtjjGyOLscEhwi6Y3dLDQLOokGyXpE5BJXPTcT8Kb80Hrq68+f6WX8Zv4NRbVKBIVPP0+c7JbvNRA==}
@@ -10388,7 +10388,7 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@iconify-json/lucide@1.2.109':
+  '@iconify-json/lucide@1.2.111':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -10396,7 +10396,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.51':
+  '@iconify-json/vscode-icons@1.2.53':
     dependencies:
       '@iconify/types': 2.0.0
 
