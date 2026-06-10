@@ -51,7 +51,7 @@
     "@nuxt/test-utils": "^4.0.3",
     "@types/node": "20.x",
     "@vitest/coverage-v8": "^4.1.8",
-    "@vue/test-utils": "^2.4.10",
+    "@vue/test-utils": "^2.4.11",
     "happy-dom": "^20.9.0",
     "nuxt": "^4.4.6",
     "vitest": "^4.1.8"
