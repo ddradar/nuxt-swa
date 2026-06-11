@@ -48,11 +48,11 @@ importers:
         specifier: ^1.2.111
         version: 1.2.111
       '@iconify-json/simple-icons':
-        specifier: ^1.2.85
-        version: 1.2.85
+        specifier: ^1.2.86
+        version: 1.2.86
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.53
-        version: 1.2.53
+        specifier: ^1.2.55
+        version: 1.2.55
       '@nuxt/content':
         specifier: 3.13.0
         version: 3.13.0(better-sqlite3@12.10.0)(magicast@0.5.3)
@@ -1092,11 +1092,11 @@ packages:
   '@iconify-json/lucide@1.2.111':
     resolution: {integrity: sha512-S6oXom2YOKuXFxWofhHa2oq++Z3WeZ78dRFDA7aEEJqyNCJlQd1UGAfN8u2gD2NzvYotmm+j5kH678viWfZbGQ==}
 
-  '@iconify-json/simple-icons@1.2.85':
-    resolution: {integrity: sha512-Hp5LXvd3LRk+e+1558wtonA7c1Z0/Phmi7xCqpgtb8bs8cuyGnP34GDbt5uhhUXxKlzacnnhAcXgcDxe9bUa1w==}
+  '@iconify-json/simple-icons@1.2.86':
+    resolution: {integrity: sha512-t3jck5qPQuK1qy+bRn9eCoDQhIB7XSazKz1Fjp8hcan3XOAsTI5Mq/s3F0ekOKSvMQqkVORYK6ns6o6T9f5EMA==}
 
-  '@iconify-json/vscode-icons@1.2.53':
-    resolution: {integrity: sha512-l7EU0XxVXufefqYg8gaBgsmM0Bk6Sg5EbF6JTnJ15YkRbC9eiDn5dtyV41IRpV/dabveEAl0iD7dQjv+A7fNLA==}
+  '@iconify-json/vscode-icons@1.2.55':
+    resolution: {integrity: sha512-7c6yep/OW7/xVWPedBeFbHv5wM4PnRcrZvlsaB+l5cBNWL/6thNE1yuN+PDPQZoEGdXRMUfwDAI3qF0ZVftwag==}
 
   '@iconify/collections@1.0.684':
     resolution: {integrity: sha512-rF0xgqIgUVtjjGyOLscEhwi6Y3dLDQLOokGyXpE5BJXPTcT8Kb80Hrq68+f6WX8Zv4NRbVKBIVPP0+c7JbvNRA==}
@@ -10826,11 +10826,11 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.85':
+  '@iconify-json/simple-icons@1.2.86':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.53':
+  '@iconify-json/vscode-icons@1.2.55':
     dependencies:
       '@iconify/types': 2.0.0
 
