@@ -52,7 +52,7 @@
     "@types/node": "20.x",
     "@vitest/coverage-v8": "^4.1.8",
     "@vue/test-utils": "^2.4.11",
-    "happy-dom": "^20.9.0",
+    "happy-dom": "^20.10.1",
     "nuxt": "^4.4.6",
     "vitest": "^4.1.8"
   }
