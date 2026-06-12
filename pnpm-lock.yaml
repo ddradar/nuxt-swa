@@ -8,7 +8,7 @@ overrides:
   '@opentelemetry/auto-instrumentations-node': ^0.76.0
   '@opentelemetry/exporter-trace-otlp-http': ^0.217.0
   '@opentelemetry/sdk-node': ^0.217.0
-  protobufjs: ^8.0.2
+  protobufjs: ^8.2.0
 
 importers:
 
@@ -233,12 +233,12 @@ packages:
     resolution: {integrity: sha512-21iXu9ubtPB7iO3ghnzMMdB0KwHpz7Zl1a9xSBR3Gl8IDUlXOBjMn6OT9+ycj9VZrTyEKiV59T9VTf0IlokPYQ==}
     engines: {node: '>=18.0.0'}
 
-  '@azure/monitor-opentelemetry-exporter@1.0.0-beta.41':
-    resolution: {integrity: sha512-Z4MdZt2iCimL3TAg1tTMLwuVfKJ+OKvgdgDJbxAV54Or36GLCfhQXCsSHRoW3fdUKGIF3DDfhEe86anYoExl5g==}
+  '@azure/monitor-opentelemetry-exporter@1.0.0-beta.42':
+    resolution: {integrity: sha512-xfy6aaoJPvN5bXVA9sVck0qTA5SA9sdqnR17FcqeOYTh5/1sIye0YpbC0ak5GEj8KYFCqPdUqtTxWXEyJB8L+g==}
     engines: {node: '>=20.0.0'}
 
-  '@azure/monitor-opentelemetry@1.18.0':
-    resolution: {integrity: sha512-3hv7GQVpQmVjS15Gwq2e3qdSIBlEJItZEnnvS+Tvcxm/ilc2JZAED0zTKIz29yGBcbuK6bEz9ThZju1TbhBHwQ==}
+  '@azure/monitor-opentelemetry@1.18.1':
+    resolution: {integrity: sha512-v4GArKWlj+ty+Y+bHD+ZjHSaxqTMfx/UwcOxHI16UMaYXrzNhM0r5t5yDwS32Y+uuZRNPWO+MauTtV3o7B/+9g==}
     engines: {node: '>=20.0.0'}
 
   '@azure/monitor-opentelemetry@1.8.0':
@@ -1041,8 +1041,8 @@ packages:
   '@floating-ui/vue@1.1.11':
     resolution: {integrity: sha512-HzHKCNVxnGS35r9fCHBc3+uCnjw9IWIlCPL683cGgM9Kgj2BiAl8x1mS7vtvP6F9S/e/q4O6MApwSHj8hNLGfw==}
 
-  '@grpc/grpc-js@1.14.3':
-    resolution: {integrity: sha512-Iq8QQQ/7X3Sac15oB6p0FmUg/klxQvXLeileoqrTRGJYLV+/9tubbr9ipz0GKHjmXVsgFPo/+W+2cA8eNcR+XA==}
+  '@grpc/grpc-js@1.14.4':
+    resolution: {integrity: sha512-k9Dj3DV/itK9D06Y8f190Qgop7/Ui+D0njFV3LHMPwPT75DpXLQohE9Wmz0QElrJnzsjB7KPWiKJbOl7IPDArQ==}
     engines: {node: '>=12.10.0'}
 
   '@grpc/proto-loader@0.8.1':
@@ -1332,8 +1332,8 @@ packages:
     peerDependencies:
       tslib: '>= 1.0.0'
 
-  '@microsoft/dynamicproto-js@2.0.3':
-    resolution: {integrity: sha512-JTWTU80rMy3mdxOjjpaiDQsTLZ6YSGGqsjURsY6AUQtIj0udlF/jYmhdLZu8693ZIC0T1IwYnFa0+QeiMnziBA==}
+  '@microsoft/dynamicproto-js@2.0.5':
+    resolution: {integrity: sha512-V+Zr7PDKIEaItVwF/OyWQlKeugNRYg7KJJ+RhEIL2FMW6NlG8FN2l4XA9Z42hNtsjwJFlcUiF38pmM/AaXsF7g==}
 
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
@@ -1360,11 +1360,11 @@ packages:
     resolution: {integrity: sha512-7/vIJlMYrPJPlEW84V2yeRuG3QBu66dmlv9neTmZ5nXzwylhBEOhy11ai+34A8mHCSZI4mKns25w3HM9kaDdJg==}
     engines: {node: '>=16.0.0'}
 
-  '@nevware21/ts-async@0.5.5':
-    resolution: {integrity: sha512-vwqaL05iJPjLeh5igPi8MeeAu10i+Aq7xko1fbo9F5Si6MnVN5505qaV7AhSdk5MCBJVT/UYMk3kgInNjDb4Ig==}
+  '@nevware21/ts-async@0.6.1':
+    resolution: {integrity: sha512-W2kFiT5oPuxTrB3NrxUId/U+1AuAhIaiDQkLC4HcxkjNc+85GfELYdPQXnsDWDG8yji24F5qk6QpBDxZX3/0+g==}
 
-  '@nevware21/ts-utils@0.13.0':
-    resolution: {integrity: sha512-F3mD+DsUn9OiZmZc5tg0oKqrJCtiCstwx+wE+DNzFYh2cCRUuzTYdK9zGGP/au2BWvbOQ6Tqlbjr2+dT1P3AlQ==}
+  '@nevware21/ts-utils@0.15.0':
+    resolution: {integrity: sha512-+bUMKIiKAgoW5uNEb5xxzBzdwdLS9SKRcOy8SxLE+KqSlIdUYV5O9nxJVq1RUYcO2DtL5DlrK1GbgcVEHv6GVA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1888,12 +1888,6 @@ packages:
     peerDependencies:
       '@opentelemetry/api': ^1.3.0
 
-  '@opentelemetry/instrumentation-http@0.217.0':
-    resolution: {integrity: sha512-B88Y7k5A9a60pHUboFoeJlgVwXq2T0rsZKj6dTwzSMKSOsNXR4Jz5ovwprVn3kHLAZrkyLEjQtBJ34DYHs1U4Q==}
-    engines: {node: ^18.19.0 || >=20.6.0}
-    peerDependencies:
-      '@opentelemetry/api': ^1.3.0
-
   '@opentelemetry/instrumentation-http@0.218.0':
     resolution: {integrity: sha512-x9djaqdzpT8WAboep1H9nCAQ1E+MMsm08TNfA02TqM3bNNddZeiim+E3KMWVQFaX6JpUy7V0nm/wfN/K2Em+Zw==}
     engines: {node: ^18.19.0 || >=20.6.0}
@@ -2330,6 +2324,12 @@ packages:
 
   '@opentelemetry/sdk-logs@0.217.0':
     resolution: {integrity: sha512-BB+PcHItcZDL63dPMW+mJvwN9rk37wuIDjRxbVlg6pPDvDR/7GL7UJHbGsllgoggOoTimsKgENaWPoGch/oE1A==}
+    engines: {node: ^18.19.0 || >=20.6.0}
+    peerDependencies:
+      '@opentelemetry/api': '>=1.4.0 <1.10.0'
+
+  '@opentelemetry/sdk-logs@0.218.0':
+    resolution: {integrity: sha512-QvnNdugatFTVCJXH0Mcu7GOOJSylA9j127kIezOE4YwTI4YbowRons2K4WZTv5FMS8T4q9P0NdaRHdkSmeAIag==}
     engines: {node: ^18.19.0 || >=20.6.0}
     peerDependencies:
       '@opentelemetry/api': '>=1.4.0 <1.10.0'
@@ -9705,7 +9705,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/monitor-opentelemetry-exporter@1.0.0-beta.41':
+  '@azure/monitor-opentelemetry-exporter@1.0.0-beta.42':
     dependencies:
       '@azure-rest/core-client': 2.6.0
       '@azure/core-auth': 1.10.1
@@ -9713,10 +9713,10 @@ snapshots:
       '@azure/core-rest-pipeline': 1.23.0
       '@azure/core-util': 1.13.1
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/api-logs': 0.217.0
+      '@opentelemetry/api-logs': 0.218.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/resources': 2.7.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/sdk-logs': 0.217.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-logs': 0.218.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-metrics': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.41.1
@@ -9724,21 +9724,21 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/monitor-opentelemetry@1.18.0':
+  '@azure/monitor-opentelemetry@1.18.1':
     dependencies:
       '@azure-rest/core-client': 2.6.0
       '@azure/core-auth': 1.10.1
       '@azure/core-rest-pipeline': 1.23.0
       '@azure/logger': 1.3.0
-      '@azure/monitor-opentelemetry-exporter': 1.0.0-beta.41
+      '@azure/monitor-opentelemetry-exporter': 1.0.0-beta.42
       '@azure/opentelemetry-instrumentation-azure-sdk': 1.0.0
       '@microsoft/applicationinsights-web-snippet': 1.2.3
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/api-logs': 0.217.0
+      '@opentelemetry/api-logs': 0.218.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/instrumentation': 0.217.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/instrumentation': 0.218.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-bunyan': 0.62.0(@opentelemetry/api@1.9.0)
-      '@opentelemetry/instrumentation-http': 0.217.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/instrumentation-http': 0.218.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-mongodb': 0.70.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-mysql': 0.63.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-pg': 0.69.0(@opentelemetry/api@1.9.0)
@@ -9746,7 +9746,7 @@ snapshots:
       '@opentelemetry/instrumentation-winston': 0.61.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-azure': 0.25.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/resources': 2.7.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/sdk-logs': 0.217.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-logs': 0.218.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-metrics': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-node': 0.217.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 2.7.1(@opentelemetry/api@1.9.0)
@@ -10484,7 +10484,7 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@grpc/grpc-js@1.14.3':
+  '@grpc/grpc-js@1.14.4':
     dependencies:
       '@grpc/proto-loader': 0.8.1
       '@js-sdsl/ordered-map': 4.4.2
@@ -10729,56 +10729,56 @@ snapshots:
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-cfgsync-js@3.4.1(tslib@2.8.1)':
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-async': 0.5.5
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-async': 0.6.1
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-channel-js@3.4.1(tslib@2.8.1)':
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-async': 0.5.5
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-async': 0.6.1
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-core-js@3.4.1(tslib@2.8.1)':
     dependencies:
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-async': 0.5.5
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-async': 0.6.1
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-dependencies-js@3.4.1(tslib@2.8.1)':
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-async': 0.5.5
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-async': 0.6.1
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-properties-js@3.4.1(tslib@2.8.1)':
     dependencies:
       '@microsoft/applicationinsights-core-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
   '@microsoft/applicationinsights-shims@3.0.1':
     dependencies:
-      '@nevware21/ts-utils': 0.13.0
+      '@nevware21/ts-utils': 0.15.0
 
   '@microsoft/applicationinsights-web-snippet@1.2.3': {}
 
@@ -10791,14 +10791,14 @@ snapshots:
       '@microsoft/applicationinsights-dependencies-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-properties-js': 3.4.1(tslib@2.8.1)
       '@microsoft/applicationinsights-shims': 3.0.1
-      '@microsoft/dynamicproto-js': 2.0.3
-      '@nevware21/ts-async': 0.5.5
-      '@nevware21/ts-utils': 0.13.0
+      '@microsoft/dynamicproto-js': 2.0.5
+      '@nevware21/ts-async': 0.6.1
+      '@nevware21/ts-utils': 0.15.0
       tslib: 2.8.1
 
-  '@microsoft/dynamicproto-js@2.0.3':
+  '@microsoft/dynamicproto-js@2.0.5':
     dependencies:
-      '@nevware21/ts-utils': 0.13.0
+      '@nevware21/ts-utils': 0.15.0
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
@@ -10841,11 +10841,11 @@ snapshots:
   '@netlify/runtime-utils@1.3.1':
     optional: true
 
-  '@nevware21/ts-async@0.5.5':
+  '@nevware21/ts-async@0.6.1':
     dependencies:
-      '@nevware21/ts-utils': 0.13.0
+      '@nevware21/ts-utils': 0.15.0
 
-  '@nevware21/ts-utils@0.13.0': {}
+  '@nevware21/ts-utils@0.15.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -11972,7 +11972,7 @@ snapshots:
 
   '@opentelemetry/exporter-logs-otlp-grpc@0.217.0(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.14.3
+      '@grpc/grpc-js': 1.14.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/otlp-exporter-base': 0.217.0(@opentelemetry/api@1.9.0)
@@ -12002,7 +12002,7 @@ snapshots:
 
   '@opentelemetry/exporter-metrics-otlp-grpc@0.217.0(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.14.3
+      '@grpc/grpc-js': 1.14.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/exporter-metrics-otlp-http': 0.217.0(@opentelemetry/api@1.9.0)
@@ -12041,7 +12041,7 @@ snapshots:
 
   '@opentelemetry/exporter-trace-otlp-grpc@0.217.0(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.14.3
+      '@grpc/grpc-js': 1.14.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/otlp-exporter-base': 0.217.0(@opentelemetry/api@1.9.0)
@@ -12215,16 +12215,6 @@ snapshots:
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.218.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.41.1
-    transitivePeerDependencies:
-      - supports-color
-
-  '@opentelemetry/instrumentation-http@0.217.0(@opentelemetry/api@1.9.0)':
-    dependencies:
-      '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/instrumentation': 0.217.0(@opentelemetry/api@1.9.0)
-      '@opentelemetry/semantic-conventions': 1.41.1
-      forwarded-parse: 2.1.2
     transitivePeerDependencies:
       - supports-color
 
@@ -12695,7 +12685,7 @@ snapshots:
 
   '@opentelemetry/otlp-grpc-exporter-base@0.217.0(@opentelemetry/api@1.9.0)':
     dependencies:
-      '@grpc/grpc-js': 1.14.3
+      '@grpc/grpc-js': 1.14.4
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/otlp-exporter-base': 0.217.0(@opentelemetry/api@1.9.0)
@@ -12837,6 +12827,14 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/api-logs': 0.217.0
+      '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 2.7.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/semantic-conventions': 1.41.1
+
+  '@opentelemetry/sdk-logs@0.218.0(@opentelemetry/api@1.9.0)':
+    dependencies:
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/api-logs': 0.218.0
       '@opentelemetry/core': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/resources': 2.7.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.41.1
@@ -14817,8 +14815,8 @@ snapshots:
       '@azure/functions': 4.14.0
       '@azure/functions-old': '@azure/functions@3.5.1'
       '@azure/identity': 4.13.1
-      '@azure/monitor-opentelemetry': 1.18.0
-      '@azure/monitor-opentelemetry-exporter': 1.0.0-beta.41
+      '@azure/monitor-opentelemetry': 1.18.1
+      '@azure/monitor-opentelemetry-exporter': 1.0.0-beta.42
       '@azure/opentelemetry-instrumentation-azure-sdk': 1.0.0
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/api-logs': 0.217.0
