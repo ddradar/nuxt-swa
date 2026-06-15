@@ -51,8 +51,8 @@ importers:
         specifier: ^1.2.86
         version: 1.2.86
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.55
-        version: 1.2.55
+        specifier: ^1.2.56
+        version: 1.2.56
       '@nuxt/content':
         specifier: 3.14.0
         version: 3.14.0(better-sqlite3@12.10.0)(magicast@0.5.3)
@@ -1085,8 +1085,8 @@ packages:
   '@iconify-json/simple-icons@1.2.86':
     resolution: {integrity: sha512-t3jck5qPQuK1qy+bRn9eCoDQhIB7XSazKz1Fjp8hcan3XOAsTI5Mq/s3F0ekOKSvMQqkVORYK6ns6o6T9f5EMA==}
 
-  '@iconify-json/vscode-icons@1.2.55':
-    resolution: {integrity: sha512-7c6yep/OW7/xVWPedBeFbHv5wM4PnRcrZvlsaB+l5cBNWL/6thNE1yuN+PDPQZoEGdXRMUfwDAI3qF0ZVftwag==}
+  '@iconify-json/vscode-icons@1.2.56':
+    resolution: {integrity: sha512-AZYFHK0IuynkOwO4h22IGZQ4+2/dHAZocUHSO9rPGwU6MrZtzAyb6atdO6iEocHOcB5PQdG7xmCkRCYsGTo3iQ==}
 
   '@iconify/collections@1.0.695':
     resolution: {integrity: sha512-JfmXXl1rgZCSq8TdqWNb0t614P5sR9B7HSLFnaPYRZhw4b7rpZUArd0J/kuT/8MhRuQzDTAXKzOQReCdTrA42A==}
@@ -8876,8 +8876,8 @@ packages:
   undici-types@7.24.6:
     resolution: {integrity: sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==}
 
-  undici@6.26.0:
-    resolution: {integrity: sha512-4yqz8a3n5HmGTlsbADNtr/dJlhkh/55Rq798G6ibiULcXbDtaLpTl1pvdqcbFfeoj3iSi52lePFM7h9H21cw/A==}
+  undici@6.27.0:
+    resolution: {integrity: sha512-YmfV3YnEDzXRC5lZ2jWtWWHKGUm1zIt8AhesR1tens+HTNv+YZlN/dp6G727LOvMJ8xjP9Be7Y2Sdr96LDm+pg==}
     engines: {node: '>=18.17'}
 
   unenv@2.0.0-rc.24:
@@ -10089,7 +10089,7 @@ snapshots:
       '@types/aws-lambda': 8.10.162
       axios: 1.18.0
       flat: 6.0.1
-      undici: 6.26.0
+      undici: 6.27.0
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -10554,7 +10554,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.55':
+  '@iconify-json/vscode-icons@1.2.56':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -20694,7 +20694,7 @@ snapshots:
   undici-types@7.24.6:
     optional: true
 
-  undici@6.26.0: {}
+  undici@6.27.0: {}
 
   unenv@2.0.0-rc.24:
     dependencies:
