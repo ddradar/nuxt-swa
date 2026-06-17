@@ -29,7 +29,7 @@
     "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/eslint": "^1.16.0",
     "nuxt-applicationinsights": "^1.0.1",
     "nuxt-swa": "workspace:*",
     "typescript": "^6.0.3",
