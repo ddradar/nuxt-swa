@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@azure/static-web-apps-cli": "^2.0.9",
-    "@vitest/eslint-plugin": "^1.6.22",
+    "@vitest/eslint-plugin": "^1.6.23",
     "changelogen": "^0.6.2",
     "eslint": "^10.6.0",
     "eslint-config-prettier": "^10.1.8",
