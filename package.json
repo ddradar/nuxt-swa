@@ -41,7 +41,7 @@
     "@azure/static-web-apps-cli": "^2.0.9",
     "@vitest/eslint-plugin": "^1.6.23",
     "changelogen": "^0.6.2",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "husky": "^9.1.7",
