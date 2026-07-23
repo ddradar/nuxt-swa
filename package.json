@@ -38,7 +38,7 @@
     "*.{json,yml}": "prettier --write"
   },
   "devDependencies": {
-    "@azure/static-web-apps-cli": "^2.0.9",
+    "@azure/static-web-apps-cli": "^2.0.10",
     "@vitest/eslint-plugin": "^1.6.23",
     "changelogen": "^0.6.2",
     "eslint": "^10.7.0",
