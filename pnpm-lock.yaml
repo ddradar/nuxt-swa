@@ -51,8 +51,8 @@ importers:
         specifier: ^1.2.93
         version: 1.2.93
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.72
-        version: 1.2.72
+        specifier: ^1.2.73
+        version: 1.2.73
       '@nuxt/content':
         specifier: 3.15.2
         version: 3.15.2(@oxc-project/types@0.144.0)(@valibot/to-json-schema@1.7.1(valibot@1.4.2(typescript@6.0.3)))(better-sqlite3@12.11.1)(esbuild@0.28.2)(magic-string@1.2.0)(magicast@0.5.4)(oxc-parser@0.143.0)(rolldown@1.2.4)(rollup@4.62.4)(valibot@1.4.2(typescript@6.0.3))(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))
@@ -1036,8 +1036,8 @@ packages:
     resolution: {integrity: sha512-+CNAzxglkrpNf/kKywqQfk74QjtceuOE7Qm+AF8miRvPF/wmmK5+OJOgVh3AVTT3RP2mH3+FOaxlE5v72owk0A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@fastify/busboy@3.2.1':
-    resolution: {integrity: sha512-tgK4O+57iz5ycYNGXE5ZWj1ES03lD2XnnBYWSbU/3wYZRMQzCUq7Ycds/RdyBZQeL5MU4fxBt6lzbIWf/Bickw==}
+  '@fastify/busboy@3.2.2':
+    resolution: {integrity: sha512-yXSS27qPExaXeuLvMRMXOLtpipzfQYNjG3FkunDWKGfMYjKuhFXko9CVzqxm8jcF+lmtS9Fd89QNdh9XDjnbNg==}
 
   '@floating-ui/core@1.8.0':
     resolution: {integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==}
@@ -1092,8 +1092,8 @@ packages:
   '@iconify-json/simple-icons@1.2.93':
     resolution: {integrity: sha512-/XhANjfGYOuqvSR3TmUnkQkINvQ4GVjVuukvymRbxtVFBvIq/yiXJqCDycKcQPT401OYT9H2vIY6ihAlz1QIAw==}
 
-  '@iconify-json/vscode-icons@1.2.72':
-    resolution: {integrity: sha512-IWsfSq21QZtZ8WWNtNm09E9I1PKXNSx9PQnOAD6vWSSNrL4bMDpK5nEbmyNV4XBYuQ/jAc1Foj233C/QtRAQOg==}
+  '@iconify-json/vscode-icons@1.2.73':
+    resolution: {integrity: sha512-qoJ5ZYQbes3Wi3+5A65c0vBKG8iCNXcpEIObgJ8e8fltLIG3U/zgA3Ft3+tUCupEl/kO9vIPht85n1kjJVyDMw==}
 
   '@iconify/collections@1.0.716':
     resolution: {integrity: sha512-m8C/lJEObmxLYnhkVnBR1msMnQLoXRWAeH7e7KctZfc5HeHaP8T5MMgZtYwYbLrSwtVmKf+6FqA97qVaniryBg==}
@@ -8141,8 +8141,8 @@ packages:
   property-information@7.2.0:
     resolution: {integrity: sha512-IAtzIB6sUiWaJYrX9smp3V46pBGbBeLFRGdh25kg1334VcBlD8HzhPeNIWQH9zhGmo2itIe25EHt9dQP7G5hmg==}
 
-  prosemirror-changeset@2.4.1:
-    resolution: {integrity: sha512-96WBLhOaYhJ+kPhLg3uW359Tz6I/MfcrQfL4EGv4SrcqKEMC1gmoGrXHecPE8eOwTVCJ4IwgfzM8fFad25wNfw==}
+  prosemirror-changeset@2.4.2:
+    resolution: {integrity: sha512-ViYrjMSg3YFiXwIhKaluu+/mi3Yrxt6AR8ri14ulTaGcZtXO1CThl7A2gv79qx5fQnOw8woKwyBU2u+9PVCm3w==}
 
   prosemirror-commands@1.7.2:
     resolution: {integrity: sha512-q6Q6szxqdu9Xd6EcdKsqXghu5nQdZTpB4Q9yd04WRc7/jt763e/rT60Owh0L1GYY+T46o5rD+9lEN36dZS43tw==}
@@ -10754,7 +10754,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@fastify/busboy@3.2.1':
+  '@fastify/busboy@3.2.2':
     optional: true
 
   '@floating-ui/core@1.8.0':
@@ -10819,7 +10819,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.72':
+  '@iconify-json/vscode-icons@1.2.73':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -14645,7 +14645,7 @@ snapshots:
 
   '@tiptap/pm@3.29.2':
     dependencies:
-      prosemirror-changeset: 2.4.1
+      prosemirror-changeset: 2.4.2
       prosemirror-commands: 1.7.2
       prosemirror-dropcursor: 1.8.3
       prosemirror-gapcursor: 1.4.1
@@ -15530,7 +15530,7 @@ snapshots:
 
   '@whatwg-node/node-fetch@0.8.6':
     dependencies:
-      '@fastify/busboy': 3.2.1
+      '@fastify/busboy': 3.2.2
       '@whatwg-node/disposablestack': 0.0.6
       '@whatwg-node/promise-helpers': 1.3.2
       tslib: 2.8.1
@@ -20336,7 +20336,7 @@ snapshots:
 
   property-information@7.2.0: {}
 
-  prosemirror-changeset@2.4.1:
+  prosemirror-changeset@2.4.2:
     dependencies:
       prosemirror-transform: 1.12.0
 
