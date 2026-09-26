@@ -73,15 +73,4 @@ All-in-one Azure Static Web Apps features
   #description
   Provide type for `nitro.azure.config`.
   :::
-
-  :::u-page-feature
-  ---
-  icon: i-lucide-database
-  ---
-  #title
-  Data API support
-
-  #description
-  Provides helper to call Data API.
-  :::
 ::
