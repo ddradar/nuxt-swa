@@ -8,9 +8,7 @@ import {
   defineNuxtModule,
   useLogger,
 } from '@nuxt/kit'
-import { defu } from 'defu'
 import type { NuxtConfig } from 'nuxt/config'
-import { joinURL } from 'ufo'
 
 const preConfiguredProviders = ['aad' as const, 'github' as const]
 const knownIdentityProviders = [
@@ -23,7 +21,6 @@ const azureSwaPresets = ['azure', 'azure_swa', 'azureSwa', 'azure-swa']
 
 const packageName = 'nuxt-swa'
 const authEndpoint = '/.auth'
-const dataApiEndpoint = '/data-api'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -33,10 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '^3.9.0||^4.0.0',
     },
   },
-  defaults: {
-    customRoles: [],
-    dataApi: { rest: '/rest', graphql: '/graphql' },
-  },
+  defaults: { customRoles: [] },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
     const logger = useLogger(packageName)
@@ -70,10 +64,6 @@ export default defineNuxtModule<ModuleOptions>({
 
     // Proxy Azure SWA built-in API
     addServerHandler({
-      route: `${dataApiEndpoint}/**`,
-      handler: resolve('./runtime/server/proxy'),
-    })
-    addServerHandler({
       route: `${authEndpoint}/**`,
       handler: resolve('./runtime/server/proxy'),
     })
@@ -93,26 +83,6 @@ export default defineNuxtModule<ModuleOptions>({
         ['getClientPrincipal', 'hasRole'].map(name => ({
           name,
           from: resolve('runtime/server/utils/auth'),
-        }))
-      )
-    }
-
-    // Data API feature
-    if (options.dataApi) {
-      logger.warn(
-        '`swa.dataApi` option is deprecated. Azure Static Web Apps has discontinued Data API support. This option and related features will be removed in a future version.'
-      )
-      nuxt.options.runtimeConfig.public.swa = defu(
-        nuxt.options.runtimeConfig.public.swa,
-        {
-          rest: joinURL(dataApiEndpoint, options.dataApi.rest),
-          graphql: joinURL(dataApiEndpoint, options.dataApi.graphql),
-        }
-      )
-      addImports(
-        ['useDataApi', 'useFetchRest', 'useFetchGraphQL'].map(name => ({
-          name,
-          from: resolve('runtime/composables/useDataApi'),
         }))
       )
     }
@@ -367,16 +337,6 @@ export interface ModuleOptions {
    * @default []
    */
   customRoles: Omit<string, 'anonymous' | 'authenticated'>[]
-  /**
-   * Data API config
-   * @deprecated Azure Static Web Apps has discontinued Data API support. This option will be removed in a future version.
-   */
-  dataApi:
-    | {
-        /** REST endpoint path (same value as `runtime.rest.path` in `staticwebapp.database.config.json`) */ rest: string
-        /** GraphQL endpoint path (same value as `runtime.graphql.path` in `staticwebapp.database.config.json`) */ graphql: string
-      }
-    | false
 }
 
 export interface ModulePublicRuntimeConfig {
@@ -463,22 +423,6 @@ ${
  */
 type IdentityProvider = ${options.authProviders.map(s => `'${s}'`).join(' | ')}
 `
-    : ''
-}
-// Data API (preview) Feature
-${
-  options.dataApi
-    ? `/**
- * Data API (REST) response
- * @see https://learn.microsoft.com/azure/data-api-builder/rest#result-set-format
- */
-type RestResult<T> = { value: T[] }
-
-/**
- * Data API (GraphQL) response
- * @see https://learn.microsoft.com/azure/data-api-builder/graphql#resultset-format
- */
-type GraphQLResult<T> = { data: T }`
     : ''
 }
 `
