@@ -52,9 +52,7 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          NUXT_UI_PRO_LICENSE: ${{ secrets.NUXT_UI_PRO_LICENSE }}
           NUXT_PUBLIC_SITE_URL: ${{ vars.NUXT_PUBLIC_SITE_URL }}
-          NUXT_PUBLIC_STUDIO_TOKENS: ${{ secrets.NUXT_PUBLIC_STUDIO_TOKENS }}
           APPLICATIONINSIGHTS_CONNECTION_STRING: ${{ secrets.APPLICATIONINSIGHTS_CONNECTION_STRING }}
 
       - name: Upload Docs Output
@@ -148,17 +146,25 @@ jobs:
       - name: Deploy to Azure Static Web Apps
         id: deploy
         run: |
-          # Run the actual deployment and capture the output
-          output=$(pnpm swa deploy --env ${{ (github.event_name == 'release' && 'production') || 'preview' }} 2>&1)
+          log_file="$(mktemp)"
 
-          # Display the deployment log
-          echo "$output"
+          # Stream logs live and also keep them for post-processing.
+          set +e
+          pnpm swa deploy --env ${{ (github.event_name == 'release' && 'production') || 'preview' }} 2>&1 | tee "$log_file"
+          deploy_exit=${PIPESTATUS[0]}
+          set -e
+
+          # Fail with the original CLI exit code after logs have been printed.
+          if [[ $deploy_exit -ne 0 ]]; then
+            echo "SWA deploy command failed with exit code: $deploy_exit"
+            exit "$deploy_exit"
+          fi
 
           # Assert deployment succeeded (swa CLI may exit with code 0 even on failure)
-          echo "$output" | grep -q "Project deployed to"
+          grep -q "Project deployed to" "$log_file"
 
           # Extract the deployed URL from the log and set it as a step output
-          url=$(echo "$output" | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' | grep "Project deployed to" | grep -oE 'https://[^ ]+')
+          url=$(sed 's/\x1b\[[0-9;]*[a-zA-Z]//g' "$log_file" | grep "Project deployed to" | grep -oE 'https://[^ ]+')
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
   publish:
