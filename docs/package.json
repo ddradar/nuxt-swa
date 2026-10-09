@@ -5,7 +5,7 @@
   "description": "Nuxt SWA module documentation and playground",
   "type": "module",
   "engines": {
-    "node": "24.x"
+    "node": "22.x"
   },
   "scripts": {
     "prepare": "pnpm -C ../packages/nuxt-swa prepare:docs && nuxi prepare",
