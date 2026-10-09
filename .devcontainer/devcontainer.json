@@ -26,10 +26,6 @@
     "4280": {
       "label": "Static Web Apps emulator",
       "onAutoForward": "openBrowserOnce"
-    },
-    "5000-5001": {
-      "label": "Azure Data API Builder",
-      "onAutoForward": "ignore"
     }
   },
   "postCreateCommand": ["corepack enable", "pnpm install --frozen-lockfile"],
