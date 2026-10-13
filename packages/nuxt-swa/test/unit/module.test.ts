@@ -52,7 +52,7 @@ describe('module.ts', () => {
         customRoles: ['administrator'],
       },
     ] satisfies ModuleOptions[])(
-      '(%o) renders expected Type Definition',
+      '(%j) renders expected Type Definition',
       options => expect(generateTypeDefinition(options)).toMatchSnapshot()
     )
   })
