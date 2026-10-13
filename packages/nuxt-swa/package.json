@@ -49,10 +49,10 @@
     "@nuxt/schema": "^4.5.2",
     "@nuxt/test-utils": "^4.3.3",
     "@types/node": "20.x",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^5.0.0",
     "@vue/test-utils": "^2.5.1",
     "happy-dom": "^20.14.6",
     "nuxt": "^4.5.2",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   }
 }
