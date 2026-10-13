@@ -65,7 +65,8 @@ export const useEasyAuth = async (): Promise<{
         return parseClientPrincipal(header)
       }
       return null
-    }
+    },
+    { default: () => null }
   )
 
   // Computed

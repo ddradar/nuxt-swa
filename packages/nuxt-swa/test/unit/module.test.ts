@@ -42,17 +42,14 @@ describe('module.ts', () => {
       {
         authProviders: ['aad', 'github'],
         customRoles: [],
-        dataApi: { rest: '/rest', graphql: '/graphql' },
       },
       {
         authProviders: [],
         customRoles: [],
-        dataApi: false,
       },
       {
         authProviders: ['github', 'twitter', 'line'],
         customRoles: ['administrator'],
-        dataApi: { rest: '/rest', graphql: '/graphql' },
       },
     ] satisfies ModuleOptions[])(
       '(%o) renders expected Type Definition',

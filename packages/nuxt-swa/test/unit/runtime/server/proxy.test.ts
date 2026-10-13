@@ -38,7 +38,10 @@ describe('runtime/server/proxy', () => {
     // Act
     proxyHandler(event as unknown as H3Event)
     // Assert
-    expect(vi.mocked(getHeader)).toBeCalledWith(event, 'x-ms-original-url')
-    expect(vi.mocked(proxyRequest)).toBeCalledWith(event, uri)
+    expect(vi.mocked(getHeader)).toHaveBeenCalledWith(
+      event,
+      'x-ms-original-url'
+    )
+    expect(vi.mocked(proxyRequest)).toHaveBeenCalledWith(event, uri)
   })
 })
