@@ -1,3 +1,9 @@
+import type { H3Event } from 'h3'
+import type { RequestEvent as NuxtRequestEvent } from '@nuxt/schema'
+
+export { type NuxtRequestEvent }
+export type RequestEvent = H3Event | NuxtRequestEvent
+
 interface Claim {
   typ: string
   val: string

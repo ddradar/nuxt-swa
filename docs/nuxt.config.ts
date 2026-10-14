@@ -9,7 +9,10 @@ export default defineNuxtConfig({
       database: { type: 'sqlite', filename: '/tmp/contents.sqlite' },
     },
   },
-  compatibilityDate: '2024-07-11',
+  compatibilityDate: '2026-10-01',
+  future: {
+    compatibilityVersion: 5,
+  },
   nitro: {
     preset: 'azure-swa',
     azure: { config: { platform: { apiRuntime: 'node:22' } } },

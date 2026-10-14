@@ -1,7 +1,11 @@
-import { getCookie, type RequestEvent } from 'nuxt/server'
+import { getCookie } from 'nuxt/server'
 
 import { _clientPrincipalCookie, _clientPrincipalHeader } from '../../constants'
-import type { ClientPrincipal } from '../../types'
+import type {
+  ClientPrincipal,
+  RequestEvent,
+  NuxtRequestEvent,
+} from '../../types'
 import { parseClientPrincipal } from '../../utils/auth'
 
 /**
@@ -13,8 +17,8 @@ export const getClientPrincipal = (
   event: Pick<RequestEvent, 'req'>
 ): ClientPrincipal | null => {
   const header =
-    event.req.headers.get(_clientPrincipalHeader) ||
-    getCookie(event, _clientPrincipalCookie)
+    (event as NuxtRequestEvent).req.headers.get(_clientPrincipalHeader) ||
+    getCookie(event as NuxtRequestEvent, _clientPrincipalCookie)
   return parseClientPrincipal(header)
 }
 
