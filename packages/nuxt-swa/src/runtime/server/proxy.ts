@@ -1,9 +1,21 @@
-import { defineEventHandler, getHeader, proxyRequest } from 'h3'
-import { joinURL, parseURL } from 'ufo'
+import { defineEventHandler } from 'nuxt/server'
 
 export default defineEventHandler(event => {
-  const originalUri = parseURL(getHeader(event, 'x-ms-original-url'))
-  const domain = `${originalUri.protocol}//${originalUri.host}`
+  const originalUrl = new URL(event.req.headers.get('x-ms-original-url')!)
+  const targetUrl = new URL(
+    event.url.pathname + event.url.search,
+    originalUrl.origin
+  )
 
-  return proxyRequest(event, joinURL(domain, event.path))
+  const method = event.req.method || 'GET'
+  const headers = new Headers(event.req.headers)
+  headers.delete('host')
+  const body =
+    method === 'GET' || method === 'HEAD' ? undefined : event.req.body
+
+  return fetch(targetUrl, {
+    method,
+    headers,
+    body,
+  })
 })

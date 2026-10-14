@@ -1,4 +1,4 @@
-import { getCookie, getHeader, type H3Event } from 'h3'
+import { getCookie, type RequestEvent } from 'nuxt/server'
 
 import { _clientPrincipalCookie, _clientPrincipalHeader } from '../../constants'
 import type { ClientPrincipal } from '../../types'
@@ -6,24 +6,26 @@ import { parseClientPrincipal } from '../../utils/auth'
 
 /**
  * Get user client principal data from request.
- * @param event H3Event
+ * @param event RequestEvent
  * @returns Client Principal if parsed, otherwise null.
  */
-export const getClientPrincipal = (event: H3Event): ClientPrincipal | null => {
+export const getClientPrincipal = (
+  event: Pick<RequestEvent, 'req'>
+): ClientPrincipal | null => {
   const header =
-    getHeader(event, _clientPrincipalHeader) ||
+    event.req.headers.get(_clientPrincipalHeader) ||
     getCookie(event, _clientPrincipalCookie)
   return parseClientPrincipal(header)
 }
 
 /**
  * Returns the user sending request has any of the specified roles or not.
- * @param event H3Event
+ * @param event RequestEvent
  * @param roles User roles
  * @returns true if the user has any of the specified roles; false otherwise.
  */
 export const hasRole = (
-  event: H3Event,
+  event: Pick<RequestEvent, 'req'>,
   ...roles: Exclude<UserRole, 'anonymous'>[]
 ): boolean => {
   const auth = getClientPrincipal(event)
