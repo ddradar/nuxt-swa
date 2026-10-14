@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { RouteLocationNormalized as Route } from '#vue-router'
 import authRouteMiddleware from '~/src/runtime/middleware/auth'
+import { ref } from '#imports'
 
 const { abortNavigationMock, useEasyAuthMock } = vi.hoisted(() => ({
   useEasyAuthMock: vi.fn(),
@@ -26,7 +27,7 @@ describe('runtime/middleware/auth', () => {
     await authRouteMiddleware({ meta: {} } as Route, {} as Route)
 
     // Assert
-    expect(abortNavigationMock).not.toBeCalled()
+    expect(abortNavigationMock).not.toHaveBeenCalled()
   })
   it.each(['authenticated', ['authenticated']])(
     '{ allowedRoles: %o } returns 200',
@@ -43,7 +44,7 @@ describe('runtime/middleware/auth', () => {
       )
 
       // Assert
-      expect(abortNavigationMock).not.toBeCalled()
+      expect(abortNavigationMock).not.toHaveBeenCalled()
     }
   )
   it.each(['administrator', ['administrator']])(
@@ -62,7 +63,7 @@ describe('runtime/middleware/auth', () => {
       )
 
       // Assert
-      expect(abortNavigationMock).toBeCalledWith({ statusCode: 401 })
+      expect(abortNavigationMock).toHaveBeenCalledWith({ statusCode: 401 })
     }
   )
   it.each(['administrator', ['administrator']])(
@@ -81,7 +82,7 @@ describe('runtime/middleware/auth', () => {
       )
 
       // Assert
-      expect(abortNavigationMock).toBeCalledWith({ statusCode: 403 })
+      expect(abortNavigationMock).toHaveBeenCalledWith({ statusCode: 403 })
     }
   )
 })

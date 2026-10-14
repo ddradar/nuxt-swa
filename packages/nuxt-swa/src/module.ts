@@ -27,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: packageName,
     configKey: 'swa',
     compatibility: {
-      nuxt: '^3.9.0||^4.0.0',
+      nuxt: '^3.9.0||^4.0.0||^5.0.0-0',
     },
   },
   defaults: {
@@ -67,7 +67,10 @@ export default defineNuxtModule<ModuleOptions>({
     // Proxy Azure SWA built-in API
     addServerHandler({
       route: `${authEndpoint}/**`,
-      handler: resolve('./runtime/server/proxy'),
+      handler: {
+        nuxt: resolve('./runtime/server/proxy'),
+        nitro2: resolve('./runtime/server/proxy.nitro2'),
+      },
     })
 
     // Auth Feature
@@ -84,7 +87,10 @@ export default defineNuxtModule<ModuleOptions>({
       addServerImports(
         ['getClientPrincipal', 'hasRole'].map(name => ({
           name,
-          from: resolve('runtime/server/utils/auth'),
+          from: {
+            nuxt: resolve('runtime/server/utils/auth'),
+            nitro2: resolve('runtime/server/utils/auth.nitro2'),
+          },
         }))
       )
     }

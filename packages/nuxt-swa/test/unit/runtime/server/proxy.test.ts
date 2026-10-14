@@ -1,47 +1,76 @@
 // @vitest-environment node
-import type { H3Event } from 'h3'
-import { getHeader, proxyRequest } from 'h3'
+import type { RequestEvent } from 'nuxt/server'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-
-vi.mock('h3', async () => ({
-  ...(await vi.importActual('h3')),
-  getHeader: vi.fn(),
-  proxyRequest: vi.fn(),
-}))
 
 import proxyHandler from '~/src/runtime/server/proxy'
 
 describe('runtime/server/proxy', () => {
+  const fetchMock = vi.fn()
+
   beforeEach(() => {
-    vi.mocked(getHeader).mockClear()
-    vi.mocked(proxyRequest).mockClear()
+    fetchMock.mockReset()
+    vi.stubGlobal('fetch', fetchMock)
   })
 
   it.each([
     [
       {
         header: 'http://localhost:4280/playground/api',
-        path: '/data-api/graphql',
+        url: '/data-api/graphql',
+        method: 'GET',
+        body: '',
       },
       'http://localhost:4280/data-api/graphql',
+      {
+        method: 'GET',
+        body: undefined,
+      },
     ],
     [
       {
         header: 'https://proud-plant-0fe90bc00.4.azurestaticapps.net/',
-        path: '/.auth/me',
+        url: '/.auth/me',
+        method: 'POST',
+        body: 'payload',
       },
       'https://proud-plant-0fe90bc00.4.azurestaticapps.net/.auth/me',
+      {
+        method: 'POST',
+        body: 'payload',
+      },
     ],
-  ])('(%o) proxies to %s', (event, uri) => {
-    // Arrange
-    vi.mocked(getHeader).mockReturnValue(event.header)
+  ])('(%o) proxies to %s', async (event, uri, request) => {
+    const reqHeaders = new Headers({
+      host: 'localhost:3000',
+      'x-ms-original-url': event.header,
+      'x-custom': 'value',
+    })
+
+    fetchMock.mockResolvedValue(new Response(null, { status: 200 }))
+
     // Act
-    proxyHandler(event as unknown as H3Event)
+    await proxyHandler({
+      req: {
+        headers: reqHeaders,
+        method: event.method,
+        body: event.body,
+      },
+      url: new URL(`http://localhost:3000${event.url}`),
+    } as unknown as RequestEvent)
+
     // Assert
-    expect(vi.mocked(getHeader)).toHaveBeenCalledWith(
-      event,
-      'x-ms-original-url'
-    )
-    expect(vi.mocked(proxyRequest)).toHaveBeenCalledWith(event, uri)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+
+    const [target, fetchOptions] = fetchMock.mock.calls[0] as [
+      string | URL,
+      RequestInit,
+    ]
+    expect(String(target)).toBe(uri)
+    expect(fetchOptions.method).toBe(request.method)
+    expect(fetchOptions.body).toBe(request.body)
+
+    const fetchHeaders = fetchOptions.headers as Headers
+    expect(fetchHeaders.get('host')).toBeNull()
+    expect(fetchHeaders.get('x-custom')).toBe('value')
   })
 })

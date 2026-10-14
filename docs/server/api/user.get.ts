@@ -1,9 +1,9 @@
+import { defineEventHandler, createError } from 'nuxt/server'
+
 export default defineEventHandler(event => {
   const clientPrincipal = getClientPrincipal(event)
-  if (!clientPrincipal) {
-    sendError(event, createError({ statusCode: 401, message: 'Need Login' }))
-    return
-  }
+  if (!clientPrincipal)
+    throw createError({ statusCode: 401, message: 'Need Login' })
 
   const platform =
     clientPrincipal.identityProvider === 'github'
