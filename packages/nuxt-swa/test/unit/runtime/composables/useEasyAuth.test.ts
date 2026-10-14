@@ -2,6 +2,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { _clientPrincipal } from '../../constants'
+import { useEasyAuth } from '~/src/runtime/composables/useEasyAuth'
+import { ref } from '#imports'
 
 const { navigateToMock, useAsyncDataMock } = vi.hoisted(() => ({
   useAsyncDataMock: vi.fn(),
@@ -64,8 +66,8 @@ describe('runtime/composables/useEasyAuth', () => {
       await login(provider)
 
       // Assert
-      expect(navigateToMock).toBeCalledWith(to, { external: true })
-      expect(refresh).toBeCalled()
+      expect(navigateToMock).toHaveBeenCalledWith(to, { external: true })
+      expect(refresh).toHaveBeenCalled()
     })
   })
   describe('logout', () => {
@@ -79,10 +81,10 @@ describe('runtime/composables/useEasyAuth', () => {
       await logout()
 
       // Assert
-      expect(navigateToMock).toBeCalledWith(`/.auth/logout`, {
+      expect(navigateToMock).toHaveBeenCalledWith(`/.auth/logout`, {
         external: true,
       })
-      expect(refresh).toBeCalled()
+      expect(refresh).toHaveBeenCalled()
     })
   })
   describe('purge', () => {
@@ -99,8 +101,8 @@ describe('runtime/composables/useEasyAuth', () => {
       await purge(provider)
 
       // Assert
-      expect(navigateToMock).toBeCalledWith(to, { external: true })
-      expect(refresh).toBeCalled()
+      expect(navigateToMock).toHaveBeenCalledWith(to, { external: true })
+      expect(refresh).toHaveBeenCalled()
     })
   })
 })

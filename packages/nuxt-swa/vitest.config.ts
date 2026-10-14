@@ -6,7 +6,6 @@ export default defineVitestConfig({
     setupFiles: ['./test/setup-fetch.ts'],
     coverage: {
       enabled: true,
-      all: true,
       reporter: ['json', 'text'],
       include: ['src/**/*.ts', 'src/**/*.vue'],
       exclude: [
