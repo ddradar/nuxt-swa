@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'azure-swa',
     azure: { config: { platform: { apiRuntime: 'node:22' } } },
+    noExternals: ['unhead', '@unhead/*'],
   },
   modules: [
     '@nuxt/eslint',
