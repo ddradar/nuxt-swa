@@ -10,9 +10,6 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: '2026-10-01',
-  future: {
-    compatibilityVersion: 5,
-  },
   nitro: {
     preset: 'azure-swa',
     azure: { config: { platform: { apiRuntime: 'node:22' } } },
