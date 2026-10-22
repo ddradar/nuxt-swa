@@ -21,7 +21,7 @@
     "@nuxt/fonts": "^1.0.1",
     "@nuxt/image": "^2.1.0",
     "@nuxt/ui": "^4.11.3",
-    "@takumi-rs/core": "^2.15.2",
+    "@takumi-rs/core": "^2.16.2",
     "better-sqlite3": "^13.0.3",
     "nuxt": "^4.6.2",
     "nuxt-llms": "^0.2.0",
