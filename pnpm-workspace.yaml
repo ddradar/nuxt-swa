@@ -1,3 +1,21 @@
 packages:
   - packages/*
   - docs
+overrides:
+  "@azure/monitor-opentelemetry": ^1.20.1
+  "@opentelemetry/auto-instrumentations-node": ^0.79.0
+  "@opentelemetry/exporter-trace-otlp-http": ^0.221.0
+  "@opentelemetry/otlp-exporter-base": ^0.221.0
+  "@opentelemetry/otlp-transformer": ^0.221.0
+  "@opentelemetry/sdk-node": ^0.221.0
+  adm-zip: ^0.6.1
+  protobufjs: ^8.7.1
+shamefullyHoist: true
+allowBuilds:
+  "@parcel/watcher": true
+  better-sqlite3: true
+  esbuild: true
+  keytar: true
+  sharp: true
+  unrs-resolver: true
+  vue-demi: false
