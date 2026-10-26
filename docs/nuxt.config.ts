@@ -32,6 +32,11 @@ export default defineNuxtConfig({
     build: { markdown: { toc: { searchDepth: 1 } } },
     preview: { api: 'https://api.nuxt.studio' },
   },
+  eslint: {
+    config: {
+      standalone: false,
+    },
+  },
   icon: {
     provider: 'iconify',
   },

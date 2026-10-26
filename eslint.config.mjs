@@ -7,7 +7,7 @@ import docsConfig from './docs/.nuxt/eslint.config.mjs'
 import nuxtSwaConfig from './packages/nuxt-swa/.nuxt/eslint.config.mjs'
 
 export default docsConfig({ ignores: ['packages'] })
-  .append(nuxtSwaConfig({ ignores: ['docs'] }))
+  .append(nuxtSwaConfig({ ignores: ['docs'] }).removePlugins('nuxt'))
   .append(eslintConfigPrettier)
   .append({
     plugins: { 'simple-import-sort': simpleImportSort },

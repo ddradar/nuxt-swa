@@ -5,15 +5,11 @@
   "description": "Nuxt module for Azure Static Web Apps",
   "repository": "ddradar/nuxt-swa",
   "license": "MIT",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@11.28.8",
   "devEngines": {
     "runtime": {
       "name": "node",
       "version": "22.x"
-    },
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^10.13.1"
     }
   },
   "scripts": {
@@ -38,7 +34,7 @@
     "*.{json,yml}": "prettier --write"
   },
   "devDependencies": {
-    "@azure/static-web-apps-cli": "^2.0.10",
+    "@azure/static-web-apps-cli": "^2.1.0",
     "@vitest/eslint-plugin": "^1.6.28",
     "changelogen": "^0.6.2",
     "eslint": "^10.13.0",
@@ -47,24 +43,5 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "prettier": "^3.9.10"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3",
-      "sharp"
-    ],
-    "ignoredBuiltDependencies": [
-      "vue-demi"
-    ],
-    "overrides": {
-      "@azure/monitor-opentelemetry": "^1.20.1",
-      "@opentelemetry/auto-instrumentations-node": "^0.79.0",
-      "@opentelemetry/exporter-trace-otlp-http": "^0.221.0",
-      "@opentelemetry/otlp-exporter-base": "^0.221.0",
-      "@opentelemetry/otlp-transformer": "^0.221.0",
-      "@opentelemetry/sdk-node": "^0.221.0",
-      "adm-zip": "^0.6.1",
-      "protobufjs": "^8.7.1"
-    }
   }
 }
