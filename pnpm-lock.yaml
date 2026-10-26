@@ -19,8 +19,8 @@ importers:
   .:
     devDependencies:
       '@azure/static-web-apps-cli':
-        specifier: ^2.0.10
-        version: 2.0.10(debug@4.4.3(supports-color@10.2.2))(encoding@0.1.13)(supports-color@10.2.2)
+        specifier: ^2.1.0
+        version: 2.1.0(debug@4.4.3(supports-color@10.2.2))(encoding@0.1.13)(supports-color@10.2.2)
       '@vitest/eslint-plugin':
         specifier: ^1.6.28
         version: 1.6.28(@typescript-eslint/eslint-plugin@8.67.0(@typescript-eslint/parser@8.67.0(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@10.13.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)(vitest@5.0.5)
@@ -260,8 +260,8 @@ packages:
     resolution: {integrity: sha512-FJCHWlMA//XMs5rxf1z/mN0gaWPbJhlAVw5l4IxKhEtZX2bgNERlqbdBWXNjjkok+nTh0UcKqV5G0rrCupo+4A==}
     engines: {node: '>=20.0.0'}
 
-  '@azure/static-web-apps-cli@2.0.10':
-    resolution: {integrity: sha512-AtZj15sG5/qWkqY8l8IyVQpL3jQaBn2V8TcjFLuwJJYZVh0l3Q+o4G6dTt/V5VWiXjyrlnyhJfHC8wygTzMIvw==}
+  '@azure/static-web-apps-cli@2.1.0':
+    resolution: {integrity: sha512-RUbHhLaGDQAbW0d0J3HzKIT3jumQtIaQF2g/qiTa1GeWO9/aasdn5k5WOWD+rpL+eUc+LjM1R/xbQpvbp7j3gg==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
     hasBin: true
 
@@ -9724,7 +9724,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@azure/static-web-apps-cli@2.0.10(debug@4.4.3(supports-color@10.2.2))(encoding@0.1.13)(supports-color@10.2.2)':
+  '@azure/static-web-apps-cli@2.1.0(debug@4.4.3(supports-color@10.2.2))(encoding@0.1.13)(supports-color@10.2.2)':
     dependencies:
       '@azure/arm-appservice': 15.0.0(supports-color@10.2.2)
       '@azure/arm-resources': 5.2.0(supports-color@10.2.2)
