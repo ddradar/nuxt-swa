@@ -40,18 +40,18 @@
     "test:types": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.6.2"
+    "@nuxt/kit": "^4.6.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
     "@nuxt/module-builder": "^1.0.3",
-    "@nuxt/schema": "^4.6.2",
+    "@nuxt/schema": "^4.6.3",
     "@nuxt/test-utils": "^4.3.4",
     "@types/node": "20.x",
     "@vitest/coverage-v8": "^5.0.5",
     "@vue/test-utils": "^2.5.1",
     "happy-dom": "^21.0.4",
-    "nuxt": "^4.6.2",
+    "nuxt": "^4.6.3",
     "vitest": "^5.0.5"
   }
 }
